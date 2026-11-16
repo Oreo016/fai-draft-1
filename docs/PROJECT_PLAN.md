@@ -1,6 +1,6 @@
 # Project design and research boundaries
 
-The implementation follows the final brief in `../final.pdf`. The professional
+The implementation follows the final brief in `./final.pdf`. The professional
 proposal provides motivation and candidate extensions; it does not override the
 final brief's parameter choices or core deliverables.
 

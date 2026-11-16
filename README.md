@@ -1,8 +1,8 @@
 # Receiver-Aware Value of Communication for SAR
 
-This package implements the core method in [`final.pdf`](./final.pdf) and the
+This package implements the core method in [`docs/final.pdf`](./docs/final.pdf) and the
 experimental context in
-[`receiver_aware_voc_professional (2) (1).pdf`](./receiver_aware_voc_professional%20(2)%20(1).pdf).
+[`docs/receiver_aware_voc_professional.pdf`](./docs/receiver_aware_voc_professional.pdf).
 It is a controlled, empirical SAR-Grid simulator for studying whether an agent
 should send an existing structured fact, to which teammate, and at what
 software-level cost. It does not generate messages or model a radio/network.

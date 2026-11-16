@@ -1,7 +1,10 @@
 import json
 from pathlib import Path
+import sys
 import tempfile
 import unittest
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from voc_sar.communication.estimator import (
     PairedRolloutEstimator,
@@ -320,8 +323,9 @@ class CoreTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as output:
             config["evaluation"]["output_dir"] = output
             summary = run_experiments(config)
-            episode_file = Path(output) / "episodes.json"
-            summary_file = Path(output) / "summary.json"
+            run_dir = Path(summary["run_directory"])
+            episode_file = run_dir / "episodes.json"
+            summary_file = run_dir / "summary.json"
             self.assertTrue(episode_file.is_file())
             self.assertTrue(summary_file.is_file())
             self.assertEqual(summary["episode_count"], 10)

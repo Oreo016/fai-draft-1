@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "receiver-aware-voc-sar"
+version = "0.1.0"
+description = "Receiver-aware communication valuation experiments for cooperative SAR"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6.0", "Pillow>=10.0"]
+
+[project.scripts]
+voc-sar = "voc_sar.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

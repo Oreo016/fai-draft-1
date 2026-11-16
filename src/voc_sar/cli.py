@@ -38,7 +38,8 @@ def main() -> None:
     summary = run_experiments(config)
     print(f"Completed {summary['episode_count']} episodes.")
     print(f"Results: {summary['run_directory']}")
-    print(f"Graphs: {summary['visualizations_directory']}\\index.html")
+    graphs_index = Path(summary["visualizations_directory"]) / "index.html"
+    print(f"Graphs: {graphs_index}")
     print(f"Runtime: {summary['runtime_seconds']:.2f} seconds")
 
 

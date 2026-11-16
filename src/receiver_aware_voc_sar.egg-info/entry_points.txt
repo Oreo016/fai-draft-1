@@ -1,2 +1,0 @@
-[console_scripts]
-voc-sar = voc_sar.cli:main

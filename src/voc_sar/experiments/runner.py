@@ -475,7 +475,10 @@ def _run_held_out_diagnostics(
                 ) -> tuple[int, int] | None:
                     if not values:
                         return None
-                    key, value = max(values.items(), key=lambda item: (item[1], item[0]))
+                    key, value = max(
+                        values.items(),
+                        key=lambda item: (item[1], -item[0][0], -item[0][1]),
+                    )
                     return key if value > 0 else None
 
                 myopic_action = best_action(top_predictions[h_myopic])

@@ -1,0 +1,76 @@
+{
+  "by_horizon": {
+    "1": {
+      "agreement": 0.9,
+      "mae_voc": 0.3942517631465703,
+      "messages": 0.0,
+      "return": 2.38236418287296
+    },
+    "10": {
+      "agreement": 0.75,
+      "mae_voc": 0.4176989839274038,
+      "messages": 0.35,
+      "return": 1.6578741798243957
+    },
+    "15": {
+      "agreement": 0.8,
+      "mae_voc": 0.4538589720864354,
+      "messages": 0.3,
+      "return": 1.6578741798243957
+    },
+    "3": {
+      "agreement": 0.85,
+      "mae_voc": 0.3959392631465703,
+      "messages": 0.15,
+      "return": 2.1548165174437317
+    },
+    "5": {
+      "agreement": 0.75,
+      "mae_voc": 0.39087395064657027,
+      "messages": 0.35,
+      "return": 1.657743177773532
+    }
+  },
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E09\\run_20261121_154143_990937\\config_used.json",
+  "context_count": 20,
+  "evaluation_horizon": 15,
+  "experiment_id": "E09",
+  "headline": {
+    "h10_agreement": 0.75,
+    "h10_mae_voc": 0.4176989839274038,
+    "h10_messages": 0.35,
+    "h10_return": 1.6578741798243957,
+    "h15_agreement": 0.8,
+    "h15_mae_voc": 0.4538589720864354,
+    "h15_messages": 0.3,
+    "h15_return": 1.6578741798243957,
+    "h1_agreement": 0.9,
+    "h1_mae_voc": 0.3942517631465703,
+    "h1_messages": 0.0,
+    "h1_return": 2.38236418287296,
+    "h3_agreement": 0.85,
+    "h3_mae_voc": 0.3959392631465703,
+    "h3_messages": 0.15,
+    "h3_return": 2.1548165174437317,
+    "h5_agreement": 0.75,
+    "h5_mae_voc": 0.39087395064657027,
+    "h5_messages": 0.35,
+    "h5_return": 1.657743177773532
+  },
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E09\\run_20261121_154143_990937",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E09\\run_20261121_154143_990937",
+  "runtime_seconds": 99.4548861000003,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

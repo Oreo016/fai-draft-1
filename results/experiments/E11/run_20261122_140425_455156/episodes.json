@@ -1,0 +1,1602 @@
+[
+  {
+    "agnostic_return": -1.494238479297579,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.494238479297579,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.0,
+    "p_toggle": 0.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 0,
+    "setting": "dynamics_low"
+  },
+  {
+    "agnostic_return": -1.4221489219140113,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4221489219140113,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 0,
+    "p_move": 0.0,
+    "p_toggle": 0.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 1,
+    "setting": "dynamics_low"
+  },
+  {
+    "agnostic_return": 2.6636588823174434,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": 2.6636588823174434,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.0,
+    "p_toggle": 0.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 2,
+    "setting": "dynamics_low"
+  },
+  {
+    "agnostic_return": -1.1355138884494194,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.1355138884494194,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.0,
+    "p_toggle": 0.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 3,
+    "setting": "dynamics_low"
+  },
+  {
+    "agnostic_return": -1.3917580095199666,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.3917580095199666,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.0,
+    "p_toggle": 0.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 4,
+    "setting": "dynamics_low"
+  },
+  {
+    "agnostic_return": -1.1981035993314941,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.1981035993314941,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.0,
+    "p_toggle": 0.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 5,
+    "setting": "dynamics_low"
+  },
+  {
+    "agnostic_return": -1.4219009934708045,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4219009934708045,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.0,
+    "p_toggle": 0.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 6,
+    "setting": "dynamics_low"
+  },
+  {
+    "agnostic_return": -1.3335221133191348,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.3335221133191348,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.0,
+    "p_toggle": 0.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 7,
+    "setting": "dynamics_low"
+  },
+  {
+    "agnostic_return": -0.2786001451312689,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.2786001451312689,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.0,
+    "p_toggle": 0.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 8,
+    "setting": "dynamics_low"
+  },
+  {
+    "agnostic_return": -1.4452252995656591,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4452252995656591,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.0,
+    "p_toggle": 0.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 9,
+    "setting": "dynamics_low"
+  },
+  {
+    "agnostic_return": -1.4921114904063466,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4921114904063466,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 0,
+    "setting": "dynamics_default"
+  },
+  {
+    "agnostic_return": -1.3911873529284473,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.3911873529284473,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 1,
+    "setting": "dynamics_default"
+  },
+  {
+    "agnostic_return": 2.435608218258417,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": 2.435608218258417,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 2,
+    "setting": "dynamics_default"
+  },
+  {
+    "agnostic_return": -1.1355138884494194,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.07845264902250004,
+    "aware_return": -1.1355138884494194,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 3,
+    "setting": "dynamics_default"
+  },
+  {
+    "agnostic_return": -1.3917580095199666,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.3917580095199666,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 4,
+    "setting": "dynamics_default"
+  },
+  {
+    "agnostic_return": -1.1843388063922617,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.1843388063922617,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 5,
+    "setting": "dynamics_default"
+  },
+  {
+    "agnostic_return": -1.4219009934708045,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4219009934708045,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 6,
+    "setting": "dynamics_default"
+  },
+  {
+    "agnostic_return": -1.3039603474362655,
+    "aware_minus_agnostic_return": -0.029561765882869295,
+    "aware_regret": 0.0,
+    "aware_return": -1.3335221133191348,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 7,
+    "setting": "dynamics_default"
+  },
+  {
+    "agnostic_return": -0.2786001451312689,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.2786001451312689,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 8,
+    "setting": "dynamics_default"
+  },
+  {
+    "agnostic_return": -1.407422120565206,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.407422120565206,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 9,
+    "setting": "dynamics_default"
+  },
+  {
+    "agnostic_return": -1.4921114904063466,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4921114904063466,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 1.0,
+    "p_toggle": 1.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 0,
+    "setting": "dynamics_high"
+  },
+  {
+    "agnostic_return": -1.392475098528914,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.392475098528914,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 0,
+    "p_move": 1.0,
+    "p_toggle": 1.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 1,
+    "setting": "dynamics_high"
+  },
+  {
+    "agnostic_return": 2.6647955933873146,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": 2.6647955933873146,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 1.0,
+    "p_toggle": 1.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 2,
+    "setting": "dynamics_high"
+  },
+  {
+    "agnostic_return": -1.1370906713846445,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.1370906713846445,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 1.0,
+    "p_toggle": 1.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 3,
+    "setting": "dynamics_high"
+  },
+  {
+    "agnostic_return": -1.3930305466081938,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.3930305466081938,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 1.0,
+    "p_toggle": 1.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 4,
+    "setting": "dynamics_high"
+  },
+  {
+    "agnostic_return": -1.1806476721953187,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.1806476721953187,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 1.0,
+    "p_toggle": 1.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 5,
+    "setting": "dynamics_high"
+  },
+  {
+    "agnostic_return": -1.4219009934708045,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4219009934708045,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 1.0,
+    "p_toggle": 1.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 6,
+    "setting": "dynamics_high"
+  },
+  {
+    "agnostic_return": -1.3069165240245526,
+    "aware_minus_agnostic_return": -0.026605589294582233,
+    "aware_regret": 0.0,
+    "aware_return": -1.3335221133191348,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 1.0,
+    "p_toggle": 1.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 7,
+    "setting": "dynamics_high"
+  },
+  {
+    "agnostic_return": -0.2786001451312689,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.2786001451312689,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 1.0,
+    "p_toggle": 1.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 8,
+    "setting": "dynamics_high"
+  },
+  {
+    "agnostic_return": -1.4054825731056309,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4054825731056309,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 1.0,
+    "p_toggle": 1.0,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 9,
+    "setting": "dynamics_high"
+  },
+  {
+    "agnostic_return": -1.3804083606978648,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.3804083606978648,
+    "grid_size": 8,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 0,
+    "setting": "grid_8"
+  },
+  {
+    "agnostic_return": 0.5223019073607337,
+    "aware_minus_agnostic_return": -0.7823863019596667,
+    "aware_regret": 0.0,
+    "aware_return": -0.26008439459893307,
+    "grid_size": 8,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 1,
+    "setting": "grid_8"
+  },
+  {
+    "agnostic_return": -1.2739513218182799,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.2739513218182799,
+    "grid_size": 8,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 2,
+    "setting": "grid_8"
+  },
+  {
+    "agnostic_return": 6.284422357280897,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": 6.284422357280897,
+    "grid_size": 8,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 3,
+    "setting": "grid_8"
+  },
+  {
+    "agnostic_return": 2.523769446533734,
+    "aware_minus_agnostic_return": -2.342193969138404,
+    "aware_regret": 0.7506271974375003,
+    "aware_return": 0.18157547739533,
+    "grid_size": 8,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 4,
+    "setting": "grid_8"
+  },
+  {
+    "agnostic_return": -0.46415333918743124,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.46415333918743124,
+    "grid_size": 8,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 5,
+    "setting": "grid_8"
+  },
+  {
+    "agnostic_return": 1.1797309212788842,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": 1.1797309212788842,
+    "grid_size": 8,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 6,
+    "setting": "grid_8"
+  },
+  {
+    "agnostic_return": 3.354650115678672,
+    "aware_minus_agnostic_return": -4.005275364810002,
+    "aware_regret": 3.9065223663657016,
+    "aware_return": -0.6506252491313299,
+    "grid_size": 8,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 7,
+    "setting": "grid_8"
+  },
+  {
+    "agnostic_return": 1.1770297490668682,
+    "aware_minus_agnostic_return": -1.2832141436658013,
+    "aware_regret": 1.4961191362933057,
+    "aware_return": -0.10618439459893306,
+    "grid_size": 8,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 8,
+    "setting": "grid_8"
+  },
+  {
+    "agnostic_return": 3.6475013945160586,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": 3.6475013945160586,
+    "grid_size": 8,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 9,
+    "setting": "grid_8"
+  },
+  {
+    "agnostic_return": -1.4921114904063466,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4921114904063466,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 0,
+    "setting": "grid_10"
+  },
+  {
+    "agnostic_return": -1.3911873529284473,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.3911873529284473,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 1,
+    "setting": "grid_10"
+  },
+  {
+    "agnostic_return": 2.435608218258417,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": 2.435608218258417,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 2,
+    "setting": "grid_10"
+  },
+  {
+    "agnostic_return": -1.1355138884494194,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.07845264902250004,
+    "aware_return": -1.1355138884494194,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 3,
+    "setting": "grid_10"
+  },
+  {
+    "agnostic_return": -1.3917580095199666,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.3917580095199666,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 4,
+    "setting": "grid_10"
+  },
+  {
+    "agnostic_return": -1.1843388063922617,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.1843388063922617,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 5,
+    "setting": "grid_10"
+  },
+  {
+    "agnostic_return": -1.4219009934708045,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4219009934708045,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 6,
+    "setting": "grid_10"
+  },
+  {
+    "agnostic_return": -1.3039603474362655,
+    "aware_minus_agnostic_return": -0.029561765882869295,
+    "aware_regret": 0.0,
+    "aware_return": -1.3335221133191348,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 7,
+    "setting": "grid_10"
+  },
+  {
+    "agnostic_return": -0.2786001451312689,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.2786001451312689,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 8,
+    "setting": "grid_10"
+  },
+  {
+    "agnostic_return": -1.407422120565206,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.407422120565206,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 9,
+    "setting": "grid_10"
+  },
+  {
+    "agnostic_return": -1.4559180907513407,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4559180907513407,
+    "grid_size": 12,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 0,
+    "setting": "grid_12"
+  },
+  {
+    "agnostic_return": 1.322989090352537,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": 1.322989090352537,
+    "grid_size": 12,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 1,
+    "setting": "grid_12"
+  },
+  {
+    "agnostic_return": -1.471928844456771,
+    "aware_minus_agnostic_return": 0.0003539286908560424,
+    "aware_regret": 0.0,
+    "aware_return": -1.471574915765915,
+    "grid_size": 12,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 2,
+    "setting": "grid_12"
+  },
+  {
+    "agnostic_return": -1.4878614854130081,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4878614854130081,
+    "grid_size": 12,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 3,
+    "setting": "grid_12"
+  },
+  {
+    "agnostic_return": -1.4471983588537023,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4471983588537023,
+    "grid_size": 12,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 4,
+    "setting": "grid_12"
+  },
+  {
+    "agnostic_return": -1.0469240645907067,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.7748409780000004,
+    "aware_return": -1.0469240645907067,
+    "grid_size": 12,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 5,
+    "setting": "grid_12"
+  },
+  {
+    "agnostic_return": -0.8313093036080842,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.8313093036080842,
+    "grid_size": 12,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 6,
+    "setting": "grid_12"
+  },
+  {
+    "agnostic_return": -0.18617005072620235,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.18617005072620235,
+    "grid_size": 12,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 7,
+    "setting": "grid_12"
+  },
+  {
+    "agnostic_return": -1.465196533450065,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.465196533450065,
+    "grid_size": 12,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 8,
+    "setting": "grid_12"
+  },
+  {
+    "agnostic_return": -0.30435683220044735,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.30435683220044735,
+    "grid_size": 12,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 9,
+    "setting": "grid_12"
+  },
+  {
+    "agnostic_return": -0.8957425681455997,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.8957425681455997,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier"
+    ],
+    "seed": 0,
+    "setting": "team_scout_carrier"
+  },
+  {
+    "agnostic_return": -0.982208931137848,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.982208931137848,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier"
+    ],
+    "seed": 1,
+    "setting": "team_scout_carrier"
+  },
+  {
+    "agnostic_return": -0.9935604015737669,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.9935604015737669,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier"
+    ],
+    "seed": 2,
+    "setting": "team_scout_carrier"
+  },
+  {
+    "agnostic_return": -0.9677824059806033,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.9677824059806033,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier"
+    ],
+    "seed": 3,
+    "setting": "team_scout_carrier"
+  },
+  {
+    "agnostic_return": -0.9418719459033389,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.9418719459033389,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier"
+    ],
+    "seed": 4,
+    "setting": "team_scout_carrier"
+  },
+  {
+    "agnostic_return": 0.10723698082132217,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": 0.10723698082132217,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier"
+    ],
+    "seed": 5,
+    "setting": "team_scout_carrier"
+  },
+  {
+    "agnostic_return": -0.9294364517449958,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.9294364517449958,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier"
+    ],
+    "seed": 6,
+    "setting": "team_scout_carrier"
+  },
+  {
+    "agnostic_return": -0.6845339125458418,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.6845339125458418,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier"
+    ],
+    "seed": 7,
+    "setting": "team_scout_carrier"
+  },
+  {
+    "agnostic_return": -0.9677928615449807,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.9677928615449807,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier"
+    ],
+    "seed": 8,
+    "setting": "team_scout_carrier"
+  },
+  {
+    "agnostic_return": -0.740362863525787,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.740362863525787,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier"
+    ],
+    "seed": 9,
+    "setting": "team_scout_carrier"
+  },
+  {
+    "agnostic_return": -0.8957425681455997,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.8957425681455997,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "medic"
+    ],
+    "seed": 0,
+    "setting": "team_scout_medic"
+  },
+  {
+    "agnostic_return": -0.982208931137848,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.982208931137848,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "medic"
+    ],
+    "seed": 1,
+    "setting": "team_scout_medic"
+  },
+  {
+    "agnostic_return": -0.9912023646582191,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.9912023646582191,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "medic"
+    ],
+    "seed": 2,
+    "setting": "team_scout_medic"
+  },
+  {
+    "agnostic_return": -0.9462318786519917,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.9462318786519917,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "medic"
+    ],
+    "seed": 3,
+    "setting": "team_scout_medic"
+  },
+  {
+    "agnostic_return": -0.9418719459033389,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.9418719459033389,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "medic"
+    ],
+    "seed": 4,
+    "setting": "team_scout_medic"
+  },
+  {
+    "agnostic_return": 0.5190192450106199,
+    "aware_minus_agnostic_return": -0.41178226418929775,
+    "aware_regret": 0.02859599056870126,
+    "aware_return": 0.10723698082132217,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "medic"
+    ],
+    "seed": 5,
+    "setting": "team_scout_medic"
+  },
+  {
+    "agnostic_return": -0.9028308624504136,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.9028308624504136,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "medic"
+    ],
+    "seed": 6,
+    "setting": "team_scout_medic"
+  },
+  {
+    "agnostic_return": -0.6845339125458418,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.6845339125458418,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "medic"
+    ],
+    "seed": 7,
+    "setting": "team_scout_medic"
+  },
+  {
+    "agnostic_return": -0.9550674906627088,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.9550674906627088,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "medic"
+    ],
+    "seed": 8,
+    "setting": "team_scout_medic"
+  },
+  {
+    "agnostic_return": -0.6461602895808619,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.6461602895808619,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "medic"
+    ],
+    "seed": 9,
+    "setting": "team_scout_medic"
+  },
+  {
+    "agnostic_return": -1.4921114904063466,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4921114904063466,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 0,
+    "setting": "team_scout_carrier_medic"
+  },
+  {
+    "agnostic_return": -1.3911873529284473,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.3911873529284473,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 1,
+    "setting": "team_scout_carrier_medic"
+  },
+  {
+    "agnostic_return": 2.435608218258417,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": 2.435608218258417,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 2,
+    "setting": "team_scout_carrier_medic"
+  },
+  {
+    "agnostic_return": -1.1355138884494194,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.07845264902250004,
+    "aware_return": -1.1355138884494194,
+    "grid_size": 10,
+    "messages_agnostic": 1,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 3,
+    "setting": "team_scout_carrier_medic"
+  },
+  {
+    "agnostic_return": -1.3917580095199666,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.3917580095199666,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 4,
+    "setting": "team_scout_carrier_medic"
+  },
+  {
+    "agnostic_return": -1.1843388063922617,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.1843388063922617,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 5,
+    "setting": "team_scout_carrier_medic"
+  },
+  {
+    "agnostic_return": -1.4219009934708045,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.4219009934708045,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 6,
+    "setting": "team_scout_carrier_medic"
+  },
+  {
+    "agnostic_return": -1.3039603474362655,
+    "aware_minus_agnostic_return": -0.029561765882869295,
+    "aware_regret": 0.0,
+    "aware_return": -1.3335221133191348,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 1,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 7,
+    "setting": "team_scout_carrier_medic"
+  },
+  {
+    "agnostic_return": -0.2786001451312689,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -0.2786001451312689,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 8,
+    "setting": "team_scout_carrier_medic"
+  },
+  {
+    "agnostic_return": -1.407422120565206,
+    "aware_minus_agnostic_return": 0.0,
+    "aware_regret": 0.0,
+    "aware_return": -1.407422120565206,
+    "grid_size": 10,
+    "messages_agnostic": 0,
+    "messages_aware": 0,
+    "p_move": 0.8,
+    "p_toggle": 0.2,
+    "roles": [
+      "scout",
+      "carrier",
+      "medic"
+    ],
+    "seed": 9,
+    "setting": "team_scout_carrier_medic"
+  }
+]

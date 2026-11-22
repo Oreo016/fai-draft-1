@@ -1,0 +1,89 @@
+{
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E06\\run_20261121_154236_875337\\config_used.json",
+  "context_count": 20,
+  "experiment_id": "E06",
+  "h4_by_rule": {
+    "epsilon_0": {
+      "lambda_0_5_rate": 0.0,
+      "lambda_0_rate": 0.1,
+      "relative_drop": 1.0
+    },
+    "epsilon_0.1": {
+      "lambda_0_5_rate": 0.0,
+      "lambda_0_rate": 0.1,
+      "relative_drop": 1.0
+    },
+    "epsilon_0.25": {
+      "lambda_0_5_rate": 0.0,
+      "lambda_0_rate": 0.05,
+      "relative_drop": 1.0
+    },
+    "epsilon_0.5": {
+      "lambda_0_5_rate": 0.0,
+      "lambda_0_rate": 0.0,
+      "relative_drop": 0.0
+    },
+    "lcb": {
+      "lambda_0_5_rate": 0.0,
+      "lambda_0_rate": 0.05,
+      "relative_drop": 1.0
+    },
+    "strict": {
+      "lambda_0_5_rate": 0.0,
+      "lambda_0_rate": 0.1,
+      "relative_drop": 1.0
+    }
+  },
+  "headline": {
+    "epsilon_0.1_h4_relative_drop": 1.0,
+    "epsilon_0.1_lambda_0_5_rate": 0.0,
+    "epsilon_0.1_lambda_0_rate": 0.1,
+    "epsilon_0.25_h4_relative_drop": 1.0,
+    "epsilon_0.25_lambda_0_5_rate": 0.0,
+    "epsilon_0.25_lambda_0_rate": 0.05,
+    "epsilon_0.5_h4_relative_drop": 0.0,
+    "epsilon_0.5_lambda_0_5_rate": 0.0,
+    "epsilon_0.5_lambda_0_rate": 0.0,
+    "epsilon_0_h4_relative_drop": 1.0,
+    "epsilon_0_lambda_0_5_rate": 0.0,
+    "epsilon_0_lambda_0_rate": 0.1,
+    "lcb_h4_relative_drop": 1.0,
+    "lcb_lambda_0_5_rate": 0.0,
+    "lcb_lambda_0_rate": 0.05,
+    "null_false_positive_epsilon_0": 0.311,
+    "null_false_positive_epsilon_0.1": 0.087,
+    "null_false_positive_epsilon_0.25": 0.0575,
+    "null_false_positive_epsilon_0.5": 0.0205,
+    "null_false_positive_lcb": 0.003,
+    "null_false_positive_strict": 0.311,
+    "strict_h4_relative_drop": 1.0,
+    "strict_lambda_0_5_rate": 0.0,
+    "strict_lambda_0_rate": 0.1
+  },
+  "lcb_confidence_level": 0.9,
+  "null_definition": "message kind null is ignored by task policies, so its true task marginal value is zero",
+  "null_false_positive_rates": {
+    "epsilon_0": 0.311,
+    "epsilon_0.1": 0.087,
+    "epsilon_0.25": 0.0575,
+    "epsilon_0.5": 0.0205,
+    "lcb": 0.003,
+    "strict": 0.311
+  },
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E06\\run_20261121_154236_875337",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E06\\run_20261121_154236_875337",
+  "runtime_seconds": 193.37639130000025,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

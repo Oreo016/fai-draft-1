@@ -1,0 +1,32 @@
+id: E07
+name: cost_sweep_pareto
+contexts_per_seed: 2
+rollout_count: 32
+lambda_grid:
+- 0.0
+- 0.05
+- 0.1
+- 0.25
+- 0.5
+- 1.0
+unit_cost_c0: 1.0
+receiver_dependent_cost: false
+distance_scale_L: 10.0
+compatibility:
+  intention:
+    scout: 1.0
+    carrier: 1.0
+    medic: 1.0
+  victim_located:
+    scout: 0.25
+    carrier: 1.5
+    medic: 2.0
+  victim_stabilized:
+    scout: 0.1
+    carrier: 3.0
+    medic: 0.25
+  hazard_active:
+    scout: 1.0
+    carrier: 1.25
+    medic: 2.5
+config_file: C:\Users\arind\Downloads\faiproj\configs\experiments\e07_cost_pareto.yaml

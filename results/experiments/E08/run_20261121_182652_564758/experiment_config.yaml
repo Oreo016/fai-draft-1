@@ -1,0 +1,17 @@
+id: E08
+name: hypothesis_robustness
+contexts_per_seed: 2
+rollout_count: 32
+theta1_grid:
+- 0.0
+- 0.25
+- 0.5
+- 1.0
+- 2.0
+delta1_grid:
+- 0.0
+- 0.25
+- 0.5
+- 1.0
+delayed_value_margin: 0.5
+config_file: C:\Users\arind\Downloads\faiproj\configs\experiments\e08_hypothesis_robustness.yaml

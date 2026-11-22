@@ -1,0 +1,1563 @@
+{
+  "title": "VoC Cross-Parameter Evaluation: Discount Factors (gamma) and Cost Weights (lambda)",
+  "gammas": [
+    0.8,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "lambdas": [
+    0.0,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "methods": [
+    "aware",
+    "agnostic",
+    "role_only",
+    "fixed_frequency",
+    "full",
+    "never",
+    "random"
+  ],
+  "results_by_gamma": {
+    "0.8": {
+      "by_lambda": {
+        "0.0": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.5790644446349141,
+              "mean_messages": 0.3,
+              "mean_regret": 0.04497784963072003
+            },
+            "agnostic": {
+              "mean_return": -0.5352365757397373,
+              "mean_messages": 0.2,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -0.04382786889517686,
+            "confidence_interval": [
+              -0.13145361260617658,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.05": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.5352535029762016,
+              "mean_messages": 0.1,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -3.021951642210863e-05,
+            "confidence_interval": [
+              -7.373131280206668e-05,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.1": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.25": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.5": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "1.0": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.5352232834597794,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        }
+      },
+      "pareto_frontier": [
+        {
+          "gamma": 0.8,
+          "lambda": 0.0,
+          "method": "never",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.05,
+          "method": "agnostic",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.05,
+          "method": "never",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.1,
+          "method": "aware",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.1,
+          "method": "agnostic",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.1,
+          "method": "never",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.25,
+          "method": "aware",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.25,
+          "method": "agnostic",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.25,
+          "method": "never",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.5,
+          "method": "aware",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.5,
+          "method": "agnostic",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 0.5,
+          "method": "never",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 1.0,
+          "method": "aware",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 1.0,
+          "method": "agnostic",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.8,
+          "lambda": 1.0,
+          "method": "never",
+          "mean_return": -0.5352232834597794,
+          "mean_messages": 0.0
+        }
+      ],
+      "runtime_seconds": 130.88941319999867
+    },
+    "0.9": {
+      "by_lambda": {
+        "0.0": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.983823579336296,
+              "mean_messages": 0.3,
+              "mean_regret": 0.1512847337699293
+            },
+            "agnostic": {
+              "mean_return": -0.8227496313343294,
+              "mean_messages": 0.2,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -0.1610739480019666,
+            "confidence_interval": [
+              -0.47649196933764026,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.05": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.8268611169321629,
+              "mean_messages": 0.1,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.1,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -0.005589573891976773,
+            "confidence_interval": [
+              -0.015290633381786855,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.1": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.8227496313343294,
+              "mean_messages": 0.05,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -0.0014780882941434648,
+            "confidence_interval": [
+              -0.004434264882430395,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.25": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.5": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "1.0": {
+          "methods": {
+            "aware": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -0.8212715430401861,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        }
+      },
+      "pareto_frontier": [
+        {
+          "gamma": 0.9,
+          "lambda": 0.0,
+          "method": "never",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 0.05,
+          "method": "never",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 0.1,
+          "method": "agnostic",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 0.1,
+          "method": "never",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 0.25,
+          "method": "aware",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 0.25,
+          "method": "agnostic",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 0.25,
+          "method": "never",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 0.5,
+          "method": "aware",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 0.5,
+          "method": "agnostic",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 0.5,
+          "method": "never",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 1.0,
+          "method": "aware",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 1.0,
+          "method": "agnostic",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.9,
+          "lambda": 1.0,
+          "method": "never",
+          "mean_return": -0.8212715430401861,
+          "mean_messages": 0.0
+        }
+      ],
+      "runtime_seconds": 136.23534529999597
+    },
+    "0.95": {
+      "by_lambda": {
+        "0.0": {
+          "methods": {
+            "aware": {
+              "mean_return": -1.611901247645715,
+              "mean_messages": 0.3,
+              "mean_regret": 0.2825723552377716
+            },
+            "agnostic": {
+              "mean_return": -1.2309535782582195,
+              "mean_messages": 0.2,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -0.3809476693874956,
+            "confidence_interval": [
+              -1.0471620915199493,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.05": {
+          "methods": {
+            "aware": {
+              "mean_return": -1.2968024178046291,
+              "mean_messages": 0.2,
+              "mean_regret": 0.003555000576727872
+            },
+            "agnostic": {
+              "mean_return": -1.2309535782582195,
+              "mean_messages": 0.2,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -0.06584883954640985,
+            "confidence_interval": [
+              -0.19754651863922956,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.1": {
+          "methods": {
+            "aware": {
+              "mean_return": -1.2968024178046291,
+              "mean_messages": 0.1,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -0.07870005520292012,
+            "confidence_interval": [
+              -0.2232489499522501,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.25": {
+          "methods": {
+            "aware": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.5": {
+          "methods": {
+            "aware": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "1.0": {
+          "methods": {
+            "aware": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -1.2181023626017091,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        }
+      },
+      "pareto_frontier": [
+        {
+          "gamma": 0.95,
+          "lambda": 0.0,
+          "method": "never",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 0.05,
+          "method": "never",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 0.1,
+          "method": "agnostic",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 0.1,
+          "method": "never",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 0.25,
+          "method": "aware",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 0.25,
+          "method": "agnostic",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 0.25,
+          "method": "never",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 0.5,
+          "method": "aware",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 0.5,
+          "method": "agnostic",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 0.5,
+          "method": "never",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 1.0,
+          "method": "aware",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 1.0,
+          "method": "agnostic",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.95,
+          "lambda": 1.0,
+          "method": "never",
+          "mean_return": -1.2181023626017091,
+          "mean_messages": 0.0
+        }
+      ],
+      "runtime_seconds": 113.12217489999603
+    },
+    "0.99": {
+      "by_lambda": {
+        "0.0": {
+          "methods": {
+            "aware": {
+              "mean_return": -4.840967486776654,
+              "mean_messages": 0.3,
+              "mean_regret": 0.46618717628179207
+            },
+            "agnostic": {
+              "mean_return": -3.5902657714475006,
+              "mean_messages": 0.2,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -1.2507017153291533,
+            "confidence_interval": [
+              -3.037072307907555,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.05": {
+          "methods": {
+            "aware": {
+              "mean_return": -4.253171745909523,
+              "mean_messages": 0.2,
+              "mean_regret": 0.005595864089116977
+            },
+            "agnostic": {
+              "mean_return": -3.5902657714475006,
+              "mean_messages": 0.2,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -0.6629059744620223,
+            "confidence_interval": [
+              -1.988717923386067,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.1": {
+          "methods": {
+            "aware": {
+              "mean_return": -4.253171745909523,
+              "mean_messages": 0.1,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": -0.7298031503189903,
+            "confidence_interval": [
+              -2.1225122751000027,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.25": {
+          "methods": {
+            "aware": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "0.5": {
+          "methods": {
+            "aware": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        },
+        "1.0": {
+          "methods": {
+            "aware": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "agnostic": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "role_only": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "fixed_frequency": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.5,
+              "mean_regret": 0.0
+            },
+            "full": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            },
+            "never": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 0.0,
+              "mean_regret": 0.0
+            },
+            "random": {
+              "mean_return": -3.523368595590532,
+              "mean_messages": 1.0,
+              "mean_regret": 0.0
+            }
+          },
+          "aware_minus_agnostic": {
+            "mean_difference": 0.0,
+            "confidence_interval": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          }
+        }
+      },
+      "pareto_frontier": [
+        {
+          "gamma": 0.99,
+          "lambda": 0.0,
+          "method": "never",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 0.05,
+          "method": "never",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 0.1,
+          "method": "agnostic",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 0.1,
+          "method": "never",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 0.25,
+          "method": "aware",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 0.25,
+          "method": "agnostic",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 0.25,
+          "method": "never",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 0.5,
+          "method": "aware",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 0.5,
+          "method": "agnostic",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 0.5,
+          "method": "never",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 1.0,
+          "method": "aware",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 1.0,
+          "method": "agnostic",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        },
+        {
+          "gamma": 0.99,
+          "lambda": 1.0,
+          "method": "never",
+          "mean_return": -3.523368595590532,
+          "mean_messages": 0.0
+        }
+      ],
+      "runtime_seconds": 110.68487919999461
+    }
+  },
+  "total_runtime_seconds": 490.97131880000234
+}

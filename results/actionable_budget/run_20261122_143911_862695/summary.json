@@ -1,0 +1,220 @@
+{
+  "scope": "assigned actionable budget rerun only",
+  "comparison": {
+    "assigned_messages": 2,
+    "schedule_type": "actionable_facts",
+    "send_schedule": null,
+    "primary": true,
+    "protocol_adherence": true,
+    "fully_adherent_pair_count": 10,
+    "aware_unused_slots": 0,
+    "agnostic_unused_slots": 0,
+    "pairs": [
+      {
+        "seed": 1000,
+        "aware_messages": 2,
+        "agnostic_messages": 2,
+        "aware_send_steps": [
+          19,
+          20
+        ],
+        "agnostic_send_steps": [
+          19,
+          20
+        ],
+        "aware_rescues": 0,
+        "agnostic_rescues": 0,
+        "rescue_difference": 0,
+        "return_difference": 0.0
+      },
+      {
+        "seed": 1001,
+        "aware_messages": 2,
+        "agnostic_messages": 2,
+        "aware_send_steps": [
+          23,
+          30
+        ],
+        "agnostic_send_steps": [
+          23,
+          53
+        ],
+        "aware_rescues": 1,
+        "agnostic_rescues": 0,
+        "rescue_difference": 1,
+        "return_difference": 0.005380155861249292
+      },
+      {
+        "seed": 1002,
+        "aware_messages": 2,
+        "agnostic_messages": 2,
+        "aware_send_steps": [
+          7,
+          20
+        ],
+        "agnostic_send_steps": [
+          7,
+          20
+        ],
+        "aware_rescues": 1,
+        "agnostic_rescues": 1,
+        "rescue_difference": 0,
+        "return_difference": 0.0
+      },
+      {
+        "seed": 1003,
+        "aware_messages": 2,
+        "agnostic_messages": 2,
+        "aware_send_steps": [
+          23,
+          25
+        ],
+        "agnostic_send_steps": [
+          23,
+          25
+        ],
+        "aware_rescues": 0,
+        "agnostic_rescues": 0,
+        "rescue_difference": 0,
+        "return_difference": 0.0
+      },
+      {
+        "seed": 1004,
+        "aware_messages": 2,
+        "agnostic_messages": 2,
+        "aware_send_steps": [
+          1,
+          24
+        ],
+        "agnostic_send_steps": [
+          1,
+          24
+        ],
+        "aware_rescues": 1,
+        "agnostic_rescues": 1,
+        "rescue_difference": 0,
+        "return_difference": 0.0
+      },
+      {
+        "seed": 1005,
+        "aware_messages": 2,
+        "agnostic_messages": 2,
+        "aware_send_steps": [
+          15,
+          16
+        ],
+        "agnostic_send_steps": [
+          15,
+          16
+        ],
+        "aware_rescues": 2,
+        "agnostic_rescues": 2,
+        "rescue_difference": 0,
+        "return_difference": 0.0
+      },
+      {
+        "seed": 1006,
+        "aware_messages": 2,
+        "agnostic_messages": 2,
+        "aware_send_steps": [
+          15,
+          48
+        ],
+        "agnostic_send_steps": [
+          15,
+          48
+        ],
+        "aware_rescues": 0,
+        "agnostic_rescues": 0,
+        "rescue_difference": 0,
+        "return_difference": 0.0
+      },
+      {
+        "seed": 1007,
+        "aware_messages": 2,
+        "agnostic_messages": 2,
+        "aware_send_steps": [
+          21,
+          27
+        ],
+        "agnostic_send_steps": [
+          21,
+          27
+        ],
+        "aware_rescues": 0,
+        "agnostic_rescues": 0,
+        "rescue_difference": 0,
+        "return_difference": 0.0014966046510731523
+      },
+      {
+        "seed": 1008,
+        "aware_messages": 2,
+        "agnostic_messages": 2,
+        "aware_send_steps": [
+          19,
+          64
+        ],
+        "agnostic_send_steps": [
+          19,
+          64
+        ],
+        "aware_rescues": 0,
+        "agnostic_rescues": 0,
+        "rescue_difference": 0,
+        "return_difference": 0.0
+      },
+      {
+        "seed": 1009,
+        "aware_messages": 2,
+        "agnostic_messages": 2,
+        "aware_send_steps": [
+          1,
+          21
+        ],
+        "agnostic_send_steps": [
+          1,
+          21
+        ],
+        "aware_rescues": 2,
+        "agnostic_rescues": 1,
+        "rescue_difference": 1,
+        "return_difference": 0.19884479101880348
+      }
+    ],
+    "mean_return_difference": 0.020572155153112594,
+    "assigned_policy_return_difference_ci": [
+      0.0,
+      0.060490773821980606
+    ],
+    "mean_rescue_difference": 0.2,
+    "assigned_policy_rescue_difference_ci": [
+      0.0,
+      0.5
+    ],
+    "confidence_interval": [
+      0.0,
+      0.060490773821980606
+    ],
+    "confidence_interval_excludes_zero": false
+  },
+  "archived_unrestricted_rescues": {
+    "source": "results\\run_20261122_135906_541004",
+    "aware_minus_full_mean": -0.7,
+    "confidence_interval": [
+      -1.4,
+      -0.1
+    ],
+    "paired_differences": [
+      -3,
+      -2,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      -1,
+      1,
+      0
+    ]
+  }
+}

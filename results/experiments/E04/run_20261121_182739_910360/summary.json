@@ -1,0 +1,96 @@
+{
+  "by_setting": {
+    "n128_crn": {
+      "mean_bias_to_high_n": 0.01631091020733552,
+      "mean_runtime_seconds_per_decision": 0.9832453550006903,
+      "mean_se": 0.036004183734491095
+    },
+    "n128_independent": {
+      "mean_bias_to_high_n": 0.024328072293171268,
+      "mean_runtime_seconds_per_decision": 1.0412903799999185,
+      "mean_se": 0.05716266711395771
+    },
+    "n16_crn": {
+      "mean_bias_to_high_n": -0.013181672780895982,
+      "mean_runtime_seconds_per_decision": 0.13000021499901776,
+      "mean_se": 0.0952478125136803
+    },
+    "n16_independent": {
+      "mean_bias_to_high_n": -0.011642664763796938,
+      "mean_runtime_seconds_per_decision": 0.12433281999910832,
+      "mean_se": 0.12927964320525534
+    },
+    "n32_crn": {
+      "mean_bias_to_high_n": -0.01986522555252661,
+      "mean_runtime_seconds_per_decision": 0.25259394500026244,
+      "mean_se": 0.08173957993629735
+    },
+    "n32_independent": {
+      "mean_bias_to_high_n": -0.011693949508055294,
+      "mean_runtime_seconds_per_decision": 0.2502421450004476,
+      "mean_se": 0.11190494297081321
+    },
+    "n64_crn": {
+      "mean_bias_to_high_n": 0.017947662879650585,
+      "mean_runtime_seconds_per_decision": 0.5265786100000696,
+      "mean_se": 0.053062325822351694
+    },
+    "n64_independent": {
+      "mean_bias_to_high_n": 0.027590645782105218,
+      "mean_runtime_seconds_per_decision": 0.49528500999876995,
+      "mean_se": 0.07535706349878052
+    },
+    "n8_crn": {
+      "mean_bias_to_high_n": -0.02085062981687668,
+      "mean_runtime_seconds_per_decision": 0.06052081999987422,
+      "mean_se": 0.13458589285423977
+    },
+    "n8_independent": {
+      "mean_bias_to_high_n": -0.03395958977688866,
+      "mean_runtime_seconds_per_decision": 0.05825152499928663,
+      "mean_se": 0.15491821734441782
+    }
+  },
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E04\\run_20261121_182739_910360\\config_used.json",
+  "context_count": 20,
+  "experiment_id": "E04",
+  "headline": {
+    "n128_crn_bias": 0.01631091020733552,
+    "n128_crn_se": 0.036004183734491095,
+    "n128_independent_bias": 0.024328072293171268,
+    "n128_independent_se": 0.05716266711395771,
+    "n16_crn_bias": -0.013181672780895982,
+    "n16_crn_se": 0.0952478125136803,
+    "n16_independent_bias": -0.011642664763796938,
+    "n16_independent_se": 0.12927964320525534,
+    "n32_crn_bias": -0.01986522555252661,
+    "n32_crn_se": 0.08173957993629735,
+    "n32_independent_bias": -0.011693949508055294,
+    "n32_independent_se": 0.11190494297081321,
+    "n64_crn_bias": 0.017947662879650585,
+    "n64_crn_se": 0.053062325822351694,
+    "n64_independent_bias": 0.027590645782105218,
+    "n64_independent_se": 0.07535706349878052,
+    "n8_crn_bias": -0.02085062981687668,
+    "n8_crn_se": 0.13458589285423977,
+    "n8_independent_bias": -0.03395958977688866,
+    "n8_independent_se": 0.15491821734441782
+  },
+  "reference_rollouts": 256,
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E04\\run_20261121_182739_910360",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E04\\run_20261121_182739_910360",
+  "runtime_seconds": 121.28584029999911,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

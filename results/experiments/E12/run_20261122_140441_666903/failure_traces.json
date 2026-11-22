@@ -1,0 +1,117 @@
+[
+  {
+    "aware_minus_agnostic_return": -3.1217933209464905,
+    "aware_minus_role_only_return": -3.1217933209464905,
+    "hazard_state_at_location": "none",
+    "information_age": 0,
+    "message_kind": "intention",
+    "message_status": "scan",
+    "oracle_mv": 0.0,
+    "receiver_role": "carrier",
+    "regret": 2.9864683508873355,
+    "sampled_message_location": [
+      3,
+      4
+    ],
+    "sampled_receiver": 1,
+    "seed": 2,
+    "selected_pair": [
+      0,
+      2
+    ],
+    "step": 0,
+    "vochat": 0.0
+  },
+  {
+    "aware_minus_agnostic_return": -0.8517415476950518,
+    "aware_minus_role_only_return": -0.8517415476950518,
+    "hazard_state_at_location": "none",
+    "information_age": 0,
+    "message_kind": "intention",
+    "message_status": "scan",
+    "oracle_mv": 0.0,
+    "receiver_role": "carrier",
+    "regret": 0.4112869901408328,
+    "sampled_message_location": [
+      8,
+      7
+    ],
+    "sampled_receiver": 1,
+    "seed": 8,
+    "selected_pair": [
+      0,
+      2
+    ],
+    "step": 2,
+    "vochat": 0.0
+  },
+  {
+    "aware_minus_agnostic_return": -0.08222971195666617,
+    "aware_minus_role_only_return": -0.08222971195666617,
+    "hazard_state_at_location": "none",
+    "information_age": 0,
+    "message_kind": "intention",
+    "message_status": "scan",
+    "oracle_mv": 0.0,
+    "receiver_role": "medic",
+    "regret": 0.0,
+    "sampled_message_location": [
+      6,
+      6
+    ],
+    "sampled_receiver": 2,
+    "seed": 1,
+    "selected_pair": [
+      0,
+      2
+    ],
+    "step": 0,
+    "vochat": 0.09725625
+  },
+  {
+    "aware_minus_agnostic_return": -0.08054457427909423,
+    "aware_minus_role_only_return": -0.08054457427909423,
+    "hazard_state_at_location": "none",
+    "information_age": 0,
+    "message_kind": "intention",
+    "message_status": "scan",
+    "oracle_mv": 0.0,
+    "receiver_role": "medic",
+    "regret": 0.0,
+    "sampled_message_location": [
+      5,
+      6
+    ],
+    "sampled_receiver": 2,
+    "seed": 1,
+    "selected_pair": [
+      0,
+      2
+    ],
+    "step": 2,
+    "vochat": 0.050625
+  },
+  {
+    "aware_minus_agnostic_return": 0.0,
+    "aware_minus_role_only_return": -0.029561765882869295,
+    "hazard_state_at_location": "none",
+    "information_age": 0,
+    "message_kind": "intention",
+    "message_status": "scan",
+    "oracle_mv": 0.0,
+    "receiver_role": "medic",
+    "regret": 0.0,
+    "sampled_message_location": [
+      9,
+      3
+    ],
+    "sampled_receiver": 2,
+    "seed": 7,
+    "selected_pair": [
+      0,
+      2
+    ],
+    "step": 0,
+    "vochat": 0.10125
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E01\\run_20261122_140035_246491\\config_used.json",
+  "context_count": 20,
+  "experiment_id": "E01",
+  "headline": {
+    "conditioned_j0_return": -0.8610780009806069,
+    "conditioned_mae_voc": 0.13854768832334144,
+    "conditioned_pair_regret": 0.017872494105438293,
+    "conditioned_receiver_regret": 0.017872494105438293,
+    "mae_change_conditioned_minus_unconditioned": 0.0,
+    "unconditioned_j0_return": -0.8610780009806069,
+    "unconditioned_mae_voc": 0.13854768832334144,
+    "unconditioned_pair_regret": 0.017872494105438293,
+    "unconditioned_receiver_regret": 0.017872494105438293
+  },
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E01\\run_20261122_140035_246491",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E01\\run_20261122_140035_246491",
+  "runtime_seconds": 56.82185260001279,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

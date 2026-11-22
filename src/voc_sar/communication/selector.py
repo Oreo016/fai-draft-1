@@ -1,7 +1,7 @@
 """Cheap candidate filtering and receiver-aware/agnostic selection."""
 
 import random
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Protocol, Sequence
 
 from voc_sar.communication.estimator import ValueEstimate
@@ -21,6 +21,10 @@ _DEFAULT_ROLES = (Role.SCOUT, Role.CARRIER, Role.MEDIC)
 class ValueEstimator(Protocol):
     cost_weight: float
     unit_cost: float
+
+    def estimate_message(
+        self, message: Message, horizon: int, observation: Observation
+    ) -> ValueEstimate: ...
 
     def estimate(
         self,
@@ -110,6 +114,7 @@ def select_communication(
     hazard_move_probability: float = 0.0,
     hazard_toggle_probability: float = 0.0,
     trace: SelectionTrace | None = None,
+    force_send: bool = False,
 ) -> CommunicationChoice | None:
     """Greedily choose the best positive-net-value directed message."""
     if estimator is None:
@@ -148,7 +153,7 @@ def select_communication(
         value, _, receiver_id, message = max(
             scored, key=lambda item: (item[0], -item[1])
         )
-        return CommunicationChoice(receiver_id, message) if value > 0 else None
+        return CommunicationChoice(receiver_id, message) if value > 0 or force_send else None
 
     shortlisted_messages = _message_only_shortlist(
         messages,
@@ -158,31 +163,26 @@ def select_communication(
         hazard_toggle_probability,
     )
     receiver_pool = sorted({receiver for receiver in receiver_ids if receiver != sender_id})
-    if not receiver_pool:
+    if not receiver_pool or not shortlisted_messages:
         return None
     tie_break_receiver = random.Random(seed).choice(receiver_pool)
     scored_messages: list[tuple[float, int, Message]] = []
     for message_index, message in enumerate(shortlisted_messages):
-        estimates = []
-        for receiver_id in receiver_pool:
-            estimate = _estimate(
-                estimator, sender_id, receiver_id, message, horizon, observation,
-                cost_weight, unit_cost,
-            )
-            estimates.append(estimate)
-            if trace is not None:
-                trace.evaluations.append((message, receiver_id, estimate))
-        mean_marginal_value = sum(item.marginal_value for item in estimates) / len(estimates)
-        communication_cost = estimates[0].communication_cost
+        estimate = _with_cost(
+            estimator.estimate_message(message, horizon, observation),
+            estimator, message, cost_weight, unit_cost,
+        )
+        if trace is not None:
+            trace.evaluations.append((message, tie_break_receiver, estimate))
         scored_messages.append((
-            mean_marginal_value - communication_cost,
+            estimate.value_of_communication,
             message_index,
             message,
         ))
     value, _, selected_message = max(
         scored_messages, key=lambda item: (item[0], -item[1])
     )
-    if value <= 0:
+    if value <= 0 and not force_send:
         return None
     return CommunicationChoice(tie_break_receiver, selected_message)
 
@@ -200,6 +200,16 @@ def _estimate(
     estimate = estimator.estimate(
         sender_id, receiver_id, message, horizon, observation
     )
+    return _with_cost(estimate, estimator, message, cost_weight, unit_cost)
+
+
+def _with_cost(
+    estimate: ValueEstimate,
+    estimator: ValueEstimator,
+    message: Message,
+    cost_weight: float | None,
+    unit_cost: float | None,
+) -> ValueEstimate:
     if cost_weight is None and unit_cost is None:
         return estimate
     weight = estimator.cost_weight if cost_weight is None else cost_weight
@@ -207,11 +217,10 @@ def _estimate(
     cost = weight * unit
     if message.metadata is not None and "cost" in message.metadata:
         cost *= float(message.metadata["cost"])
-    return ValueEstimate(
-        marginal_value=estimate.marginal_value,
+    return replace(
+        estimate,
         communication_cost=cost,
         value_of_communication=estimate.marginal_value - cost,
-        standard_error=estimate.standard_error,
     )
 
 

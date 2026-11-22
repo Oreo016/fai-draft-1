@@ -1,0 +1,335 @@
+{
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E07\\run_20261121_154035_483010\\config_used.json",
+  "context_count": 20,
+  "experiment_id": "E07",
+  "headline": {
+    "agnostic_lambda_0.05_messages": 0.3,
+    "agnostic_lambda_0.05_return": 1.8079455661615782,
+    "agnostic_lambda_0.1_messages": 0.25,
+    "agnostic_lambda_0.1_return": 2.1119766318927065,
+    "agnostic_lambda_0.25_messages": 0.1,
+    "agnostic_lambda_0.25_return": 2.38236418287296,
+    "agnostic_lambda_0.5_messages": 0.05,
+    "agnostic_lambda_0.5_return": 2.38236418287296,
+    "agnostic_lambda_0_messages": 0.3,
+    "agnostic_lambda_0_return": 1.8079455661615782,
+    "agnostic_lambda_1_messages": 0.0,
+    "agnostic_lambda_1_return": 2.38236418287296,
+    "aware_lambda_0.05_messages": 0.3,
+    "aware_lambda_0.05_return": 1.6578741798243957,
+    "aware_lambda_0.1_messages": 0.3,
+    "aware_lambda_0.1_return": 1.6578741798243957,
+    "aware_lambda_0.25_messages": 0.2,
+    "aware_lambda_0.25_return": 2.2032637995465065,
+    "aware_lambda_0.5_messages": 0.1,
+    "aware_lambda_0.5_return": 2.47365135052676,
+    "aware_lambda_0_messages": 0.3,
+    "aware_lambda_0_return": 1.6578741798243957,
+    "aware_lambda_1_messages": 0.05,
+    "aware_lambda_1_return": 2.4588475831748595,
+    "fixed_frequency_lambda_0.05_messages": 0.5,
+    "fixed_frequency_lambda_0.05_return": 2.38236418287296,
+    "fixed_frequency_lambda_0.1_messages": 0.5,
+    "fixed_frequency_lambda_0.1_return": 2.38236418287296,
+    "fixed_frequency_lambda_0.25_messages": 0.5,
+    "fixed_frequency_lambda_0.25_return": 2.38236418287296,
+    "fixed_frequency_lambda_0.5_messages": 0.5,
+    "fixed_frequency_lambda_0.5_return": 2.38236418287296,
+    "fixed_frequency_lambda_0_messages": 0.5,
+    "fixed_frequency_lambda_0_return": 2.38236418287296,
+    "fixed_frequency_lambda_1_messages": 0.5,
+    "fixed_frequency_lambda_1_return": 2.38236418287296,
+    "full_lambda_0.05_messages": 1.0,
+    "full_lambda_0.05_return": 2.38236418287296,
+    "full_lambda_0.1_messages": 1.0,
+    "full_lambda_0.1_return": 2.38236418287296,
+    "full_lambda_0.25_messages": 1.0,
+    "full_lambda_0.25_return": 2.38236418287296,
+    "full_lambda_0.5_messages": 1.0,
+    "full_lambda_0.5_return": 2.38236418287296,
+    "full_lambda_0_messages": 1.0,
+    "full_lambda_0_return": 2.38236418287296,
+    "full_lambda_1_messages": 1.0,
+    "full_lambda_1_return": 2.38236418287296,
+    "random_lambda_0.05_messages": 1.0,
+    "random_lambda_0.05_return": 2.38236418287296,
+    "random_lambda_0.1_messages": 1.0,
+    "random_lambda_0.1_return": 2.38236418287296,
+    "random_lambda_0.25_messages": 1.0,
+    "random_lambda_0.25_return": 2.38236418287296,
+    "random_lambda_0.5_messages": 1.0,
+    "random_lambda_0.5_return": 2.38236418287296,
+    "random_lambda_0_messages": 1.0,
+    "random_lambda_0_return": 2.38236418287296,
+    "random_lambda_1_messages": 1.0,
+    "random_lambda_1_return": 2.38236418287296,
+    "role_only_lambda_0.05_messages": 1.0,
+    "role_only_lambda_0.05_return": 2.4588475831748595,
+    "role_only_lambda_0.1_messages": 1.0,
+    "role_only_lambda_0.1_return": 2.4588475831748595,
+    "role_only_lambda_0.25_messages": 1.0,
+    "role_only_lambda_0.25_return": 2.4588475831748595,
+    "role_only_lambda_0.5_messages": 1.0,
+    "role_only_lambda_0.5_return": 2.4588475831748595,
+    "role_only_lambda_0_messages": 1.0,
+    "role_only_lambda_0_return": 2.4588475831748595,
+    "role_only_lambda_1_messages": 1.0,
+    "role_only_lambda_1_return": 2.4588475831748595
+  },
+  "pareto_frontier": [
+    {
+      "lambda": 0.5,
+      "mean_messages": 0.1,
+      "mean_return": 2.47365135052676,
+      "method": "aware"
+    },
+    {
+      "lambda": 1.0,
+      "mean_messages": 0.05,
+      "mean_return": 2.4588475831748595,
+      "method": "aware"
+    },
+    {
+      "lambda": 1.0,
+      "mean_messages": 0.0,
+      "mean_return": 2.38236418287296,
+      "method": "agnostic"
+    }
+  ],
+  "pareto_points": [
+    {
+      "lambda": 0.0,
+      "mean_messages": 0.3,
+      "mean_return": 1.6578741798243957,
+      "method": "aware"
+    },
+    {
+      "lambda": 0.0,
+      "mean_messages": 0.3,
+      "mean_return": 1.8079455661615782,
+      "method": "agnostic"
+    },
+    {
+      "lambda": 0.0,
+      "mean_messages": 1.0,
+      "mean_return": 2.4588475831748595,
+      "method": "role_only"
+    },
+    {
+      "lambda": 0.0,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "full"
+    },
+    {
+      "lambda": 0.0,
+      "mean_messages": 0.5,
+      "mean_return": 2.38236418287296,
+      "method": "fixed_frequency"
+    },
+    {
+      "lambda": 0.0,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "random"
+    },
+    {
+      "lambda": 0.05,
+      "mean_messages": 0.3,
+      "mean_return": 1.6578741798243957,
+      "method": "aware"
+    },
+    {
+      "lambda": 0.05,
+      "mean_messages": 0.3,
+      "mean_return": 1.8079455661615782,
+      "method": "agnostic"
+    },
+    {
+      "lambda": 0.05,
+      "mean_messages": 1.0,
+      "mean_return": 2.4588475831748595,
+      "method": "role_only"
+    },
+    {
+      "lambda": 0.05,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "full"
+    },
+    {
+      "lambda": 0.05,
+      "mean_messages": 0.5,
+      "mean_return": 2.38236418287296,
+      "method": "fixed_frequency"
+    },
+    {
+      "lambda": 0.05,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "random"
+    },
+    {
+      "lambda": 0.1,
+      "mean_messages": 0.3,
+      "mean_return": 1.6578741798243957,
+      "method": "aware"
+    },
+    {
+      "lambda": 0.1,
+      "mean_messages": 0.25,
+      "mean_return": 2.1119766318927065,
+      "method": "agnostic"
+    },
+    {
+      "lambda": 0.1,
+      "mean_messages": 1.0,
+      "mean_return": 2.4588475831748595,
+      "method": "role_only"
+    },
+    {
+      "lambda": 0.1,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "full"
+    },
+    {
+      "lambda": 0.1,
+      "mean_messages": 0.5,
+      "mean_return": 2.38236418287296,
+      "method": "fixed_frequency"
+    },
+    {
+      "lambda": 0.1,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "random"
+    },
+    {
+      "lambda": 0.25,
+      "mean_messages": 0.2,
+      "mean_return": 2.2032637995465065,
+      "method": "aware"
+    },
+    {
+      "lambda": 0.25,
+      "mean_messages": 0.1,
+      "mean_return": 2.38236418287296,
+      "method": "agnostic"
+    },
+    {
+      "lambda": 0.25,
+      "mean_messages": 1.0,
+      "mean_return": 2.4588475831748595,
+      "method": "role_only"
+    },
+    {
+      "lambda": 0.25,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "full"
+    },
+    {
+      "lambda": 0.25,
+      "mean_messages": 0.5,
+      "mean_return": 2.38236418287296,
+      "method": "fixed_frequency"
+    },
+    {
+      "lambda": 0.25,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "random"
+    },
+    {
+      "lambda": 0.5,
+      "mean_messages": 0.1,
+      "mean_return": 2.47365135052676,
+      "method": "aware"
+    },
+    {
+      "lambda": 0.5,
+      "mean_messages": 0.05,
+      "mean_return": 2.38236418287296,
+      "method": "agnostic"
+    },
+    {
+      "lambda": 0.5,
+      "mean_messages": 1.0,
+      "mean_return": 2.4588475831748595,
+      "method": "role_only"
+    },
+    {
+      "lambda": 0.5,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "full"
+    },
+    {
+      "lambda": 0.5,
+      "mean_messages": 0.5,
+      "mean_return": 2.38236418287296,
+      "method": "fixed_frequency"
+    },
+    {
+      "lambda": 0.5,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "random"
+    },
+    {
+      "lambda": 1.0,
+      "mean_messages": 0.05,
+      "mean_return": 2.4588475831748595,
+      "method": "aware"
+    },
+    {
+      "lambda": 1.0,
+      "mean_messages": 0.0,
+      "mean_return": 2.38236418287296,
+      "method": "agnostic"
+    },
+    {
+      "lambda": 1.0,
+      "mean_messages": 1.0,
+      "mean_return": 2.4588475831748595,
+      "method": "role_only"
+    },
+    {
+      "lambda": 1.0,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "full"
+    },
+    {
+      "lambda": 1.0,
+      "mean_messages": 0.5,
+      "mean_return": 2.38236418287296,
+      "method": "fixed_frequency"
+    },
+    {
+      "lambda": 1.0,
+      "mean_messages": 1.0,
+      "mean_return": 2.38236418287296,
+      "method": "random"
+    }
+  ],
+  "receiver_dependent_cost": false,
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E07\\run_20261121_154035_483010",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E07\\run_20261121_154035_483010",
+  "runtime_seconds": 45.88432639999519,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "unit_cost_c0_reward_units": 1.0
+}

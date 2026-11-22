@@ -1,0 +1,124 @@
+{
+  "by_setting": {
+    "dynamics_default": {
+      "aware_minus_agnostic_return": -1.119229698718963,
+      "mean_messages_agnostic": 0.4,
+      "mean_messages_aware": 0.4,
+      "paired_seed_ci": [
+        -2.808842034102232,
+        0.0592150694076
+      ],
+      "paired_seed_count": 10
+    },
+    "dynamics_high": {
+      "aware_minus_agnostic_return": -1.0846678283674533,
+      "mean_messages_agnostic": 0.4,
+      "mean_messages_aware": 0.4,
+      "paired_seed_ci": [
+        -2.704981863776342,
+        0.0592150694076
+      ],
+      "paired_seed_count": 10
+    },
+    "dynamics_low": {
+      "aware_minus_agnostic_return": -0.578629156029818,
+      "mean_messages_agnostic": 0.3,
+      "mean_messages_aware": 0.3,
+      "paired_seed_ci": [
+        -1.824710072200854,
+        0.0888226041114
+      ],
+      "paired_seed_count": 10
+    },
+    "grid_10": {
+      "aware_minus_agnostic_return": -1.119229698718963,
+      "mean_messages_agnostic": 0.4,
+      "mean_messages_aware": 0.4,
+      "paired_seed_ci": [
+        -2.808842034102232,
+        0.0592150694076
+      ],
+      "paired_seed_count": 10
+    },
+    "grid_12": {
+      "aware_minus_agnostic_return": 0.0,
+      "mean_messages_agnostic": 0.1,
+      "mean_messages_aware": 0.1,
+      "paired_seed_ci": [
+        0.0,
+        0.0
+      ],
+      "paired_seed_count": 10
+    },
+    "grid_8": {
+      "aware_minus_agnostic_return": -1.0255313171923437,
+      "mean_messages_agnostic": 0.4,
+      "mean_messages_aware": 0.4,
+      "paired_seed_ci": [
+        -2.154897244713582,
+        -0.036156129924877115
+      ],
+      "paired_seed_count": 10
+    },
+    "team_scout_carrier": {
+      "aware_minus_agnostic_return": 0.0,
+      "mean_messages_agnostic": 0.0,
+      "mean_messages_aware": 0.0,
+      "paired_seed_ci": [
+        0.0,
+        0.0
+      ],
+      "paired_seed_count": 10
+    },
+    "team_scout_carrier_medic": {
+      "aware_minus_agnostic_return": -1.119229698718963,
+      "mean_messages_agnostic": 0.4,
+      "mean_messages_aware": 0.4,
+      "paired_seed_ci": [
+        -2.808842034102232,
+        0.0592150694076
+      ],
+      "paired_seed_count": 10
+    },
+    "team_scout_medic": {
+      "aware_minus_agnostic_return": 0.0,
+      "mean_messages_agnostic": 0.3,
+      "mean_messages_aware": 0.3,
+      "paired_seed_ci": [
+        0.0,
+        0.0
+      ],
+      "paired_seed_count": 10
+    }
+  },
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E11\\run_20261121_182723_737946\\config_used.json",
+  "context_count": 10,
+  "experiment_id": "E11",
+  "headline": {
+    "dynamics_default_return_difference": -1.119229698718963,
+    "dynamics_high_return_difference": -1.0846678283674533,
+    "dynamics_low_return_difference": -0.578629156029818,
+    "grid_10_return_difference": -1.119229698718963,
+    "grid_12_return_difference": 0.0,
+    "grid_8_return_difference": -1.0255313171923437,
+    "team_scout_carrier_medic_return_difference": -1.119229698718963,
+    "team_scout_carrier_return_difference": 0.0,
+    "team_scout_medic_return_difference": 0.0
+  },
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E11\\run_20261121_182723_737946",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E11\\run_20261121_182723_737946",
+  "runtime_seconds": 34.08571379999921,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

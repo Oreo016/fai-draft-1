@@ -1,0 +1,8 @@
+metric,value
+h1_primary_fraction,
+h2_aware_minus_agnostic_return,-0.1610739480019666
+h2_budget_matched_return,-0.15932835528834904
+h2_budget_matched_seed_count,10
+h3_delayed_context_gain,-1.0
+h3_delayed_seed_count,1
+h4_positive_rate_drop_relative,1.0

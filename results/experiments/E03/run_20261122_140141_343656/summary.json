@@ -1,0 +1,86 @@
+{
+  "by_particle_count": {
+    "128": {
+      "degeneracy_rate": 0.0,
+      "mae_voc": 0.041539758797697626,
+      "mean_ess": 109.08863008866051,
+      "mean_ess_fraction": 0.8522549225676602,
+      "receiver_position_brier": 0.9531951904296875,
+      "regret": 0.0006053445140625003
+    },
+    "16": {
+      "degeneracy_rate": 0.0,
+      "mae_voc": 0.07315601972124504,
+      "mean_ess": 13.981298701298702,
+      "mean_ess_fraction": 0.8738311688311688,
+      "receiver_position_brier": 1.0142578125,
+      "regret": 0.0006053445140625003
+    },
+    "256": {
+      "degeneracy_rate": 0.0,
+      "mae_voc": 0.04306093689668359,
+      "mean_ess": 216.44641520076212,
+      "mean_ess_fraction": 0.845493809377977,
+      "receiver_position_brier": 0.9451988220214844,
+      "regret": 0.0015860026268437507
+    },
+    "32": {
+      "degeneracy_rate": 0.0,
+      "mae_voc": 0.07646736020936389,
+      "mean_ess": 26.918787094187394,
+      "mean_ess_fraction": 0.8412120966933561,
+      "receiver_position_brier": 0.975830078125,
+      "regret": 0.0
+    },
+    "64": {
+      "degeneracy_rate": 0.0,
+      "mae_voc": 0.07087642245826062,
+      "mean_ess": 53.426357629028814,
+      "mean_ess_fraction": 0.8347868379535752,
+      "receiver_position_brier": 0.95677490234375,
+      "regret": 0.0
+    }
+  },
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E03\\run_20261122_140141_343656\\config_used.json",
+  "context_count": 40,
+  "ess_definition": "inverse Simpson diversity ESS from duplicate sampled-state frequencies; not a weighted-posterior ESS",
+  "experiment_id": "E03",
+  "headline": {
+    "np_128_degeneracy_rate": 0.0,
+    "np_128_ess_fraction": 0.8522549225676602,
+    "np_128_mae_voc": 0.041539758797697626,
+    "np_128_regret": 0.0006053445140625003,
+    "np_16_degeneracy_rate": 0.0,
+    "np_16_ess_fraction": 0.8738311688311688,
+    "np_16_mae_voc": 0.07315601972124504,
+    "np_16_regret": 0.0006053445140625003,
+    "np_256_degeneracy_rate": 0.0,
+    "np_256_ess_fraction": 0.845493809377977,
+    "np_256_mae_voc": 0.04306093689668359,
+    "np_256_regret": 0.0015860026268437507,
+    "np_32_degeneracy_rate": 0.0,
+    "np_32_ess_fraction": 0.8412120966933561,
+    "np_32_mae_voc": 0.07646736020936389,
+    "np_32_regret": 0.0,
+    "np_64_degeneracy_rate": 0.0,
+    "np_64_ess_fraction": 0.8347868379535752,
+    "np_64_mae_voc": 0.07087642245826062,
+    "np_64_regret": 0.0
+  },
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E03\\run_20261122_140141_343656",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E03\\run_20261122_140141_343656",
+  "runtime_seconds": 122.96985019999556,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

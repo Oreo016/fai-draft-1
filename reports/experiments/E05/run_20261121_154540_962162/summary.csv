@@ -1,0 +1,10 @@
+metric,value
+aware_mae_vs_disabled_oracle,0.02304831445644741
+aware_spearman_vs_disabled_oracle,0.8380540736433387
+aware_top1_agreement,1.0
+disabled_mae_vs_disabled_oracle,0.02304831445644741
+disabled_spearman_vs_disabled_oracle,0.8380540736433387
+disabled_top1_agreement,1.0
+fixed_frequency_mae_vs_disabled_oracle,0.2880951608394542
+fixed_frequency_spearman_vs_disabled_oracle,0.7939459645042156
+fixed_frequency_top1_agreement,1.0

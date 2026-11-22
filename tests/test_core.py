@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from voc_sar.communication.estimator import (
     PairedRolloutEstimator,
@@ -13,6 +14,7 @@ from voc_sar.environment.sar_grid import SARGrid
 from voc_sar.evaluation.metrics import (
     bootstrap_cluster_mean_interval,
     bootstrap_mean_interval,
+    bootstrap_paired_relative_reduction,
     episode_return,
     filter_recall,
     pair_regret,
@@ -20,7 +22,10 @@ from voc_sar.evaluation.metrics import (
     voc_mean_absolute_error,
 )
 from voc_sar.evaluation.oracle import CounterfactualOracle
-from voc_sar.experiments.runner import run_experiments
+from voc_sar.experiments import runner
+from voc_sar.experiments.runner import (
+    _actionable_budget_messages, _assigned_budget_comparisons, _run_episode, run_experiments,
+)
 from voc_sar.policies.task import task_policies
 from voc_sar.types import (
     CommunicationChoice,
@@ -64,6 +69,7 @@ def small_config() -> dict:
             "fixed_frequency": 2,
         },
         "evaluation": {
+            "parallel_workers": 2,
             "seeds": [0],
             "held_out_contexts": 1,
             "bootstrap_samples": 10,
@@ -271,9 +277,7 @@ class CoreTests(unittest.TestCase):
             cost_weight = 0.0
             unit_cost = 1.0
 
-            def estimate(self, sender_id, receiver_id, message, horizon, observation):
-                if sender_id != observation.agent_id or receiver_id < 0 or horizon < 1:
-                    raise ValueError("invalid test estimator request")
+            def estimate_message(self, message, horizon, observation):
                 value = 2.0 if message.kind == "victim" else 3.0
                 return ValueEstimate(value, 0.0, value, 0.0)
 
@@ -315,19 +319,154 @@ class CoreTests(unittest.TestCase):
             bootstrap_cluster_mean_interval([[0.0, 1.0], [1.0, 1.0]], samples=50, seed=4),
         )
 
+    def test_relative_reduction_bootstraps_the_ratio_and_handles_zero(self) -> None:
+        interval, undefined = bootstrap_paired_relative_reduction(
+            [(0.0, 0.0), (0.5, 0.125)], 0.95, 100, 17
+        )
+        self.assertEqual(interval, (0.75, 0.75))
+        self.assertGreater(undefined, 0)
+        self.assertEqual(
+            bootstrap_paired_relative_reduction([(0.0, 0.0)] * 2, 0.95, 100, 17),
+            (None, 100),
+        )
+
+    def test_transport_requires_pickup_and_delivery(self) -> None:
+        world = SARGrid({**small_config()["environment"], "evacuation_point": [0, 0]})
+        world.reset(3)
+        world._positions = [(5, 5), (0, 1), (4, 4)]
+        world._victims[0].position = (0, 2)
+        world._victims[0].status = "stabilized"
+        pickup = world.step(["wait", "rescue", "wait"])
+        self.assertEqual(pickup.info["rescued"], 0)
+        self.assertTrue(pickup.observations[1].carrying_victim)
+        policy = task_policies(world.roles)[1]
+        self.assertEqual(policy.act(pickup.observations[1]), "left")
+        travel = world.step(["wait", "left", "wait"])
+        self.assertEqual(policy.act(travel.observations[1]), "rescue")
+        delivery = world.step(["wait", "rescue", "wait"])
+        self.assertEqual(delivery.info["rescued"], 1)
+        self.assertTrue(delivery.terminated)
+
+    def test_delivery_validates_against_pre_delivery_history(self) -> None:
+        world = SARGrid(small_config()["environment"])
+        world.reset(3)
+        fact = Message("victim", (2, 2), 0, "located", 0)
+        world._merge_fact(0, fact)
+        with self.assertRaises(ValueError):
+            world.deliver([CommunicationChoice(1, fact), CommunicationChoice(2, fact), None])
+        self.assertNotIn(fact, world.observe()[1].known_facts)
+
+    def test_online_episode_never_invokes_oracle(self) -> None:
+        with patch.object(CounterfactualOracle, "evaluate", side_effect=AssertionError("oracle read")):
+            first = _run_episode(small_config(), 1, "aware_nonmyopic", 0, 2, None)
+            second = _run_episode(small_config(), 1, "aware_nonmyopic", 0, 2, None)
+        for key in ("discounted_task_return", "messages", "decisions"):
+            self.assertEqual(first[key], second[key])
+
+    def test_online_selector_cannot_read_actual_simulator_state(self) -> None:
+        actual_world = SARGrid(small_config()["environment"])
+        real_selector = runner.select_communication
+        original_get = SARGrid.__getattribute__
+        privileged = {"positions", "victims", "hazards", "_positions", "_victims", "_hazards", "_rng"}
+
+        def guarded_get(world, name):
+            if world is actual_world and name in privileged:
+                raise AssertionError(f"selector read actual simulator field {name}")
+            return original_get(world, name)
+
+        def guarded_select(*args, **kwargs):
+            with patch.object(SARGrid, "__getattribute__", guarded_get):
+                return real_selector(*args, **kwargs)
+
+        with patch.object(runner, "SARGrid", return_value=actual_world):
+            with patch.object(runner, "select_communication", side_effect=guarded_select) as selection:
+                runner._run_episode(small_config(), 1, "aware_nonmyopic", 0, 2, None)
+        self.assertGreater(selection.call_count, 0)
+
+    def test_agnostic_reference_ignores_actual_receiver_belief(self) -> None:
+        environment = small_config()["environment"]
+        estimator = PairedRolloutEstimator(
+            ParticleReceiverEstimator(environment), task_policies(SARGrid(environment).roles),
+            particles=4, rollout_count=4,
+        )
+        fact = Message("victim", (2, 2), 0, "located", 0)
+        empty = Observation(0, Role.SCOUT, (0, 0), 6, known_facts=(fact,))
+        known = Observation(
+            0, Role.SCOUT, (0, 0), 6, known_facts=(fact,),
+            receiver_summaries=(ReceiverSummary(1, (fact,)),),
+        )
+        self.assertEqual(estimator.estimate_message(fact, 2, empty), estimator.estimate_message(fact, 2, known))
+        self.assertIsNone(select_communication(0, [], [1, 2], 2, estimator, observation=empty, aware=False))
+
     def test_experiment_runner_writes_episode_and_summary_records(self) -> None:
         config = small_config()
+        config["evaluation"]["assigned_message_budgets"] = [2]
         with tempfile.TemporaryDirectory() as output:
             config["evaluation"]["output_dir"] = output
             summary = run_experiments(config)
-            episode_file = Path(output) / "episodes.json"
-            summary_file = Path(output) / "summary.json"
+            run_directory = Path(summary["run_directory"])
+            episode_file = run_directory / "episodes.json"
+            summary_file = run_directory / "summary.json"
+            config_file = run_directory / "config_used.json"
+            animation_files = list(run_directory.glob("search-operations-*.gif"))
             self.assertTrue(episode_file.is_file())
             self.assertTrue(summary_file.is_file())
-            self.assertEqual(summary["episode_count"], 10)
+            self.assertTrue(config_file.is_file())
+            self.assertEqual(
+                json.loads(config_file.read_text(encoding="utf-8")), config
+            )
+            self.assertTrue(animation_files)
+            self.assertEqual(summary["episode_count"], 12)
+            self.assertEqual(summary["assigned_budget_episode_count"], 2)
+            self.assertEqual(summary["execution"]["parallel_workers"], 2)
+            self.assertEqual(summary["execution"]["episode_execution"], "parallel")
+            self.assertFalse(summary["decision_scope"]["valuation_contexts_are_capped"])
             self.assertTrue(summary["diagnostics"]["held_out_contexts"] > 0)
-            self.assertEqual(len(json.loads(episode_file.read_text(encoding="utf-8"))), 10)
+            episodes = json.loads(episode_file.read_text(encoding="utf-8"))
+            self.assertEqual(len(episodes), 12)
+            self.assertTrue(all(len(row["step_trace"]) == row["steps"] for row in episodes))
+            self.assertTrue(summary["hypotheses"]["H2_selectivity"]["assigned_budget_primary"]["protocol_adherence"])
+            contexts = json.loads((run_directory / "contexts.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(contexts), 1)
+            self.assertTrue(contexts[0]["pairs"][0]["oracle"]["paired_returns"])
+            self.assertTrue((run_directory / "provenance.json").is_file())
+            self.assertTrue((run_directory / "graphs" / "11-victims-rescued.svg").is_file())
+            self.assertEqual(json.loads((run_directory / "progress.json").read_text())["status"], "complete")
             self.assertTrue(summary["hypotheses"]["H4_cost_sensitivity"]["high_cost"] == 0.5)
+            self.assertTrue(summary["paired_return_comparisons"])
+            self.assertTrue(any(
+                item["second_method"] == "random"
+                for item in summary["paired_return_comparisons"]
+            ))
+
+    def test_actionable_budget_filters_repeated_facts_and_ignores_intentions(self) -> None:
+        located = Message("victim", (1, 1), 1, "located", 0)
+        stabilized = Message("victim", (1, 1), 3, "stabilized", 0)
+        stale_hazard = Message("hazard", (2, 1), 2, "active", 0)
+        fresh_hazard = Message("hazard", (2, 2), 3, "active", 0)
+        intention = Message("intention", (2, 1), 3, "scan", 0)
+        self.assertEqual(
+            _actionable_budget_messages(
+                [located, stabilized, stale_hazard, fresh_hazard, intention],
+                3, {("victim", (1, 1), "located")},
+            ),
+            [stabilized, fresh_hazard],
+        )
+
+    def test_assigned_budget_shortfall_preserves_rescue_and_return_estimates(self) -> None:
+        evaluation = {"seeds": [0, 1], "assigned_message_budgets": [2], "budget_schedule": "actionable_facts"}
+        rows = [
+            {"seed": seed, "method": method, "assigned_message_budget": 2,
+             "messages": messages, "discounted_task_return": rescues, "rescued_victims": rescues}
+            for seed in evaluation["seeds"]
+            for method, messages, rescues in (("aware_nonmyopic", 2, 1), ("agnostic_nonmyopic", 1, 0))
+        ]
+        result, = _assigned_budget_comparisons(rows, evaluation, 0.95, 100, 0)
+        self.assertFalse(result["protocol_adherence"])
+        self.assertIsNone(result["confidence_interval"])
+        self.assertEqual(result["assigned_policy_return_difference_ci"], (1, 1))
+        self.assertEqual(result["assigned_policy_rescue_difference_ci"], (1, 1))
+        self.assertEqual(result["agnostic_unused_slots"], 2)
 
 
 if __name__ == "__main__":

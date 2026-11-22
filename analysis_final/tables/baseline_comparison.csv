@@ -1,0 +1,11 @@
+Method,J_0,N_msg,Comm_Rate,Regret_Pair,MAE_VoC,CRB,Unrescued,Source
+Aware Nonmyopic (lambda=0.0),3.436,12.6,0.167,0.015,0.196,0.846,0.9,results/run_20261121_123226_187116/summary.json
+Aware Nonmyopic (lambda=0.5),2.855,2.0,0.023,0.015,0.196,0.977,1.5,results/run_20261121_123226_187116/summary.json
+Agnostic Nonmyopic (lambda=0.0),2.656,34.7,0.347,0.67,0.389,0.604,2.0,results/run_20261121_123226_187116/summary.json
+Agnostic Nonmyopic (lambda=0.5),2.491,6.6,0.066,0.67,0.389,0.925,2.0,results/run_20261121_123226_187116/summary.json
+Role-Only Baseline,2.459,1.0,0.3,0.016,N/A,0.989,1.1,results/experiments/E02/run_20261121_182600_198353/summary.json
+"Aware Myopic (H=1, lambda=0.0)",2.336,0.0,0.0,0.541,0.394,1.0,2.2,results/run_20261121_123226_187116/summary.json
+Fixed Frequency (period=3),3.04,29.9,1.0,0.288,N/A,0.659,1.0,results/run_20261121_123226_187116/summary.json
+Full Communication,3.33,87.6,1.0,0.0,N/A,0.0,1.0,results/run_20261121_123226_187116/summary.json
+Random Communication,2.443,91.0,1.0,0.72,N/A,-0.039,1.1,results/run_20261121_123226_187116/summary.json
+Never Communicate,2.336,0.0,0.0,0.541,N/A,1.0,2.2,results/run_20261121_123226_187116/summary.json

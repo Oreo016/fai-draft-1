@@ -1,0 +1,7 @@
+Hypothesis,Pre-spec Threshold,Your Observed,Your CI,Your Verdict,Partner Observed (Best),Partner CI (Best),Partner Source,Joint Verdict
+H1 Receiver Differentiation,Fraction >=0.30 (LCB),0.2857,"[0.143, 0.449]",Inconclusive,"0.3120 (230305, 50 seeds)","[0.204, 0.426]",h1_evaluation_230305_562535/summary.json,Inconclusive
+H2 Selectivity (CR vs Full),CR >=0.20,0.857,not stored,Supported,"0.942 (full-ep budget=5, 100 pairs)","[0.934, 0.952]",h2_full_episode_budget_consolidated.json,Supported
+H2 Selectivity (Delta-J at matched budget),CI excludes 0,+0.572,"[0.040, 1.049]",Supported,"+0.511 (full-ep budget=5, 100 pairs)","[0.288, 0.770]",h2_full_episode_budget_consolidated.json,Supported
+H2 Schedule Sensitivity (evenly spaced),NA (exploratory),not tested,NA,NA,"-0.379 (50 seeds, budget=5)","[-0.782, -0.038]",h2_fixed_budget_consolidated.json -> schedule_sensitivity,Negative finding (aware WORSE)
+H3 Downstream Value (nonmyopic horizon),Gain >=0.10,+0.040,not stored,Not Supported,"+0.050 (run 203742, p_move=0.3)","[-0.23, 0.33]",run_20261121_203742_696122/summary.json,Not Supported
+H4 Cost Sensitivity (relative drop),Rel. drop >=0.15,0.860,not stored,Supported,"0.811 (H4 run, 50 seeds, p_move=0.3)","[0.535, 0.782] paired",h4_cost_sensitivity_20261122_005543_147362/summary.json,Supported (robust)

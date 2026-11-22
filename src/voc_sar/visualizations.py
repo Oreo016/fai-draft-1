@@ -96,6 +96,10 @@ def create_visualizations(
     charts.append(("10-estimator-uncertainty.svg", _uncertainty(
         conditions, "Mean estimator uncertainty by condition",
     )))
+    charts.append(("11-victims-rescued.svg", _condition_bars(
+        conditions, "mean_rescued_victims", "rescued_victims_confidence_interval",
+        "Mean victims rescued by condition", "Victims rescued", decimals=2,
+    )))
 
     paths = []
     for name, svg in charts:
@@ -150,8 +154,9 @@ def _condition_bars(rows: list[dict[str, Any]], metric: str, interval: str | Non
     low = min([0.0, *values])
     high = max([0.0, *values])
     if interval:
-        low = min(low, *(float(row[interval][0]) for row in rows))
-        high = max(high, *(float(row[interval][1]) for row in rows))
+        bounds = [row[interval] for row in rows if row.get(interval) is not None]
+        low = min([low, *(float(pair[0]) for pair in bounds)])
+        high = max([high, *(float(pair[1]) for pair in bounds)])
     spread = max(high - low, 1.0)
     low -= spread * .12
     high += spread * .15
@@ -171,7 +176,7 @@ def _condition_bars(rows: list[dict[str, Any]], metric: str, interval: str | Non
         yy = y(float(row[metric] or 0))
         top_y, h = min(yy, zero), max(abs(zero-yy), 1)
         body.append(f'<rect x="{x-bar_w/2:.1f}" y="{top_y:.1f}" width="{bar_w:.1f}" height="{h:.1f}" rx="4" fill="{COLORS[i%len(COLORS)]}"/>')
-        if interval:
+        if interval and row.get(interval) is not None:
             lo, hi = map(float, row[interval]); cap = 8
             body.append(f'<line class="axis" x1="{x:.1f}" y1="{y(lo):.1f}" x2="{x:.1f}" y2="{y(hi):.1f}"/><line class="axis" x1="{x-cap/2:.1f}" y1="{y(lo):.1f}" x2="{x+cap/2:.1f}" y2="{y(lo):.1f}"/><line class="axis" x1="{x-cap/2:.1f}" y1="{y(hi):.1f}" x2="{x+cap/2:.1f}" y2="{y(hi):.1f}"/>')
         body.append(_text(x, 525, f"{row['method']} λ={row['cost_weight']:g}", size=10, rotate=-28))

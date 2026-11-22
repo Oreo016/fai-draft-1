@@ -1,0 +1,1475 @@
+[
+  {
+    "delayed": false,
+    "layout_seed": 86778,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          6,
+          5
+        ],
+        "metadata": {
+          "agent_position": [
+            6,
+            5
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_action": null,
+    "nonmyopic_action": null,
+    "oracle_action": [
+      0,
+      2
+    ],
+    "pairs": [
+      {
+        "message_index": 0,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              0.251932599066624,
+              0.251932599066624
+            ],
+            [
+              0.251932599066624,
+              0.251932599066624
+            ],
+            [
+              0.251932599066624,
+              0.251932599066624
+            ],
+            [
+              0.251932599066624,
+              0.251932599066624
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {
+          "1": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 0.0006656000041402876,
+            "rollout_seconds": 0.0015847000031499192,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          },
+          "5": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.5042400000000001,
+                -0.5042400000000001
+              ],
+              [
+                -0.5042400000000001,
+                -0.5042400000000001
+              ]
+            ],
+            "particle_seconds": 4.999994416721165e-06,
+            "rollout_seconds": 0.003710400007548742,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          }
+        },
+        "receiver_id": 1
+      },
+      {
+        "message_index": 0,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.48365568000000003,
+          "paired_returns": [
+            [
+              0.735588279066624,
+              0.251932599066624
+            ],
+            [
+              0.735588279066624,
+              0.251932599066624
+            ],
+            [
+              0.735588279066624,
+              0.251932599066624
+            ],
+            [
+              0.735588279066624,
+              0.251932599066624
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.48365568000000003
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {
+          "1": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                1.85,
+                1.85
+              ]
+            ],
+            "particle_seconds": 0.0006393000076059252,
+            "rollout_seconds": 0.0016648000018903986,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          },
+          "5": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                0.13575999999999996,
+                0.13575999999999996
+              ],
+              [
+                1.49576,
+                1.49576
+              ]
+            ],
+            "particle_seconds": 5.49999822396785e-06,
+            "rollout_seconds": 0.0042015999933937564,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          }
+        },
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "receiver_ids": [
+      1,
+      2
+    ],
+    "seed": 9001,
+    "sender_id": 0,
+    "step": 0
+  },
+  {
+    "delayed": false,
+    "layout_seed": 86778,
+    "messages": [
+      {
+        "kind": "victim",
+        "location": [
+          4,
+          4
+        ],
+        "metadata": null,
+        "observed_at": 7,
+        "sender_id": 0,
+        "status": "located"
+      },
+      {
+        "kind": "hazard",
+        "location": [
+          1,
+          2
+        ],
+        "metadata": null,
+        "observed_at": 21,
+        "sender_id": 0,
+        "status": "inactive"
+      },
+      {
+        "kind": "intention",
+        "location": [
+          3,
+          2
+        ],
+        "metadata": {
+          "agent_position": [
+            3,
+            1
+          ],
+          "role": "scout"
+        },
+        "observed_at": 23,
+        "sender_id": 0,
+        "status": "right"
+      }
+    ],
+    "myopic_action": null,
+    "nonmyopic_action": null,
+    "oracle_action": null,
+    "pairs": [
+      {
+        "message_index": 0,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {},
+        "receiver_id": 1
+      },
+      {
+        "message_index": 0,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {},
+        "receiver_id": 2
+      },
+      {
+        "message_index": 1,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {
+          "1": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 6.700007361359894e-06,
+            "rollout_seconds": 0.0026280999882146716,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          },
+          "5": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 4.5000051613897085e-06,
+            "rollout_seconds": 0.002909300004830584,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          }
+        },
+        "receiver_id": 1
+      },
+      {
+        "message_index": 1,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {},
+        "receiver_id": 2
+      },
+      {
+        "message_index": 2,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {
+          "1": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 0.016157899997779168,
+            "rollout_seconds": 0.0028276000084588304,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          },
+          "5": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 4.999994416721165e-06,
+            "rollout_seconds": 0.0025942000065697357,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          }
+        },
+        "receiver_id": 1
+      },
+      {
+        "message_index": 2,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {
+          "1": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 0.016747000001487322,
+            "rollout_seconds": 0.003217900011804886,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          },
+          "5": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 5.099995178170502e-06,
+            "rollout_seconds": 0.00248019999708049,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          }
+        },
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": 0,
+    "receiver_ids": [
+      1,
+      2
+    ],
+    "seed": 9001,
+    "sender_id": 0,
+    "step": 23
+  },
+  {
+    "delayed": false,
+    "layout_seed": 86779,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          4,
+          8
+        ],
+        "metadata": {
+          "agent_position": [
+            4,
+            8
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_action": null,
+    "nonmyopic_action": null,
+    "oracle_action": null,
+    "pairs": [
+      {
+        "message_index": 0,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.31401172093337615,
+              -0.31401172093337615
+            ],
+            [
+              -0.31401172093337615,
+              -0.31401172093337615
+            ],
+            [
+              -0.31401172093337615,
+              -0.31401172093337615
+            ],
+            [
+              -0.31401172093337615,
+              -0.31401172093337615
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {
+          "1": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 0.0006492999964393675,
+            "rollout_seconds": 0.001936000000569038,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          },
+          "5": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.5042400000000001,
+                -0.5042400000000001
+              ],
+              [
+                -0.5042400000000001,
+                -0.5042400000000001
+              ]
+            ],
+            "particle_seconds": 4.999994416721165e-06,
+            "rollout_seconds": 0.0036997999995946884,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          }
+        },
+        "receiver_id": 1
+      },
+      {
+        "message_index": 0,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.31401172093337615,
+              -0.31401172093337615
+            ],
+            [
+              -0.31401172093337615,
+              -0.31401172093337615
+            ],
+            [
+              -0.31401172093337615,
+              -0.31401172093337615
+            ],
+            [
+              -0.31401172093337615,
+              -0.31401172093337615
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {
+          "1": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 0.0006406999891623855,
+            "rollout_seconds": 0.001552900008391589,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          },
+          "5": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.5042400000000001,
+                -0.5042400000000001
+              ],
+              [
+                -0.5042400000000001,
+                -0.5042400000000001
+              ]
+            ],
+            "particle_seconds": 5.49999822396785e-06,
+            "rollout_seconds": 0.0032986000005621463,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          }
+        },
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "receiver_ids": [
+      1,
+      2
+    ],
+    "seed": 9002,
+    "sender_id": 0,
+    "step": 0
+  },
+  {
+    "delayed": false,
+    "layout_seed": 86779,
+    "messages": [
+      {
+        "kind": "hazard",
+        "location": [
+          3,
+          7
+        ],
+        "metadata": null,
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "clear"
+      },
+      {
+        "kind": "victim",
+        "location": [
+          1,
+          8
+        ],
+        "metadata": null,
+        "observed_at": 9,
+        "sender_id": 0,
+        "status": "located"
+      },
+      {
+        "kind": "intention",
+        "location": [
+          3,
+          1
+        ],
+        "metadata": {
+          "agent_position": [
+            2,
+            1
+          ],
+          "role": "scout"
+        },
+        "observed_at": 23,
+        "sender_id": 0,
+        "status": "down"
+      }
+    ],
+    "myopic_action": null,
+    "nonmyopic_action": null,
+    "oracle_action": null,
+    "pairs": [
+      {
+        "message_index": 0,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {},
+        "receiver_id": 1
+      },
+      {
+        "message_index": 0,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {},
+        "receiver_id": 2
+      },
+      {
+        "message_index": 1,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {},
+        "receiver_id": 1
+      },
+      {
+        "message_index": 1,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {
+          "1": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 6.100002792663872e-06,
+            "rollout_seconds": 0.003683400005684234,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          },
+          "5": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 4.9000082071870565e-06,
+            "rollout_seconds": 0.0027494999958435073,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          }
+        },
+        "receiver_id": 2
+      },
+      {
+        "message_index": 2,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {
+          "1": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                1.85,
+                1.85
+              ]
+            ],
+            "particle_seconds": 0.016180899998289533,
+            "rollout_seconds": 0.002484500000718981,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          },
+          "5": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                1.85,
+                1.85
+              ]
+            ],
+            "particle_seconds": 5.49999822396785e-06,
+            "rollout_seconds": 0.002550300006987527,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          }
+        },
+        "receiver_id": 1
+      },
+      {
+        "message_index": 2,
+        "oracle": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "oracle_myopic": {
+          "communication_cost": 0.0,
+          "marginal_value": 0.0,
+          "paired_returns": [
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ],
+            [
+              -0.15000000000000002,
+              -0.15000000000000002
+            ]
+          ],
+          "particle_seconds": null,
+          "rollout_seconds": null,
+          "standard_error": 0.0,
+          "value_of_communication": 0.0
+        },
+        "predictions": {
+          "1": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 0.017720400006510317,
+            "rollout_seconds": 0.002987799991387874,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          },
+          "5": {
+            "communication_cost": 0.0,
+            "marginal_value": 0.0,
+            "paired_returns": [
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ],
+              [
+                -0.15000000000000002,
+                -0.15000000000000002
+              ]
+            ],
+            "particle_seconds": 4.999994416721165e-06,
+            "rollout_seconds": 0.0026174999948125333,
+            "standard_error": 0.0,
+            "value_of_communication": 0.0
+          }
+        },
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": 0,
+    "receiver_ids": [
+      1,
+      2
+    ],
+    "seed": 9002,
+    "sender_id": 0,
+    "step": 23
+  }
+]

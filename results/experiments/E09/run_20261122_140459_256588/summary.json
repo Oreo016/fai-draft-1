@@ -1,0 +1,76 @@
+{
+  "by_horizon": {
+    "1": {
+      "agreement": 1.0,
+      "mae_voc": 0.08457861393768379,
+      "messages": 0.0,
+      "return": -0.8212715430401861
+    },
+    "10": {
+      "agreement": 0.75,
+      "mae_voc": 0.13032880321424628,
+      "messages": 0.25,
+      "return": -0.8660622829352489
+    },
+    "15": {
+      "agreement": 0.8,
+      "mae_voc": 0.1400125238929027,
+      "messages": 0.2,
+      "return": -0.8651894865784401
+    },
+    "3": {
+      "agreement": 0.85,
+      "mae_voc": 0.08710986393768379,
+      "messages": 0.15,
+      "return": -0.8277339132889716
+    },
+    "5": {
+      "agreement": 0.7,
+      "mae_voc": 0.10066470768768379,
+      "messages": 0.3,
+      "return": -0.983823579336296
+    }
+  },
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E09\\run_20261122_140459_256588\\config_used.json",
+  "context_count": 20,
+  "evaluation_horizon": 15,
+  "experiment_id": "E09",
+  "headline": {
+    "h10_agreement": 0.75,
+    "h10_mae_voc": 0.13032880321424628,
+    "h10_messages": 0.25,
+    "h10_return": -0.8660622829352489,
+    "h15_agreement": 0.8,
+    "h15_mae_voc": 0.1400125238929027,
+    "h15_messages": 0.2,
+    "h15_return": -0.8651894865784401,
+    "h1_agreement": 1.0,
+    "h1_mae_voc": 0.08457861393768379,
+    "h1_messages": 0.0,
+    "h1_return": -0.8212715430401861,
+    "h3_agreement": 0.85,
+    "h3_mae_voc": 0.08710986393768379,
+    "h3_messages": 0.15,
+    "h3_return": -0.8277339132889716,
+    "h5_agreement": 0.7,
+    "h5_mae_voc": 0.10066470768768379,
+    "h5_messages": 0.3,
+    "h5_return": -0.983823579336296
+  },
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E09\\run_20261122_140459_256588",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E09\\run_20261122_140459_256588",
+  "runtime_seconds": 196.3176744000084,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

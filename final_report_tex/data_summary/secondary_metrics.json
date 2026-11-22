@@ -1,0 +1,2178 @@
+{
+  "E01": {
+    "source": "results/experiments/E01/run_20261122_140035_246491",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e01_message_conditioned.yaml",
+        "contexts_per_seed": 2,
+        "id": "E01",
+        "name": "message_conditioned_rollouts",
+        "particles": 64,
+        "rollout_count": 32
+      }
+    },
+    "groups": [
+      {
+        "variant": "unconditioned",
+        "rows": 20,
+        "seeds": 10,
+        "j0_return_from_context": -0.8610780009806068,
+        "mae_voc": 0.13854768832334144,
+        "pair_regret": 0.017872494105438293,
+        "receiver_regret": 0.017872494105438293
+      },
+      {
+        "variant": "conditioned",
+        "rows": 20,
+        "seeds": 10,
+        "j0_return_from_context": -0.8610780009806068,
+        "mae_voc": 0.13854768832334144,
+        "pair_regret": 0.017872494105438293,
+        "receiver_regret": 0.017872494105438293
+      }
+    ]
+  },
+  "E02": {
+    "source": "results/experiments/E02/run_20261122_140019_731832",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "compatibility": {
+          "hazard_active": {
+            "carrier": 1.25,
+            "medic": 2.5,
+            "scout": 1.0
+          },
+          "intention": {
+            "carrier": 1.0,
+            "medic": 1.0,
+            "scout": 1.0
+          },
+          "victim_located": {
+            "carrier": 1.5,
+            "medic": 2.0,
+            "scout": 0.25
+          },
+          "victim_stabilized": {
+            "carrier": 3.0,
+            "medic": 0.25,
+            "scout": 0.1
+          }
+        },
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e02_role_only.yaml",
+        "contexts_per_seed": 2,
+        "id": "E02",
+        "name": "role_only_baseline",
+        "particles": 64,
+        "rollout_count": 32
+      }
+    },
+    "groups": [
+      {
+        "method": "aware",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.3,
+        "regret": 0.1512847337699293,
+        "return": -0.983823579336296
+      },
+      {
+        "method": "agnostic",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.2,
+        "regret": 0.0,
+        "return": -0.8227496313343295
+      },
+      {
+        "method": "role_only",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "method": "role_only_budget_matched",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.3,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      }
+    ]
+  },
+  "E03": {
+    "source": "results/experiments/E03/run_20261122_140141_343656",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e03_particle_diagnostics.yaml",
+        "contexts_per_seed": 4,
+        "id": "E03",
+        "name": "particle_filter_diagnostics",
+        "particle_counts": [
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "rollout_count": 32
+      }
+    },
+    "groups": [
+      {
+        "particles": 16,
+        "rows": 40,
+        "seeds": 10,
+        "ess_fraction": 0.8738311688311688,
+        "proposal_weight_ess": 14.257158553826205,
+        "receiver_position_brier": 1.0142578125,
+        "mae_voc": 0.07315601972124504,
+        "regret": 0.0006053445140625003
+      },
+      {
+        "particles": 32,
+        "rows": 40,
+        "seeds": 10,
+        "ess_fraction": 0.8412120966933561,
+        "proposal_weight_ess": 28.457324579476214,
+        "receiver_position_brier": 0.975830078125,
+        "mae_voc": 0.0764673602093639,
+        "regret": 0.0
+      },
+      {
+        "particles": 64,
+        "rows": 40,
+        "seeds": 10,
+        "ess_fraction": 0.8347868379535753,
+        "proposal_weight_ess": 57.25759720868693,
+        "receiver_position_brier": 0.95677490234375,
+        "mae_voc": 0.07087642245826062,
+        "regret": 0.0
+      },
+      {
+        "particles": 128,
+        "rows": 40,
+        "seeds": 10,
+        "ess_fraction": 0.8522549225676602,
+        "proposal_weight_ess": 113.55204218283215,
+        "receiver_position_brier": 0.9531951904296875,
+        "mae_voc": 0.041539758797697626,
+        "regret": 0.0006053445140625003
+      },
+      {
+        "particles": 256,
+        "rows": 40,
+        "seeds": 10,
+        "ess_fraction": 0.845493809377977,
+        "proposal_weight_ess": 227.27019712544114,
+        "receiver_position_brier": 0.9451988220214844,
+        "mae_voc": 0.04306093689668359,
+        "regret": 0.001586002626843751
+      }
+    ]
+  },
+  "E04": {
+    "source": "results/experiments/E04/run_20261122_140321_777612",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e04_noise_crn.yaml",
+        "contexts_per_seed": 2,
+        "id": "E04",
+        "name": "estimator_noise_crn",
+        "particles": 64,
+        "reference_rollouts": 256,
+        "rollout_counts": [
+          8,
+          16,
+          32,
+          64,
+          128
+        ]
+      }
+    },
+    "groups": [
+      {
+        "rollouts": 8,
+        "crn": true,
+        "rows": 20,
+        "seeds": 10,
+        "bias": -0.0076564643479214755,
+        "standard_error": 0.044397492058550016,
+        "runtime_seconds_per_decision": 0.11327517999670818
+      },
+      {
+        "rollouts": 16,
+        "crn": true,
+        "rows": 20,
+        "seeds": 10,
+        "bias": 0.021874800375132973,
+        "standard_error": 0.03279642480258822,
+        "runtime_seconds_per_decision": 0.2377845900009561
+      },
+      {
+        "rollouts": 32,
+        "crn": true,
+        "rows": 20,
+        "seeds": 10,
+        "bias": -0.003997351592163355,
+        "standard_error": 0.03550495634601761,
+        "runtime_seconds_per_decision": 0.4601011299986567
+      },
+      {
+        "rollouts": 64,
+        "crn": true,
+        "rows": 20,
+        "seeds": 10,
+        "bias": 0.001940018148425037,
+        "standard_error": 0.02490880233681148,
+        "runtime_seconds_per_decision": 0.9238744100010081
+      },
+      {
+        "rollouts": 128,
+        "crn": true,
+        "rows": 20,
+        "seeds": 10,
+        "bias": -0.011758904919285405,
+        "standard_error": 0.01814852149667722,
+        "runtime_seconds_per_decision": 1.8129061650011864
+      },
+      {
+        "rollouts": 8,
+        "crn": false,
+        "rows": 20,
+        "seeds": 10,
+        "bias": -0.048239509290025316,
+        "standard_error": 0.09185659947210884,
+        "runtime_seconds_per_decision": 0.11331439999994472
+      },
+      {
+        "rollouts": 16,
+        "crn": false,
+        "rows": 20,
+        "seeds": 10,
+        "bias": 0.010660067661820148,
+        "standard_error": 0.0658196595537112,
+        "runtime_seconds_per_decision": 0.2315114100005303
+      },
+      {
+        "rollouts": 32,
+        "crn": false,
+        "rows": 20,
+        "seeds": 10,
+        "bias": 6.083734633150341e-05,
+        "standard_error": 0.05674513439026561,
+        "runtime_seconds_per_decision": 0.45419180000099
+      },
+      {
+        "rollouts": 64,
+        "crn": false,
+        "rows": 20,
+        "seeds": 10,
+        "bias": -0.00157923609995011,
+        "standard_error": 0.03849183838525146,
+        "runtime_seconds_per_decision": 0.9319660599991039
+      },
+      {
+        "rollouts": 128,
+        "crn": false,
+        "rows": 20,
+        "seeds": 10,
+        "bias": -0.012278912935435074,
+        "standard_error": 0.03243696668617651,
+        "runtime_seconds_per_decision": 1.862996975000715
+      }
+    ]
+  },
+  "E05": {
+    "source": "results/experiments/E05/run_20261122_141611_297838",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e05_continuation_bias.yaml",
+        "contexts_per_seed": 2,
+        "continuations": [
+          "disabled",
+          "fixed_frequency",
+          "aware"
+        ],
+        "id": "E05",
+        "name": "continuation_bias",
+        "rollout_count": 32
+      }
+    },
+    "groups": [
+      {
+        "continuation": "disabled",
+        "rows": 20,
+        "seeds": 10,
+        "top1_agreement": 1.0,
+        "mae": 0.0019613162255625012
+      },
+      {
+        "continuation": "fixed_frequency",
+        "rows": 20,
+        "seeds": 10,
+        "top1_agreement": 1.0,
+        "mae": 0.0028625410312084704
+      },
+      {
+        "continuation": "aware",
+        "rows": 20,
+        "seeds": 10,
+        "top1_agreement": 1.0,
+        "mae": 0.0019613162255625012
+      }
+    ]
+  },
+  "E06": {
+    "source": "results/experiments/E06/run_20261122_140427_962155",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "confidence_level_lcb": 0.9,
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e06_robust_null.yaml",
+        "contexts_per_seed": 2,
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "epsilon_grid": [
+          0.0,
+          0.1,
+          0.25,
+          0.5
+        ],
+        "id": "E06",
+        "name": "noise_robust_selection_null_calibration",
+        "null_replicates": 100,
+        "null_rollouts": 8,
+        "particles": 64,
+        "rollout_count": 32
+      }
+    },
+    "groups": [
+      {
+        "rule": "strict",
+        "rows": 20,
+        "seeds": 10,
+        "positive_rate_lambda_0": 0.1,
+        "positive_rate_lambda_0_5": 0.0
+      },
+      {
+        "rule": "lcb",
+        "rows": 20,
+        "seeds": 10,
+        "positive_rate_lambda_0": 0.05,
+        "positive_rate_lambda_0_5": 0.0
+      },
+      {
+        "rule": "epsilon_0",
+        "rows": 20,
+        "seeds": 10,
+        "positive_rate_lambda_0": 0.1,
+        "positive_rate_lambda_0_5": 0.0
+      },
+      {
+        "rule": "epsilon_0.1",
+        "rows": 20,
+        "seeds": 10,
+        "positive_rate_lambda_0": 0.05,
+        "positive_rate_lambda_0_5": 0.0
+      },
+      {
+        "rule": "epsilon_0.25",
+        "rows": 20,
+        "seeds": 10,
+        "positive_rate_lambda_0": 0.05,
+        "positive_rate_lambda_0_5": 0.0
+      },
+      {
+        "rule": "epsilon_0.5",
+        "rows": 20,
+        "seeds": 10,
+        "positive_rate_lambda_0": 0.0,
+        "positive_rate_lambda_0_5": 0.0
+      }
+    ]
+  },
+  "E07": {
+    "source": "results/experiments/E07/run_20261122_140247_607739",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "compatibility": {
+          "hazard_active": {
+            "carrier": 1.25,
+            "medic": 2.5,
+            "scout": 1.0
+          },
+          "intention": {
+            "carrier": 1.0,
+            "medic": 1.0,
+            "scout": 1.0
+          },
+          "victim_located": {
+            "carrier": 1.5,
+            "medic": 2.0,
+            "scout": 0.25
+          },
+          "victim_stabilized": {
+            "carrier": 3.0,
+            "medic": 0.25,
+            "scout": 0.1
+          }
+        },
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e07_cost_pareto.yaml",
+        "contexts_per_seed": 2,
+        "distance_scale_L": 10.0,
+        "id": "E07",
+        "lambda_grid": [
+          0.0,
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "name": "cost_sweep_pareto",
+        "receiver_dependent_cost": false,
+        "rollout_count": 32,
+        "unit_cost_c0": 1.0
+      }
+    },
+    "groups": [
+      {
+        "lambda": 0.0,
+        "method": "aware",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.3,
+        "regret": 0.1512847337699293,
+        "return": -0.983823579336296
+      },
+      {
+        "lambda": 0.0,
+        "method": "agnostic",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.2,
+        "regret": 0.0,
+        "return": -0.8227496313343295
+      },
+      {
+        "lambda": 0.0,
+        "method": "role_only",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.0,
+        "method": "full",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.0,
+        "method": "fixed_frequency",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.5,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.0,
+        "method": "random",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.05,
+        "method": "aware",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.1,
+        "regret": 0.0,
+        "return": -0.8268611169321628
+      },
+      {
+        "lambda": 0.05,
+        "method": "agnostic",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.05,
+        "method": "role_only",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.05,
+        "method": "full",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.05,
+        "method": "fixed_frequency",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.5,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.05,
+        "method": "random",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.1,
+        "method": "aware",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.05,
+        "regret": 0.0,
+        "return": -0.8227496313343295
+      },
+      {
+        "lambda": 0.1,
+        "method": "agnostic",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.1,
+        "method": "role_only",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.1,
+        "method": "full",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.1,
+        "method": "fixed_frequency",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.5,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.1,
+        "method": "random",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.25,
+        "method": "aware",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.25,
+        "method": "agnostic",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.25,
+        "method": "role_only",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.25,
+        "method": "full",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.25,
+        "method": "fixed_frequency",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.5,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.25,
+        "method": "random",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.5,
+        "method": "aware",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.5,
+        "method": "agnostic",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.5,
+        "method": "role_only",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.5,
+        "method": "full",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.5,
+        "method": "fixed_frequency",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.5,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 0.5,
+        "method": "random",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 1.0,
+        "method": "aware",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 1.0,
+        "method": "agnostic",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 1.0,
+        "method": "role_only",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 1.0,
+        "method": "full",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 1.0,
+        "method": "fixed_frequency",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 0.5,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      },
+      {
+        "lambda": 1.0,
+        "method": "random",
+        "rows": 20,
+        "seeds": 10,
+        "messages": 1,
+        "regret": 0.0,
+        "return": -0.821271543040186
+      }
+    ]
+  },
+  "E08": {
+    "source": "results/experiments/E08/run_20261122_140141_142268",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e08_hypothesis_robustness.yaml",
+        "contexts_per_seed": 2,
+        "delayed_value_margin": 0.5,
+        "delta1_grid": [
+          0.0,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "id": "E08",
+        "name": "hypothesis_robustness",
+        "rollout_count": 32
+      }
+    },
+    "groups": [
+      {
+        "delayed": false,
+        "rows": 19,
+        "seeds": 10,
+        "agreement_gain": -0.2631578947368421,
+        "myopic_agreement": 1,
+        "nonmyopic_agreement": 0.7368421052631579
+      },
+      {
+        "delayed": true,
+        "rows": 1,
+        "seeds": 1,
+        "agreement_gain": -1,
+        "myopic_agreement": 1,
+        "nonmyopic_agreement": 0
+      }
+    ]
+  },
+  "E09": {
+    "source": "results/experiments/E09/run_20261122_140459_256588",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e09_horizon_sweep.yaml",
+        "contexts_per_seed": 2,
+        "horizons": [
+          1,
+          3,
+          5,
+          10,
+          15
+        ],
+        "id": "E09",
+        "name": "horizon_sweep",
+        "rollout_count": 32
+      }
+    },
+    "groups": [
+      {
+        "horizon": 1,
+        "rows": 20,
+        "seeds": 10,
+        "agreement": 1.0,
+        "mae_voc": 0.08457861393768379,
+        "messages": 0,
+        "return": -0.821271543040186
+      },
+      {
+        "horizon": 3,
+        "rows": 20,
+        "seeds": 10,
+        "agreement": 0.85,
+        "mae_voc": 0.08710986393768379,
+        "messages": 0.15,
+        "return": -0.8277339132889716
+      },
+      {
+        "horizon": 5,
+        "rows": 20,
+        "seeds": 10,
+        "agreement": 0.7,
+        "mae_voc": 0.10066470768768379,
+        "messages": 0.3,
+        "return": -0.983823579336296
+      },
+      {
+        "horizon": 10,
+        "rows": 20,
+        "seeds": 10,
+        "agreement": 0.75,
+        "mae_voc": 0.1303288032142463,
+        "messages": 0.25,
+        "return": -0.8660622829352489
+      },
+      {
+        "horizon": 15,
+        "rows": 20,
+        "seeds": 10,
+        "agreement": 0.8,
+        "mae_voc": 0.1400125238929027,
+        "messages": 0.2,
+        "return": -0.8651894865784401
+      }
+    ]
+  },
+  "E10": {
+    "source": "results/experiments/E10/run_20261122_140251_059893",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "age_bins": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21
+        ],
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e10_staleness.yaml",
+        "contexts_per_seed": 4,
+        "id": "E10",
+        "minimum_context_step": 12,
+        "name": "staleness_validation",
+        "prefer_stale_messages": true,
+        "rollout_count": 32
+      }
+    },
+    "groups": [
+      {
+        "rows": 40,
+        "seeds": 10,
+        "information_age": 4.825,
+        "freshness_return_difference": 0.0,
+        "observed_marginal_value": 0.18353773438850116
+      }
+    ],
+    "minimum_age": 0,
+    "maximum_age": 12,
+    "changed_returns": 0
+  },
+  "E11": {
+    "source": "results/experiments/E11/run_20261122_140425_455156",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e11_robustness.yaml",
+        "contexts_per_seed": 1,
+        "grid_sizes": [
+          8,
+          10,
+          12
+        ],
+        "id": "E11",
+        "move_levels": [
+          0.0,
+          0.8,
+          1.0
+        ],
+        "name": "environment_robustness",
+        "rollout_count": 16,
+        "team_variants": [
+          [
+            "scout",
+            "carrier"
+          ],
+          [
+            "scout",
+            "medic"
+          ],
+          [
+            "scout",
+            "carrier",
+            "medic"
+          ]
+        ],
+        "toggle_levels": [
+          0.0,
+          0.2,
+          1.0
+        ]
+      }
+    },
+    "groups": [
+      {
+        "setting": "dynamics_low",
+        "rows": 10,
+        "seeds": 10,
+        "aware_minus_agnostic_return": 0.0,
+        "aware_regret": 0.0,
+        "messages_aware": 0.3,
+        "messages_agnostic": 0.2
+      },
+      {
+        "setting": "dynamics_default",
+        "rows": 10,
+        "seeds": 10,
+        "aware_minus_agnostic_return": -0.0029561765882869296,
+        "aware_regret": 0.007845264902250005,
+        "messages_aware": 0.3,
+        "messages_agnostic": 0.2
+      },
+      {
+        "setting": "dynamics_high",
+        "rows": 10,
+        "seeds": 10,
+        "aware_minus_agnostic_return": -0.0026605589294582234,
+        "aware_regret": 0.0,
+        "messages_aware": 0.3,
+        "messages_agnostic": 0.2
+      },
+      {
+        "setting": "grid_8",
+        "rows": 10,
+        "seeds": 10,
+        "aware_minus_agnostic_return": -0.8413069779573874,
+        "aware_regret": 0.6153268700096508,
+        "messages_aware": 0.7,
+        "messages_agnostic": 0.5
+      },
+      {
+        "setting": "grid_10",
+        "rows": 10,
+        "seeds": 10,
+        "aware_minus_agnostic_return": -0.0029561765882869296,
+        "aware_regret": 0.007845264902250005,
+        "messages_aware": 0.3,
+        "messages_agnostic": 0.2
+      },
+      {
+        "setting": "grid_12",
+        "rows": 10,
+        "seeds": 10,
+        "aware_minus_agnostic_return": 3.539286908560424e-05,
+        "aware_regret": 0.07748409780000004,
+        "messages_aware": 0.4,
+        "messages_agnostic": 0.1
+      },
+      {
+        "setting": "team_scout_carrier",
+        "rows": 10,
+        "seeds": 10,
+        "aware_minus_agnostic_return": 0.0,
+        "aware_regret": 0.0,
+        "messages_aware": 0,
+        "messages_agnostic": 0.2
+      },
+      {
+        "setting": "team_scout_medic",
+        "rows": 10,
+        "seeds": 10,
+        "aware_minus_agnostic_return": -0.04117822641892978,
+        "aware_regret": 0.0028595990568701262,
+        "messages_aware": 0.4,
+        "messages_agnostic": 0.2
+      },
+      {
+        "setting": "team_scout_carrier_medic",
+        "rows": 10,
+        "seeds": 10,
+        "aware_minus_agnostic_return": -0.0029561765882869296,
+        "aware_regret": 0.007845264902250005,
+        "messages_aware": 0.3,
+        "messages_agnostic": 0.2
+      }
+    ]
+  },
+  "E12": {
+    "source": "results/experiments/E12/run_20261122_140441_666903",
+    "config": {
+      "communication": {
+        "cost_sweep": [
+          0.0,
+          0.5
+        ],
+        "fixed_frequency": 3,
+        "max_messages_per_sender_step": 1,
+        "myopic_horizon": 1,
+        "nonmyopic_horizon": 5,
+        "oracle_horizon": 15,
+        "oracle_value_threshold": 0.5,
+        "particles": 64,
+        "rollout_count": 32,
+        "shortlist_size": 8,
+        "unit_cost": 1.0,
+        "useful_message_threshold": 0.0
+      },
+      "environment": {
+        "evacuation_point": [
+          0,
+          0
+        ],
+        "gamma": 0.9,
+        "grid_size": 10,
+        "hazard_move_probability": 0.8,
+        "hazard_toggle_probability": 0.2,
+        "hazards": 2,
+        "horizon": 100,
+        "reward": {
+          "locate": 1.0,
+          "rescue": 10.0,
+          "stabilize": 2.0,
+          "step_penalty": 0.05
+        },
+        "roles": [
+          "scout",
+          "carrier",
+          "medic"
+        ],
+        "victims": 3
+      },
+      "evaluation": {
+        "bootstrap_samples": 10000,
+        "confidence_level": 0.95,
+        "held_out_contexts": 100,
+        "message_budget_match_tolerance": 0,
+        "output_dir": "results",
+        "parallel_workers": 6,
+        "report_dir": "reports",
+        "return_match_tolerance": 1.0,
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "thresholds": {
+          "communication_reduction": 0.2,
+          "high_cost_rate_reduction": 0.15,
+          "horizon_agreement_gain": 0.1,
+          "receiver_differentiation_fraction": 0.3,
+          "receiver_value_difference": 0.5,
+          "significance_level": 0.05
+        }
+      },
+      "experiment": {
+        "compatibility": {
+          "hazard_active": {
+            "carrier": 1.25,
+            "medic": 2.5,
+            "scout": 1.0
+          },
+          "intention": {
+            "carrier": 1.0,
+            "medic": 1.0,
+            "scout": 1.0
+          },
+          "victim_located": {
+            "carrier": 1.5,
+            "medic": 2.0,
+            "scout": 0.25
+          },
+          "victim_stabilized": {
+            "carrier": 3.0,
+            "medic": 0.25,
+            "scout": 0.1
+          }
+        },
+        "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\configs\\experiments\\e12_failures_runtime.yaml",
+        "contexts_per_seed": 4,
+        "failure_trace_count": 5,
+        "id": "E12",
+        "name": "failure_runtime_analysis",
+        "rollout_count": 32
+      }
+    },
+    "groups": [
+      {
+        "rows": 40,
+        "seeds": 10,
+        "aware_decision_seconds": 0.42644067000001085,
+        "oracle_seconds": 0.4259472674999415,
+        "particle_filter_seconds": 0.02956324499900802,
+        "rollout_estimate_seconds": 0.1827998500000831,
+        "regret": 0.08652988615254796
+      }
+    ],
+    "failure_contexts": 7
+  },
+  "gamma_lambda": {
+    "source": "results/sweep_gamma_lambda/run_20261122_140807_648516",
+    "raw_rows": 3360,
+    "intervals": [
+      {
+        "gamma": 0.8,
+        "cost": 0.0,
+        "seed_count": 10,
+        "difference": -0.04382786889517686,
+        "ci": [
+          -0.1314410409840089,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.8,
+        "cost": 0.05,
+        "seed_count": 10,
+        "difference": -3.021951642210863e-05,
+        "ci": [
+          -7.373131280206668e-05,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.8,
+        "cost": 0.1,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.8,
+        "cost": 0.25,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.8,
+        "cost": 0.5,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.8,
+        "cost": 1.0,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.9,
+        "cost": 0.0,
+        "seed_count": 10,
+        "difference": -0.16107394800196662,
+        "ci": [
+          -0.47325328009661566,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.9,
+        "cost": 0.05,
+        "seed_count": 10,
+        "difference": -0.005589573891976773,
+        "ci": [
+          -0.013812545087643392,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.9,
+        "cost": 0.1,
+        "seed_count": 10,
+        "difference": -0.0014780882941434648,
+        "ci": [
+          -0.004434264882430395,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.9,
+        "cost": 0.25,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.9,
+        "cost": 0.5,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.9,
+        "cost": 1.0,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.95,
+        "cost": 0.0,
+        "seed_count": 10,
+        "difference": -0.3809476693874956,
+        "ci": [
+          -0.9912572776722487,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.95,
+        "cost": 0.05,
+        "seed_count": 10,
+        "difference": -0.06584883954640985,
+        "ci": [
+          -0.19754651863922956,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.95,
+        "cost": 0.1,
+        "seed_count": 10,
+        "difference": -0.07870005520292012,
+        "ci": [
+          -0.21039773429573982,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.95,
+        "cost": 0.25,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.95,
+        "cost": 0.5,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.95,
+        "cost": 1.0,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.99,
+        "cost": 0.0,
+        "seed_count": 10,
+        "difference": -1.2507017153291533,
+        "ci": [
+          -2.8983435257062764,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.99,
+        "cost": 0.05,
+        "seed_count": 10,
+        "difference": -0.6629059744620223,
+        "ci": [
+          -1.988717923386067,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.99,
+        "cost": 0.1,
+        "seed_count": 10,
+        "difference": -0.7298031503189903,
+        "ci": [
+          -2.055615099243035,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.99,
+        "cost": 0.25,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.99,
+        "cost": 0.5,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "gamma": 0.99,
+        "cost": 1.0,
+        "seed_count": 10,
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "excludes_zero": 0
+  }
+}

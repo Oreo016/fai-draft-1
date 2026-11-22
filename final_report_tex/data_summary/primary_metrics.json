@@ -1,0 +1,643 @@
+{
+  "source": "results/run_20261122_144033_944398",
+  "seed_ids": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009
+  ],
+  "episode_count": 120,
+  "config": {
+    "communication": {
+      "cost_sweep": [
+        0.0,
+        0.5
+      ],
+      "fixed_frequency": 3,
+      "max_messages_per_sender_step": 1,
+      "myopic_horizon": 1,
+      "nonmyopic_horizon": 5,
+      "oracle_horizon": 15,
+      "oracle_value_threshold": 0.5,
+      "particles": 64,
+      "rollout_count": 32,
+      "shortlist_size": 8,
+      "unit_cost": 1.0,
+      "useful_message_threshold": 0.0
+    },
+    "environment": {
+      "evacuation_point": [
+        0,
+        0
+      ],
+      "gamma": 0.8,
+      "grid_size": 10,
+      "hazard_move_probability": 0.2,
+      "hazard_toggle_probability": 0.2,
+      "hazards": 2,
+      "horizon": 100,
+      "reward": {
+        "locate": 1.0,
+        "rescue": 10.0,
+        "stabilize": 2.0,
+        "step_penalty": 0.05
+      },
+      "roles": [
+        "scout",
+        "carrier",
+        "medic"
+      ],
+      "victims": 3
+    },
+    "evaluation": {
+      "assigned_message_budgets": [
+        2
+      ],
+      "bootstrap_samples": 1000,
+      "budget_schedule": "actionable_facts",
+      "confidence_level": 0.95,
+      "delayed_value_margin": 0.5,
+      "diagnostic_context_sampling": "evenly_spaced",
+      "held_out_contexts": 100,
+      "max_valuation_contexts_per_episode": null,
+      "message_budget_match_tolerance": 0,
+      "oracle_rollout_count": 128,
+      "output_dir": "results",
+      "parallel_workers": 6,
+      "primary_message_budget": 2,
+      "return_match_tolerance": 0.25,
+      "seeds": [
+        1000,
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009
+      ],
+      "thresholds": {
+        "communication_reduction": 0.2,
+        "high_cost_rate_reduction": 0.15,
+        "horizon_agreement_gain": 0.1,
+        "receiver_differentiation_fraction": 0.3,
+        "receiver_value_difference": 0.5,
+        "significance_level": 0.05
+      }
+    }
+  },
+  "conditions": [
+    {
+      "method": "never",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.47012008025704993,
+      "return_sd": 0.5161054090848255,
+      "return_se": 0.1632068605441006,
+      "return_ci": [
+        -0.7352690374026628,
+        -0.13647688050865947
+      ],
+      "messages": 0,
+      "mean_messages": 0,
+      "rescues": 2,
+      "mean_rescues": 0.2,
+      "runtime_episode_mean_s": 0.032096250001632146,
+      "runtime_step_mean_s": 3.43504998163553e-05,
+      "decision_time_total_s": 0.034350499816355295,
+      "steps": 1000
+    },
+    {
+      "method": "random",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.3825507919938716,
+      "return_sd": 0.5787332414200516,
+      "return_se": 0.18301152005394622,
+      "return_ci": [
+        -0.7089569825154645,
+        -0.013298538371648119
+      ],
+      "messages": 947,
+      "mean_messages": 94.7,
+      "rescues": 19,
+      "mean_rescues": 1.9,
+      "runtime_episode_mean_s": 0.03421921999979531,
+      "runtime_step_mean_s": 3.6546298742380164e-05,
+      "decision_time_total_s": 0.03425140006584115,
+      "steps": 947
+    },
+    {
+      "method": "full",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.42404116917517454,
+      "return_sd": 0.5740549942828675,
+      "return_se": 0.18153212841287986,
+      "return_ci": [
+        -0.7251319983453158,
+        -0.050328956701255964
+      ],
+      "messages": 957,
+      "mean_messages": 95.7,
+      "rescues": 17,
+      "mean_rescues": 1.7,
+      "runtime_episode_mean_s": 0.03477536999998847,
+      "runtime_step_mean_s": 6.203186644237578e-05,
+      "decision_time_total_s": 0.05893490032758564,
+      "steps": 957
+    },
+    {
+      "method": "fixed_frequency",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.428022707513644,
+      "return_sd": 0.5744483833068877,
+      "return_se": 0.18165652894512133,
+      "return_ci": [
+        -0.7272430869237458,
+        -0.05430104638435283
+      ],
+      "messages": 323,
+      "mean_messages": 32.3,
+      "rescues": 20,
+      "mean_rescues": 2,
+      "runtime_episode_mean_s": 0.03996710999927018,
+      "runtime_step_mean_s": 5.301374568860648e-05,
+      "decision_time_total_s": 0.05038450010761153,
+      "steps": 952
+    },
+    {
+      "method": "aware_myopic",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.47012008025704993,
+      "return_sd": 0.5161054090848255,
+      "return_se": 0.1632068605441006,
+      "return_ci": [
+        -0.7352690374026628,
+        -0.13647688050865947
+      ],
+      "messages": 0,
+      "mean_messages": 0,
+      "rescues": 2,
+      "mean_rescues": 0.2,
+      "runtime_episode_mean_s": 69.20484188000118,
+      "runtime_step_mean_s": 0.6917257316002797,
+      "decision_time_total_s": 691.7257316002797,
+      "steps": 1000
+    },
+    {
+      "method": "aware_nonmyopic",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.39875313132926066,
+      "return_sd": 0.5941246089466501,
+      "return_se": 0.1878786978228266,
+      "return_ci": [
+        -0.7158957798694532,
+        -0.009060444096454123
+      ],
+      "messages": 135,
+      "mean_messages": 13.5,
+      "rescues": 10,
+      "mean_rescues": 1,
+      "runtime_episode_mean_s": 117.10492214999977,
+      "runtime_step_mean_s": 1.2143279539697662,
+      "decision_time_total_s": 1170.7122946004383,
+      "steps": 966
+    },
+    {
+      "method": "agnostic_nonmyopic",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.427086300659281,
+      "return_sd": 0.5481998699076185,
+      "return_se": 0.17335602019160737,
+      "return_ci": [
+        -0.7293924459168222,
+        -0.07314912856866261
+      ],
+      "messages": 594,
+      "mean_messages": 59.4,
+      "rescues": 8,
+      "mean_rescues": 0.8,
+      "runtime_episode_mean_s": 87.755177559999,
+      "runtime_step_mean_s": 0.9080202469491293,
+      "decision_time_total_s": 877.1926870998432,
+      "steps": 969
+    },
+    {
+      "method": "aware_myopic",
+      "cost": 0.5,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.47012008025704993,
+      "return_sd": 0.5161054090848255,
+      "return_se": 0.1632068605441006,
+      "return_ci": [
+        -0.7352690374026628,
+        -0.13647688050865947
+      ],
+      "messages": 0,
+      "mean_messages": 0,
+      "rescues": 2,
+      "mean_rescues": 0.2,
+      "runtime_episode_mean_s": 76.85848340999947,
+      "runtime_step_mean_s": 0.768226501600162,
+      "decision_time_total_s": 768.226501600162,
+      "steps": 1000
+    },
+    {
+      "method": "aware_nonmyopic",
+      "cost": 0.5,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.46225156129830597,
+      "return_sd": 0.5296500233037598,
+      "return_se": 0.16749004364011408,
+      "return_ci": [
+        -0.7349296724386352,
+        -0.1182104748186129
+      ],
+      "messages": 13,
+      "mean_messages": 1.3,
+      "rescues": 7,
+      "mean_rescues": 0.7,
+      "runtime_episode_mean_s": 117.52296373000281,
+      "runtime_step_mean_s": 1.2173037962564845,
+      "decision_time_total_s": 1174.8802956001164,
+      "steps": 967
+    },
+    {
+      "method": "agnostic_nonmyopic",
+      "cost": 0.5,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.47012008025704993,
+      "return_sd": 0.5161054090848255,
+      "return_se": 0.1632068605441006,
+      "return_ci": [
+        -0.7352690374026628,
+        -0.13647688050865947
+      ],
+      "messages": 0,
+      "mean_messages": 0,
+      "rescues": 2,
+      "mean_rescues": 0.2,
+      "runtime_episode_mean_s": 88.72977060000122,
+      "runtime_step_mean_s": 0.886951033799589,
+      "decision_time_total_s": 886.9510337995889,
+      "steps": 1000
+    },
+    {
+      "method": "aware_nonmyopic",
+      "cost": 0.0,
+      "budget": 2,
+      "seeds": 10,
+      "return_mean": -0.4261031501996698,
+      "return_sd": 0.5743927115972622,
+      "return_se": 0.1816389240047561,
+      "return_ci": [
+        -0.7281599063645252,
+        -0.051630601099221324
+      ],
+      "messages": 20,
+      "mean_messages": 2,
+      "rescues": 7,
+      "mean_rescues": 0.7,
+      "runtime_episode_mean_s": 1.4753603299992393,
+      "runtime_step_mean_s": 0.014400125499683782,
+      "decision_time_total_s": 14.400125499683782,
+      "steps": 1000
+    },
+    {
+      "method": "agnostic_nonmyopic",
+      "cost": 0.0,
+      "budget": 2,
+      "seeds": 10,
+      "return_mean": -0.4466753053527824,
+      "return_sd": 0.5256021597436705,
+      "return_se": 0.1662099967893661,
+      "return_ci": [
+        -0.7288475824157574,
+        -0.0991789231638482
+      ],
+      "messages": 20,
+      "mean_messages": 2,
+      "rescues": 5,
+      "mean_rescues": 0.5,
+      "runtime_episode_mean_s": 1.1578559099987615,
+      "runtime_step_mean_s": 0.011287073300263729,
+      "decision_time_total_s": 11.287073300263728,
+      "steps": 1000
+    }
+  ],
+  "frontier": [
+    {
+      "method": "never",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.47012008025704993,
+      "return_sd": 0.5161054090848255,
+      "return_se": 0.1632068605441006,
+      "return_ci": [
+        -0.7352690374026628,
+        -0.13647688050865947
+      ],
+      "messages": 0,
+      "mean_messages": 0,
+      "rescues": 2,
+      "mean_rescues": 0.2,
+      "runtime_episode_mean_s": 0.032096250001632146,
+      "runtime_step_mean_s": 3.43504998163553e-05,
+      "decision_time_total_s": 0.034350499816355295,
+      "steps": 1000
+    },
+    {
+      "method": "random",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.3825507919938716,
+      "return_sd": 0.5787332414200516,
+      "return_se": 0.18301152005394622,
+      "return_ci": [
+        -0.7089569825154645,
+        -0.013298538371648119
+      ],
+      "messages": 947,
+      "mean_messages": 94.7,
+      "rescues": 19,
+      "mean_rescues": 1.9,
+      "runtime_episode_mean_s": 0.03421921999979531,
+      "runtime_step_mean_s": 3.6546298742380164e-05,
+      "decision_time_total_s": 0.03425140006584115,
+      "steps": 947
+    },
+    {
+      "method": "aware_myopic",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.47012008025704993,
+      "return_sd": 0.5161054090848255,
+      "return_se": 0.1632068605441006,
+      "return_ci": [
+        -0.7352690374026628,
+        -0.13647688050865947
+      ],
+      "messages": 0,
+      "mean_messages": 0,
+      "rescues": 2,
+      "mean_rescues": 0.2,
+      "runtime_episode_mean_s": 69.20484188000118,
+      "runtime_step_mean_s": 0.6917257316002797,
+      "decision_time_total_s": 691.7257316002797,
+      "steps": 1000
+    },
+    {
+      "method": "aware_nonmyopic",
+      "cost": 0.0,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.39875313132926066,
+      "return_sd": 0.5941246089466501,
+      "return_se": 0.1878786978228266,
+      "return_ci": [
+        -0.7158957798694532,
+        -0.009060444096454123
+      ],
+      "messages": 135,
+      "mean_messages": 13.5,
+      "rescues": 10,
+      "mean_rescues": 1,
+      "runtime_episode_mean_s": 117.10492214999977,
+      "runtime_step_mean_s": 1.2143279539697662,
+      "decision_time_total_s": 1170.7122946004383,
+      "steps": 966
+    },
+    {
+      "method": "aware_myopic",
+      "cost": 0.5,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.47012008025704993,
+      "return_sd": 0.5161054090848255,
+      "return_se": 0.1632068605441006,
+      "return_ci": [
+        -0.7352690374026628,
+        -0.13647688050865947
+      ],
+      "messages": 0,
+      "mean_messages": 0,
+      "rescues": 2,
+      "mean_rescues": 0.2,
+      "runtime_episode_mean_s": 76.85848340999947,
+      "runtime_step_mean_s": 0.768226501600162,
+      "decision_time_total_s": 768.226501600162,
+      "steps": 1000
+    },
+    {
+      "method": "aware_nonmyopic",
+      "cost": 0.5,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.46225156129830597,
+      "return_sd": 0.5296500233037598,
+      "return_se": 0.16749004364011408,
+      "return_ci": [
+        -0.7349296724386352,
+        -0.1182104748186129
+      ],
+      "messages": 13,
+      "mean_messages": 1.3,
+      "rescues": 7,
+      "mean_rescues": 0.7,
+      "runtime_episode_mean_s": 117.52296373000281,
+      "runtime_step_mean_s": 1.2173037962564845,
+      "decision_time_total_s": 1174.8802956001164,
+      "steps": 967
+    },
+    {
+      "method": "agnostic_nonmyopic",
+      "cost": 0.5,
+      "budget": null,
+      "seeds": 10,
+      "return_mean": -0.47012008025704993,
+      "return_sd": 0.5161054090848255,
+      "return_se": 0.1632068605441006,
+      "return_ci": [
+        -0.7352690374026628,
+        -0.13647688050865947
+      ],
+      "messages": 0,
+      "mean_messages": 0,
+      "rescues": 2,
+      "mean_rescues": 0.2,
+      "runtime_episode_mean_s": 88.72977060000122,
+      "runtime_step_mean_s": 0.886951033799589,
+      "decision_time_total_s": 886.9510337995889,
+      "steps": 1000
+    }
+  ],
+  "diagnostics": {
+    "contexts": 100,
+    "h1_hits": 3,
+    "h1_contexts": 89,
+    "h1_rate": 0.033707865168539325,
+    "h1_ci": [
+      0,
+      0.06741573033707865
+    ],
+    "h1_per_seed": {
+      "1000": [
+        0,
+        9
+      ],
+      "1001": [
+        0,
+        9
+      ],
+      "1002": [
+        0,
+        9
+      ],
+      "1003": [
+        1,
+        9
+      ],
+      "1004": [
+        0,
+        9
+      ],
+      "1005": [
+        0,
+        9
+      ],
+      "1006": [
+        1,
+        9
+      ],
+      "1007": [
+        0,
+        9
+      ],
+      "1008": [
+        0,
+        8
+      ],
+      "1009": [
+        1,
+        9
+      ]
+    },
+    "any_candidate_h1_hits": 39,
+    "any_candidate_h1_contexts": 89,
+    "h3_gain": 0.4634146341463415,
+    "h3_ci": [
+      0.2857142857142857,
+      0.65625
+    ],
+    "agreement_strata": {
+      "delayed": [
+        41,
+        2,
+        21
+      ],
+      "other": [
+        59,
+        39,
+        31
+      ]
+    },
+    "h3_delayed_seed_count": 10,
+    "receiver_regret": 0.006410255039956614,
+    "receiver_regret_n": 59,
+    "pair_regret": 0.17069443081994246,
+    "shortlist_voic_mae": 0.09130367418352643,
+    "filter_recall": 0.7777777777777778,
+    "filter_recall_contexts": 39,
+    "useful_deliveries": 34,
+    "evaluated_deliveries": 59
+  },
+  "contrasts": {
+    "h2_crb": 0.8589341692789969,
+    "h2_return_delta": 0.025288037845913873,
+    "h2_return_ci": [
+      0.005015351325206507,
+      0.05182621440610706
+    ],
+    "h2_full_rescue_delta": -0.7,
+    "h2_full_rescue_ci": [
+      -1.4,
+      -0.1
+    ],
+    "h2_budget_return_delta": 0.020572155153112594,
+    "h2_budget_return_ci": [
+      0.0,
+      0.06034111335687329
+    ],
+    "h2_budget_rescue_delta": 0.2,
+    "h2_budget_rescue_ci": [
+      0,
+      0.5
+    ],
+    "h2_budget_returns_by_seed": {
+      "1000": 0.0,
+      "1001": 0.005380155861249292,
+      "1002": 0.0,
+      "1003": 0.0,
+      "1004": 0.0,
+      "1005": 0.0,
+      "1006": 0.0,
+      "1007": 0.0014966046510731523,
+      "1008": 0.0,
+      "1009": 0.19884479101880348
+    },
+    "h2_budget_rescues_by_seed": {
+      "1000": 0,
+      "1001": 1,
+      "1002": 0,
+      "1003": 0,
+      "1004": 0,
+      "1005": 0,
+      "1006": 0,
+      "1007": 0,
+      "1008": 0,
+      "1009": 1
+    },
+    "h4_rates": [
+      0.13737008815180038,
+      0.0139597752144336
+    ],
+    "h4_reduction": 0.8983783485746373,
+    "h4_ci": [
+      0.8017318769364751,
+      0.9584308324612077
+    ],
+    "h4_message_and_opportunity_totals": [
+      135,
+      966,
+      13,
+      967
+    ]
+  },
+  "runtime_seconds": 1937.6361561999947
+}

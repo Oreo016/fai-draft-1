@@ -1,0 +1,7 @@
+Cost_Weight_Lambda,Aware_Msg,Aware_Return,Agnostic_Msg,Agnostic_Return,RoleOnly_Msg,RoleOnly_Return,FixedFreq_Msg,FixedFreq_Return,Full_Msg,Full_Return,Source
+0.0,0.3,1.6579,0.3,1.8079,1.0,2.4588,0.5,2.3824,1.0,2.3824,results/experiments/E07/run_20261121_182638_142372/summary.json
+0.05,0.3,1.6579,0.3,1.8079,1.0,2.4588,0.5,2.3824,1.0,2.3824,results/experiments/E07/run_20261121_182638_142372/summary.json
+0.1,0.3,1.6579,0.25,2.112,1.0,2.4588,0.5,2.3824,1.0,2.3824,results/experiments/E07/run_20261121_182638_142372/summary.json
+0.25,0.2,2.2033,0.1,2.3824,1.0,2.4588,0.5,2.3824,1.0,2.3824,results/experiments/E07/run_20261121_182638_142372/summary.json
+0.5,0.1,2.4737,0.05,2.3824,1.0,2.4588,0.5,2.3824,1.0,2.3824,results/experiments/E07/run_20261121_182638_142372/summary.json
+1.0,0.05,2.4588,0.0,2.3824,1.0,2.4588,0.5,2.3824,1.0,2.3824,results/experiments/E07/run_20261121_182638_142372/summary.json

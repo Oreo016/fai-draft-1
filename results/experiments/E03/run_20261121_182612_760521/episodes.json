@@ -1,0 +1,1002 @@
+[
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 1.1015207920856251,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0938455111982531,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.6887460267945846,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.028733775533550047,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.17727768850159134,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.02451162002793734,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.294233686639875,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.10920541250924999,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.3012166331156251,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.21471972303617443,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 6.112758098881408,
+    "particles": 16,
+    "regret": 5.976301567336314,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 5.999753392150727,
+    "particles": 32,
+    "regret": 5.976301567336314,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 5.489860721594187,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 6.137239530286295,
+    "particles": 128,
+    "regret": 5.976301567336314,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 6.473657274458048,
+    "particles": 256,
+    "regret": 5.976301567336314,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.29891623516138127,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.16504476070635019,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.27482462965490634,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.32899791820387514,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.14426204071984317,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 1.7228087310431253,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.8526846053868752,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.35722794293167526,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 1.0565094449761823,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.4066318589969757,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 4.970534884457178,
+    "particles": 16,
+    "regret": 4.833715763005991,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 4.914213975804266,
+    "particles": 32,
+    "regret": 4.833715763005991,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 4.969044725103369,
+    "particles": 64,
+    "regret": 4.833715763005991,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 4.829692537302866,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 4.2170419993419594,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "degenerate": 0,
+    "ess": 16.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 16,
+    "regret": 0.0,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 32.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 32,
+    "regret": 0.0,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 64.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 64,
+    "regret": 0.0,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 128.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 128,
+    "regret": 0.0,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "degenerate": 0,
+    "ess": 256.0,
+    "ess_fraction": 1.0,
+    "mae_voc": 0.0,
+    "particles": 256,
+    "regret": 0.0,
+    "seed": 9,
+    "step": 1
+  }
+]

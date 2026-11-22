@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Robustness of Valuation Performance across Grid Sizes, Hazard Dynamics, and Team Compositions (Study E11). Metric is Paired Return Difference: Aware minus Agnostic.}
+\label{tab:robustness}
+\begin{tabular}{llcc}
+\toprule
+Dimension & Condition & Return Diff. ($\Delta J$) & Interpretation \\
+\midrule
+\multirow{3}{*}{Grid Size} & $8\times 8$ Grid   & $-1.0255$ & Agnostic outperforms Aware \\
+                           & $10\times 10$ Grid & $-1.1192$ & Agnostic outperforms Aware \\
+                           & $12\times 12$ Grid & \phantom{$-$}0.0000 & Tied \\
+\midrule
+\multirow{2}{*}{Hazard Dyn.} & Low ($p_{\mathrm{move}}=0.2$)  & $-0.5786$ & Gap narrows under slow hazards \\
+                             & High ($p_{\mathrm{move}}=0.8$) & $-1.0847$ & Gap widens under fast hazards \\
+\midrule
+\multirow{3}{*}{Team Roles}  & Scout + Carrier + Medic & $-1.1192$ & 3-agent receiver choice \\
+                             & Scout + Carrier & \phantom{$-$}0.0000 & Single receiver (no selection) \\
+                             & Scout + Medic   & \phantom{$-$}0.0000 & Single receiver (no selection) \\
+\bottomrule
+\end{tabular}
+\end{table}

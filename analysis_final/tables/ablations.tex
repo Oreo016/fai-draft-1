@@ -1,0 +1,30 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{Ablation Synthesis across Studies E01 (Conditioning), E03 (Particles), E04 (Rollouts \& CRN), and E05 (Continuation Bias).}
+\label{tab:ablations}
+\begin{tabular}{llcccc}
+\toprule
+Study & Configuration / Parameter & Metric 1 & Metric 2 & Metric 3 & Primary Implication \\
+\midrule
+E01: Conditioning & Conditioned belief & MAE = 0.389 & Regret = 0.242 & $J_0 = 2.203$ & \multirow{2}{*}{\shortstack[l]{Zero empirical difference; update\\is invariant under tested observations.}} \\
+                  & Unconditioned belief & MAE = 0.389 & Regret = 0.242 & $J_0 = 2.203$ & \\
+\midrule
+E03: Particles    & $N_p = 16$  & MAE = 0.712 & Regret = 0.541 & ESS = 1.0 & \multirow{5}{*}{\shortstack[l]{Elbow at $N_p=64$ where regret drops\\from 0.541 to 0.242; zero degeneracy.}} \\
+                  & $N_p = 32$  & MAE = 0.616 & Regret = 0.541 & ESS = 1.0 & \\
+                  & $N_p = 64$ (Default) & MAE = 0.594 & Regret = 0.242 & ESS = 1.0 & \\
+                  & $N_p = 128$ & MAE = 0.634 & Regret = 0.299 & ESS = 1.0 & \\
+                  & $N_p = 256$ & MAE = 0.582 & Regret = 0.299 & ESS = 1.0 & \\
+\midrule
+E04: CRN Rollouts & $N_{\mathrm{roll}} = 8$  & CRN SE = 0.135 & Ind. SE = 0.155 & Var Red = 25\% & \multirow{5}{*}{\shortstack[l]{CRN reduces variance by 27\%--37\%\\at $N=32$ with negligible bias ($<0.02$).}} \\
+                  & $N_{\mathrm{roll}} = 16$ & CRN SE = 0.095 & Ind. SE = 0.129 & Var Red = 46\% & \\
+                  & $N_{\mathrm{roll}} = 32$ (Default) & CRN SE = 0.082 & Ind. SE = 0.112 & Var Red = 47\% & \\
+                  & $N_{\mathrm{roll}} = 64$ & CRN SE = 0.053 & Ind. SE = 0.075 & Var Red = 50\% & \\
+                  & $N_{\mathrm{roll}} = 128$& CRN SE = 0.036 & Ind. SE = 0.057 & Var Red = 60\% & \\
+\midrule
+E05: Continuation & Aware Continuation & Top-1 Agr = 1.0 & $\rho = 0.838$ & MAE = 0.023 & \multirow{3}{*}{\shortstack[l]{Disabling continuation preserves top-1\\policy choices; fixed-freq shifts values.}} \\
+                  & Disabled Continuation & Top-1 Agr = 1.0 & $\rho = 0.838$ & MAE = 0.023 & \\
+                  & Fixed-Freq Continuation & Top-1 Agr = 1.0 & $\rho = 0.794$ & MAE = 0.288 & \\
+\bottomrule
+\end{tabular}
+\end{table*}

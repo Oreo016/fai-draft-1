@@ -1,0 +1,10 @@
+metric,value
+dynamics_default_return_difference,-1.119229698718963
+dynamics_high_return_difference,-1.0846678283674533
+dynamics_low_return_difference,-0.578629156029818
+grid_10_return_difference,-1.119229698718963
+grid_12_return_difference,0.0
+grid_8_return_difference,-1.0255313171923437
+team_scout_carrier_medic_return_difference,-1.119229698718963
+team_scout_carrier_return_difference,0.0
+team_scout_medic_return_difference,0.0

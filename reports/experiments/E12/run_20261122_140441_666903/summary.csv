@@ -1,0 +1,9 @@
+metric,value
+failure_context_count,7
+mean_aware_decision_seconds,0.42644067000001085
+mean_aware_minus_agnostic_return,-0.10384412705033697
+mean_aware_minus_role_only_return,-0.11183246272591188
+mean_oracle_seconds,0.4259472674999415
+mean_particle_filter_seconds,0.02956324499900802
+mean_regret,0.08652988615254796
+mean_rollout_estimate_seconds,0.1827998500000831

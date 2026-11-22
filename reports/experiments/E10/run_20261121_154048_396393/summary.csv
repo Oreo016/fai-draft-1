@@ -1,0 +1,4 @@
+metric,value
+mean_absolute_marginal_value,0.5268308662157077
+mean_information_age,0.0
+spearman_heuristic_vs_marginal_value,0.0

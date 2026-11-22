@@ -1,0 +1,642 @@
+[
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.4921114904063466,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.4921114904063466,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.4921114904063466,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.4921114904063466,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.4912349893403851,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.4912349893403851,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.4912349893403851,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.4912349893403851,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.4734170648851135,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.3911873529284473,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.3911873529284473,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.3911873529284473,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.3979732885767195,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.3979732885767195,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.3979732885767195,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.3979732885767195,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "aware",
+    "regret": 2.9864683508873355,
+    "return": -0.6861851026880738,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": 2.435608218258417,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": 2.435608218258417,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": 2.435608218258417,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": 2.7548000202871297,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": 2.7548000202871297,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": 2.7548000202871297,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": 2.7548000202871297,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "aware",
+    "regret": 0.03922632451125002,
+    "return": -1.1355138884494194,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.1355138884494194,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.1355138884494194,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.1355138884494194,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.0950154316104663,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.0950154316104663,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.0950154316104663,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.0950154316104663,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.3917580095199666,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.3917580095199666,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.3917580095199666,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.3917580095199666,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.381145051786882,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.381145051786882,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.381145051786882,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.381145051786882,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.1843388063922617,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.1843388063922617,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.1843388063922617,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.1843388063922617,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.151204887895422,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.151204887895422,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.151204887895422,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.151204887895422,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.4219009934708045,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.4219009934708045,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.4219009934708045,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.4219009934708045,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.4132233260786713,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.4132233260786713,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.4132233260786713,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.4132233260786713,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.3335221133191348,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.3335221133191348,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.3039603474362655,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.3039603474362655,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.0540500753284796,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.0540500753284796,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.0540500753284796,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.0540500753284796,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -0.2786001451312689,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -0.2786001451312689,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -0.2786001451312689,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -0.2786001451312689,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -0.2280632049153594,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -0.2280632049153594,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -0.2280632049153594,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -0.2280632049153594,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.4248780477013814,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.407422120565206,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.407422120565206,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "messages": 1,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.407422120565206,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "messages": 0,
+    "method": "aware",
+    "regret": 0.0,
+    "return": -1.3971356895168954,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "agnostic",
+    "regret": 0.0,
+    "return": -1.3971356895168954,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "messages": 1,
+    "method": "role_only",
+    "regret": 0.0,
+    "return": -1.3971356895168954,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "messages": 0,
+    "method": "role_only_budget_matched",
+    "regret": 0.0,
+    "return": -1.3971356895168954,
+    "seed": 9,
+    "step": 1
+  }
+]

@@ -1,0 +1,20 @@
+\begin{table}[ht]
+\centering
+\small
+\caption{Combined Hypothesis Verdicts: Your Experiments and Partner's Experiments.
+All numbers read from stored result files.
+LCB = lower confidence bound; CI = 95\% bootstrap confidence interval.}
+\label{tab:hypothesis_combined}
+\begin{tabular}{lllll}
+\toprule
+\textbf{Hypothesis} & \textbf{Threshold} & \textbf{Your Result} & \textbf{Partner Result (Best)} & \textbf{Joint Verdict} \\
+\midrule
+H1 Recv. Diff. & frac $\geq 0.30$ (LCB) & 0.2857, LCB=0.143 & 0.312, LCB=0.204 & Inconclusive \\
+H2 CR vs Full & $\geq 0.20$ & 0.857 & 0.942 & Supported \\
+H2 $\Delta J$ at budget & CI excl. 0 & +0.572 [0.04, 1.05] & +0.511 [0.29, 0.77] & Supported \\
+H2 Sched. sensitivity & (exploratory) & not tested & $-0.379$ [$-0.78, -0.04$] & Negative \\
+H3 Horizon agreement & gain $\geq 0.10$ & +0.040 & +0.050 [$-0.23, 0.33$] & Not Supported \\
+H4 Cost drop & rel. drop $\geq 0.15$ & 0.860 & 0.811 (paired 0.676) & Supported (robust) \\
+\bottomrule
+\end{tabular}
+\end{table}

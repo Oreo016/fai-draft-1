@@ -10,6 +10,7 @@ src/voc_sar/__init__.py
 src/voc_sar/__main__.py
 src/voc_sar/cli.py
 src/voc_sar/types.py
+src/voc_sar/visualizations.py
 src/voc_sar/communication/__init__.py
 src/voc_sar/communication/estimator.py
 src/voc_sar/communication/selector.py

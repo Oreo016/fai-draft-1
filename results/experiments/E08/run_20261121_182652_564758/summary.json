@@ -1,0 +1,112 @@
+{
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E08\\run_20261121_182652_564758\\config_used.json",
+  "context_count": 20,
+  "experiment_id": "E08",
+  "h1_threshold_curve": {
+    "theta=0,delta=0": 0.1,
+    "theta=0,delta=0.25": 0.1,
+    "theta=0,delta=0.5": 0.05,
+    "theta=0,delta=1": 0.05,
+    "theta=0.25,delta=0": 0.1,
+    "theta=0.25,delta=0.25": 0.1,
+    "theta=0.25,delta=0.5": 0.05,
+    "theta=0.25,delta=1": 0.05,
+    "theta=0.5,delta=0": 0.05,
+    "theta=0.5,delta=0.25": 0.05,
+    "theta=0.5,delta=0.5": 0.05,
+    "theta=0.5,delta=1": 0.05,
+    "theta=1,delta=0": 0.05,
+    "theta=1,delta=0.25": 0.05,
+    "theta=1,delta=0.5": 0.05,
+    "theta=1,delta=1": 0.05,
+    "theta=2,delta=0": 0.05,
+    "theta=2,delta=0.25": 0.05,
+    "theta=2,delta=0.5": 0.05,
+    "theta=2,delta=1": 0.05
+  },
+  "h2_budget_matched_paired_ci": [
+    -0.5817124520350598,
+    0.04428030000483624
+  ],
+  "h2_paired_ci": [
+    -0.5818434540859234,
+    0.04428030000483624
+  ],
+  "h3_delayed_paired_ci": [
+    0.0,
+    0.0
+  ],
+  "h3_delayed_value_definition": {
+    "condition": "exists candidate pair with absolute oracle MV(H_eval)-MV(H_myo) above margin",
+    "margin": 0.5
+  },
+  "h4_paired_ci": [
+    0.1,
+    0.5
+  ],
+  "headline": {
+    "H1_holm_p": 0.014798520147985201,
+    "H2_holm_p": 1.0,
+    "H3_holm_p": 1.0,
+    "H4_holm_p": 0.20127987201279873,
+    "h1_curve_theta=0,delta=0": 0.1,
+    "h1_curve_theta=0,delta=0.25": 0.1,
+    "h1_curve_theta=0,delta=0.5": 0.05,
+    "h1_curve_theta=0,delta=1": 0.05,
+    "h1_curve_theta=0.25,delta=0": 0.1,
+    "h1_curve_theta=0.25,delta=0.25": 0.1,
+    "h1_curve_theta=0.25,delta=0.5": 0.05,
+    "h1_curve_theta=0.25,delta=1": 0.05,
+    "h1_curve_theta=0.5,delta=0": 0.05,
+    "h1_curve_theta=0.5,delta=0.25": 0.05,
+    "h1_curve_theta=0.5,delta=0.5": 0.05,
+    "h1_curve_theta=0.5,delta=1": 0.05,
+    "h1_curve_theta=1,delta=0": 0.05,
+    "h1_curve_theta=1,delta=0.25": 0.05,
+    "h1_curve_theta=1,delta=0.5": 0.05,
+    "h1_curve_theta=1,delta=1": 0.05,
+    "h1_curve_theta=2,delta=0": 0.05,
+    "h1_curve_theta=2,delta=0.25": 0.05,
+    "h1_curve_theta=2,delta=0.5": 0.05,
+    "h1_curve_theta=2,delta=1": 0.05,
+    "h1_primary_fraction": 0.05,
+    "h2_aware_minus_agnostic_return": -0.179231385377317,
+    "h2_budget_matched_return": -0.179231385377317,
+    "h2_budget_matched_seed_count": 10,
+    "h3_delayed_context_gain": 0.0,
+    "h3_delayed_seed_count": 3,
+    "h4_positive_rate_drop_absolute": 0.3,
+    "p_H1": 0.0036996300369963003,
+    "p_H2": 0.7526247375262474,
+    "p_H3": 1.0,
+    "p_H4": 0.0670932906709329
+  },
+  "holm_adjusted_p_values": {
+    "H1": 0.014798520147985201,
+    "H2": 1.0,
+    "H3": 1.0,
+    "H4": 0.20127987201279873
+  },
+  "p_values": {
+    "H1": 0.0036996300369963003,
+    "H2": 0.7526247375262474,
+    "H3": 1.0,
+    "H4": 0.0670932906709329
+  },
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E08\\run_20261121_182652_564758",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E08\\run_20261121_182652_564758",
+  "runtime_seconds": 40.70513629999914,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

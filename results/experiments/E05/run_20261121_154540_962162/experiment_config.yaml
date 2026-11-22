@@ -1,9 +1,0 @@
-id: E05
-name: continuation_bias
-contexts_per_seed: 2
-rollout_count: 32
-continuations:
-- disabled
-- fixed_frequency
-- aware
-config_file: C:\Users\arind\Downloads\faiproj\configs\experiments\e05_continuation_bias.yaml

@@ -1,6 +1,0 @@
-config_file: C:\Users\arind\Downloads\faiproj\configs\experiments\e01_message_conditioned.yaml
-contexts_per_seed: 2
-id: E01
-name: message_conditioned_rollouts
-particles: 64
-rollout_count: 32

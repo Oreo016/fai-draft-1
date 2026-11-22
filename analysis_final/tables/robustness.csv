@@ -1,9 +1,0 @@
-Dimension,Condition,Aware_Minus_Agnostic_Return,Interpretation,Source
-Grid Size,8x8 Grid,-1.0255,Agnostic outperforms Aware by 1.03,results/experiments/E11/run_20261121_182723_737946/summary.json
-Grid Size,10x10 Grid (Default),-1.1192,Agnostic outperforms Aware by 1.12 on test contexts,results/experiments/E11/run_20261121_182723_737946/summary.json
-Grid Size,12x12 Grid,0.0,Tied (both methods perform identically),results/experiments/E11/run_20261121_182723_737946/summary.json
-Hazard Dynamics,Low Dynamics (p=0.2),-0.5786,Aware gap narrows to -0.58 under stable hazards,results/experiments/E11/run_20261121_182723_737946/summary.json
-Hazard Dynamics,High Dynamics (p=0.8),-1.0847,High hazard mobility increases estimation error,results/experiments/E11/run_20261121_182723_737946/summary.json
-Team Composition,Scout + Carrier + Medic,-1.1192,Full 3-role heterogeneity,results/experiments/E11/run_20261121_182723_737946/summary.json
-Team Composition,Scout + Carrier (2 agents),0.0,Single receiver eliminates receiver selection problem,results/experiments/E11/run_20261121_182723_737946/summary.json
-Team Composition,Scout + Medic (2 agents),0.0,Single receiver eliminates receiver selection problem,results/experiments/E11/run_20261121_182723_737946/summary.json

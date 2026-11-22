@@ -1,0 +1,418 @@
+{
+  "bootstrap_samples": 1000,
+  "confidence_level": 0.95,
+  "config": {
+    "communication": {
+      "cost_sweep": [
+        0.0,
+        0.5
+      ],
+      "fixed_frequency": 3,
+      "max_messages_per_sender_step": 1,
+      "myopic_horizon": 1,
+      "nonmyopic_horizon": 5,
+      "oracle_horizon": 15,
+      "oracle_value_threshold": 0.5,
+      "particles": 64,
+      "rollout_count": 32,
+      "shortlist_size": 8,
+      "unit_cost": 1.0,
+      "useful_message_threshold": 0.0
+    },
+    "environment": {
+      "gamma": 0.9,
+      "grid_size": 10,
+      "hazard_move_probability": 0.3,
+      "hazard_toggle_probability": 0.2,
+      "hazards": 2,
+      "horizon": 100,
+      "reward": {
+        "locate": 1.0,
+        "rescue": 10.0,
+        "stabilize": 2.0,
+        "step_penalty": 0.05
+      },
+      "roles": [
+        "scout",
+        "carrier",
+        "medic"
+      ],
+      "victims": 3
+    },
+    "evaluation": {
+      "bootstrap_samples": 1000,
+      "confidence_level": 0.95,
+      "held_out_contexts": 100,
+      "max_valuation_contexts_per_episode": null,
+      "message_budget_match_tolerance": 0,
+      "output_dir": "results",
+      "parallel_workers": 6,
+      "return_match_tolerance": 1.0,
+      "seeds": [
+        610,
+        611,
+        612,
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630,
+        631,
+        632,
+        633,
+        634,
+        635,
+        636,
+        637,
+        638,
+        639,
+        640,
+        641,
+        642,
+        643,
+        644,
+        645,
+        646,
+        647,
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659
+      ],
+      "thresholds": {
+        "communication_reduction": 0.2,
+        "high_cost_rate_reduction": 0.15,
+        "horizon_agreement_gain": 0.1,
+        "receiver_differentiation_fraction": 0.3,
+        "receiver_value_difference": 0.5,
+        "significance_level": 0.05
+      }
+    }
+  },
+  "cost_conditions": [
+    {
+      "cost_weight": 0.0,
+      "episodes": 50,
+      "metrics": {
+        "discounted_task_return": {
+          "confidence_interval": [
+            0.16708895005683239,
+            1.9112448205738217
+          ],
+          "mean": 1.010016832482136
+        },
+        "messages": {
+          "confidence_interval": [
+            11.28,
+            15.46
+          ],
+          "mean": 13.36
+        },
+        "positive_voc_rate": {
+          "confidence_interval": [
+            0.12480000000000001,
+            0.181136184249078
+          ],
+          "mean": 0.15158439084879108
+        },
+        "rescued_victims": {
+          "confidence_interval": [
+            1.24,
+            1.74
+          ],
+          "mean": 1.5
+        }
+      }
+    },
+    {
+      "cost_weight": 0.25,
+      "episodes": 50,
+      "metrics": {
+        "discounted_task_return": {
+          "confidence_interval": [
+            0.24399437594727857,
+            1.714623006132995
+          ],
+          "mean": 0.9669425381773498
+        },
+        "messages": {
+          "confidence_interval": [
+            3.3,
+            4.38
+          ],
+          "mean": 3.84
+        },
+        "positive_voc_rate": {
+          "confidence_interval": [
+            0.0358,
+            0.05107436910594806
+          ],
+          "mean": 0.04280032281084913
+        },
+        "rescued_victims": {
+          "confidence_interval": [
+            0.88,
+            1.42
+          ],
+          "mean": 1.12
+        }
+      }
+    },
+    {
+      "cost_weight": 0.5,
+      "episodes": 50,
+      "metrics": {
+        "discounted_task_return": {
+          "confidence_interval": [
+            -0.005014441781005079,
+            1.2973355408512948
+          ],
+          "mean": 0.626962067006636
+        },
+        "messages": {
+          "confidence_interval": [
+            2.24,
+            3.06
+          ],
+          "mean": 2.66
+        },
+        "positive_voc_rate": {
+          "confidence_interval": [
+            0.0236,
+            0.03510909090909091
+          ],
+          "mean": 0.02872121212121212
+        },
+        "rescued_victims": {
+          "confidence_interval": [
+            0.88,
+            1.36
+          ],
+          "mean": 1.12
+        }
+      }
+    },
+    {
+      "cost_weight": 1.0,
+      "episodes": 50,
+      "metrics": {
+        "discounted_task_return": {
+          "confidence_interval": [
+            -0.10990832950547372,
+            1.155928849593577
+          ],
+          "mean": 0.5152753924707614
+        },
+        "messages": {
+          "confidence_interval": [
+            1.68,
+            2.34
+          ],
+          "mean": 2.02
+        },
+        "positive_voc_rate": {
+          "confidence_interval": [
+            0.01782857142857143,
+            0.025028571428571428
+          ],
+          "mean": 0.021205194805194803
+        },
+        "rescued_victims": {
+          "confidence_interval": [
+            0.92,
+            1.4
+          ],
+          "mean": 1.16
+        }
+      }
+    }
+  ],
+  "experiment": "H4 paired-seed cost sensitivity",
+  "paired_changes_vs_zero_cost": {
+    "0.25": {
+      "discounted_task_return": {
+        "mean_change_vs_cost_0": -0.04307429430478602,
+        "paired_confidence_interval": [
+          -0.36303203970934406,
+          0.25340367116650286
+        ]
+      },
+      "messages": {
+        "mean_change_vs_cost_0": -9.52,
+        "paired_confidence_interval": [
+          -11.5,
+          -7.56
+        ]
+      },
+      "positive_voc_rate": {
+        "mean_change_vs_cost_0": -0.10878406803794194,
+        "paired_confidence_interval": [
+          -0.1398201805970629,
+          -0.08356059756081294
+        ]
+      },
+      "rescued_victims": {
+        "mean_change_vs_cost_0": -0.38,
+        "paired_confidence_interval": [
+          -0.62,
+          -0.14
+        ]
+      }
+    },
+    "0.5": {
+      "discounted_task_return": {
+        "mean_change_vs_cost_0": -0.3830547654754997,
+        "paired_confidence_interval": [
+          -0.9646785910832187,
+          0.05959095475650925
+        ]
+      },
+      "messages": {
+        "mean_change_vs_cost_0": -10.7,
+        "paired_confidence_interval": [
+          -12.9,
+          -8.74
+        ]
+      },
+      "positive_voc_rate": {
+        "mean_change_vs_cost_0": -0.12286317872757894,
+        "paired_confidence_interval": [
+          -0.15445098039215688,
+          -0.09346916221033869
+        ]
+      },
+      "rescued_victims": {
+        "mean_change_vs_cost_0": -0.38,
+        "paired_confidence_interval": [
+          -0.68,
+          -0.1
+        ]
+      }
+    },
+    "1.0": {
+      "discounted_task_return": {
+        "mean_change_vs_cost_0": -0.4947414400113745,
+        "paired_confidence_interval": [
+          -1.1772190742848037,
+          -0.013039962341365913
+        ]
+      },
+      "messages": {
+        "mean_change_vs_cost_0": -11.34,
+        "paired_confidence_interval": [
+          -13.58,
+          -9.44
+        ]
+      },
+      "positive_voc_rate": {
+        "mean_change_vs_cost_0": -0.13037919604359627,
+        "paired_confidence_interval": [
+          -0.16080843214756257,
+          -0.10403636363636365
+        ]
+      },
+      "rescued_victims": {
+        "mean_change_vs_cost_0": -0.34,
+        "paired_confidence_interval": [
+          -0.64,
+          -0.06
+        ]
+      }
+    }
+  },
+  "paired_seed_count": 50,
+  "primary_h4": {
+    "absolute_rate_drop": 0.12286317872757896,
+    "aggregate_relative_rate_reduction": 0.8105265854855584,
+    "high_cost_mean_positive_voc_rate": 0.02872121212121212,
+    "low_cost_mean_positive_voc_rate": 0.15158439084879108,
+    "paired_interval_supports_decrease": true,
+    "paired_seed_count_with_positive_low_cost_rate": 50,
+    "paired_seed_relative_rate_reduction_confidence_interval": [
+      0.534567293837166,
+      0.7823755230245593
+    ],
+    "paired_seed_relative_rate_reduction_mean": 0.6761922436620229,
+    "point_estimate_meets_target": true,
+    "primary_high_cost": 0.5,
+    "primary_low_cost": 0.0,
+    "seed_count": 50,
+    "target_relative_reduction": 0.15
+  },
+  "run_directory": "C:\\Users\\simra\\Documents\\IITGN Acads\\SEM 5\\FAI\\project\\faiproj\\results\\h4_cost_sensitivity_20261122_005543_147362",
+  "runtime_seconds": 2479.075391099992,
+  "scope": "Aware nonmyopic policy; costs 0 and 0.5 are primary; other costs are secondary.",
+  "seeds": [
+    610,
+    611,
+    612,
+    613,
+    614,
+    615,
+    616,
+    617,
+    618,
+    619,
+    620,
+    621,
+    622,
+    623,
+    624,
+    625,
+    626,
+    627,
+    628,
+    629,
+    630,
+    631,
+    632,
+    633,
+    634,
+    635,
+    636,
+    637,
+    638,
+    639,
+    640,
+    641,
+    642,
+    643,
+    644,
+    645,
+    646,
+    647,
+    648,
+    649,
+    650,
+    651,
+    652,
+    653,
+    654,
+    655,
+    656,
+    657,
+    658,
+    659
+  ]
+}

@@ -1,0 +1,402 @@
+[
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 610
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 611
+  },
+  {
+    "h1_eligible_contexts": 5,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 612
+  },
+  {
+    "h1_eligible_contexts": 7,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 5,
+    "receiver_differentiation_fraction": 0.7142857142857143,
+    "requested_diagnostic_contexts": 10,
+    "seed": 613
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 614
+  },
+  {
+    "h1_eligible_contexts": 3,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 615
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 616
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 9,
+    "receiver_differentiation_fraction": 1.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 617
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 618
+  },
+  {
+    "h1_eligible_contexts": 7,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 5,
+    "receiver_differentiation_fraction": 0.7142857142857143,
+    "requested_diagnostic_contexts": 10,
+    "seed": 619
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 620
+  },
+  {
+    "h1_eligible_contexts": 5,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 621
+  },
+  {
+    "h1_eligible_contexts": 1,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 1,
+    "receiver_differentiation_fraction": 1.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 622
+  },
+  {
+    "h1_eligible_contexts": 3,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 623
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 624
+  },
+  {
+    "h1_eligible_contexts": 7,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 625
+  },
+  {
+    "h1_eligible_contexts": 3,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 3,
+    "receiver_differentiation_fraction": 1.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 626
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 627
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 1,
+    "receiver_differentiation_fraction": 0.1111111111111111,
+    "requested_diagnostic_contexts": 10,
+    "seed": 628
+  },
+  {
+    "h1_eligible_contexts": 7,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 6,
+    "receiver_differentiation_fraction": 0.8571428571428571,
+    "requested_diagnostic_contexts": 10,
+    "seed": 629
+  },
+  {
+    "h1_eligible_contexts": 7,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 4,
+    "receiver_differentiation_fraction": 0.5714285714285714,
+    "requested_diagnostic_contexts": 10,
+    "seed": 630
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 631
+  },
+  {
+    "h1_eligible_contexts": 3,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 632
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 633
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 634
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 635
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 2,
+    "receiver_differentiation_fraction": 0.2222222222222222,
+    "requested_diagnostic_contexts": 10,
+    "seed": 636
+  },
+  {
+    "h1_eligible_contexts": 5,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 637
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 638
+  },
+  {
+    "h1_eligible_contexts": 1,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 1,
+    "receiver_differentiation_fraction": 1.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 639
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 640
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 641
+  },
+  {
+    "h1_eligible_contexts": 7,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 642
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 7,
+    "receiver_differentiation_fraction": 0.7777777777777778,
+    "requested_diagnostic_contexts": 10,
+    "seed": 643
+  },
+  {
+    "h1_eligible_contexts": 5,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 2,
+    "receiver_differentiation_fraction": 0.4,
+    "requested_diagnostic_contexts": 10,
+    "seed": 644
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 645
+  },
+  {
+    "h1_eligible_contexts": 5,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 646
+  },
+  {
+    "h1_eligible_contexts": 7,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 2,
+    "receiver_differentiation_fraction": 0.2857142857142857,
+    "requested_diagnostic_contexts": 10,
+    "seed": 647
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 648
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 649
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 650
+  },
+  {
+    "h1_eligible_contexts": 1,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 651
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 652
+  },
+  {
+    "h1_eligible_contexts": 5,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 653
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 9,
+    "receiver_differentiation_fraction": 1.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 654
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 2,
+    "receiver_differentiation_fraction": 0.2222222222222222,
+    "requested_diagnostic_contexts": 10,
+    "seed": 655
+  },
+  {
+    "h1_eligible_contexts": 5,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 656
+  },
+  {
+    "h1_eligible_contexts": 0,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": null,
+    "requested_diagnostic_contexts": 10,
+    "seed": 657
+  },
+  {
+    "h1_eligible_contexts": 7,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 0,
+    "receiver_differentiation_fraction": 0.0,
+    "requested_diagnostic_contexts": 10,
+    "seed": 658
+  },
+  {
+    "h1_eligible_contexts": 9,
+    "observed_diagnostic_contexts": 10,
+    "receiver_differentiated_contexts": 7,
+    "receiver_differentiation_fraction": 0.7777777777777778,
+    "requested_diagnostic_contexts": 10,
+    "seed": 659
+  }
+]

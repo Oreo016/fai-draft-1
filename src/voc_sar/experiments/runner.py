@@ -1,11 +1,13 @@
 """Reproducible baseline, horizon, cost, and held-out oracle experiments."""
 
 from collections import defaultdict
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from datetime import datetime
 import json
 import math
 from pathlib import Path
 import random
+import sys
 import time
 from typing import Any
 
@@ -44,9 +46,10 @@ def run_experiments(config: dict[str, Any]) -> dict[str, Any]:
     costs = [float(cost) for cost in communication_config["cost_sweep"]]
     myopic_horizon = int(communication_config["myopic_horizon"])
     nonmyopic_horizon = int(communication_config["nonmyopic_horizon"])
-    context_limit = max(1, math.ceil(
-        int(evaluation_config["held_out_contexts"]) / len(seeds)
-    ))
+    context_limit = evaluation_config.get("max_valuation_contexts_per_episode")
+    if context_limit is not None:
+        context_limit = int(context_limit)
+    worker_count = int(evaluation_config.get("parallel_workers", 1))
 
     conditions: list[tuple[str, float, int]] = [
         ("never", 0.0, nonmyopic_horizon),
@@ -61,27 +64,64 @@ def run_experiments(config: dict[str, Any]) -> dict[str, Any]:
             ("agnostic_nonmyopic", cost, nonmyopic_horizon),
         ))
 
-    episode_rows: list[dict[str, Any]] = []
-    search_frames_by_method: dict[str, list[dict[str, Any]]] = {}
-    started_at = time.perf_counter()
+    jobs: list[tuple[dict[str, Any], int, str, float, int, int | None, bool]] = []
+    captured_methods: set[str] = set()
     for method, cost_weight, horizon in conditions:
         for seed in seeds:
-            capture_search = method not in search_frames_by_method
-            method_frames: list[dict[str, Any]] | None = [] if capture_search else None
-            episode_rows.append(_run_episode(
-                config,
-                seed,
-                method,
-                cost_weight,
-                horizon,
-                context_limit,
-                method_frames,
+            capture_search = method not in captured_methods
+            if capture_search:
+                captured_methods.add(method)
+            jobs.append((
+                config, seed, method, cost_weight, horizon,
+                context_limit, capture_search,
             ))
-            if method_frames is not None:
-                search_frames_by_method[method] = method_frames
+
+    started_at = time.perf_counter()
+    episode_rows: list[dict[str, Any] | None] = [None] * len(jobs)
+    search_frames_by_method: dict[str, list[dict[str, Any]]] = {}
+    _report_progress("Episodes", 0, len(jobs))
+    completed = 0
+
+    def save_episode_result(
+        index: int,
+        result: tuple[dict[str, Any], str | None, list[dict[str, Any]] | None],
+    ) -> None:
+        nonlocal completed
+        row, captured_method, frames = result
+        episode_rows[index] = row
+        if captured_method is not None and frames is not None:
+            search_frames_by_method[captured_method] = frames
+        completed += 1
+        _report_progress(
+            "Episodes", completed, len(jobs),
+            f"{row['method']} seed={row['seed']}",
+        )
+
+    if worker_count == 1:
+        for index, job in enumerate(jobs):
+            save_episode_result(index, _run_episode_job(job))
+    else:
+        with ProcessPoolExecutor(max_workers=worker_count) as executor:
+            futures = {
+                executor.submit(_run_episode_job, job): index
+                for index, job in enumerate(jobs)
+            }
+            for future in as_completed(futures):
+                save_episode_result(futures[future], future.result())
+
+    completed_episode_rows = [row for row in episode_rows if row is not None]
 
     diagnostics = _run_held_out_diagnostics(config, seeds)
-    summary = _summarize(config, episode_rows, diagnostics)
+    summary = _summarize(config, completed_episode_rows, diagnostics)
+    summary["decision_scope"] = {
+        "max_valuation_contexts_per_episode": context_limit,
+        "valuation_contexts_are_capped": context_limit is not None,
+        "held_out_contexts_are_reserved_for": "offline diagnostics only",
+    }
+    summary["execution"] = {
+        "parallel_workers": worker_count,
+        "episode_execution": "parallel" if worker_count > 1 else "sequential",
+    }
     summary["runtime_seconds"] = time.perf_counter() - started_at
     summary["config"] = config
     output_root = Path(evaluation_config.get("output_dir", "results"))
@@ -91,18 +131,51 @@ def run_experiments(config: dict[str, Any]) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     summary["run_directory"] = str(output_dir.resolve())
     summary["visualizations_directory"] = str((output_dir / "graphs").resolve())
+    summary["config_file"] = str((output_dir / "config_used.json").resolve())
+    (output_dir / "config_used.json").write_text(
+        json.dumps(config, indent=2, sort_keys=True),
+        encoding="utf-8",
+    )
     (output_dir / "episodes.json").write_text(
-        json.dumps(episode_rows, indent=2, sort_keys=True),
+        json.dumps(completed_episode_rows, indent=2, sort_keys=True),
         encoding="utf-8",
     )
     (output_dir / "summary.json").write_text(
         json.dumps(summary, indent=2, sort_keys=True),
         encoding="utf-8",
     )
-    create_visualizations(episode_rows, summary, output_dir / "graphs")
+    create_visualizations(completed_episode_rows, summary, output_dir / "graphs")
     for method, frames in search_frames_by_method.items():
         create_search_animation(frames, output_dir / f"search-operations-{method}.gif")
     return summary
+
+
+def _report_progress(
+    phase: str, completed: int, total: int, detail: str = ""
+) -> None:
+    if total < 1:
+        return
+    percentage = 100 * completed // total
+    message = f"{phase}: {completed}/{total} ({percentage}%)"
+    if detail:
+        message += f" | {detail}"
+    if sys.stderr.isatty():
+        print(f"\r{message:<100}", end="\n" if completed == total else "", file=sys.stderr, flush=True)
+    else:
+        interval = max(1, math.ceil(total / 20))
+        if completed in {0, 1, total} or completed % interval == 0:
+            print(message, file=sys.stderr, flush=True)
+
+
+def _run_episode_job(
+    job: tuple[dict[str, Any], int, str, float, int, int | None, bool],
+) -> tuple[dict[str, Any], str | None, list[dict[str, Any]] | None]:
+    config, seed, method, cost_weight, horizon, context_limit, capture_search = job
+    frames: list[dict[str, Any]] | None = [] if capture_search else None
+    row = _run_episode(
+        config, seed, method, cost_weight, horizon, context_limit, frames
+    )
+    return row, method if capture_search else None, frames
 
 
 def _run_episode(
@@ -111,8 +184,9 @@ def _run_episode(
     method: str,
     cost_weight: float,
     valuation_horizon: int,
-    context_limit: int,
+    context_limit: int | None,
     search_frames: list[dict[str, Any]] | None = None,
+    forced_message_budget: int | None = None,
 ) -> dict[str, Any]:
     episode_started = time.perf_counter()
     env_config = config["environment"]
@@ -142,6 +216,7 @@ def _run_episode(
     valuation_contexts = 0
     estimator_standard_errors: list[float] = []
     selected_standard_errors: list[float] = []
+    forced_budget_sends = 0
     step = 0
     if search_frames is not None:
         _capture_search_frame(search_frames, env, [], None, method, seed)
@@ -151,8 +226,34 @@ def _run_episode(
         messages = candidate_messages(sender_observation, planned_action)
         choice: CommunicationChoice | None = None
 
-        if method in {"aware_myopic", "aware_nonmyopic", "agnostic_nonmyopic"}:
-            if valuation_contexts < context_limit and messages and receivers:
+        fixed_budget_mode = forced_message_budget is not None and method in {
+            "aware_nonmyopic_fixed_budget",
+            "agnostic_nonmyopic_fixed_budget",
+        }
+        budget_deadline = int(env_config["horizon"])
+        budget_decision_due = (
+            not fixed_budget_mode
+            or (
+                sent_count < int(forced_message_budget)
+                and step < budget_deadline
+            )
+        )
+        force_budget_completion = (
+            fixed_budget_mode
+            and sent_count < int(forced_message_budget)
+            and budget_deadline - step <= int(forced_message_budget) - sent_count
+        )
+        valuation_methods = {
+            "aware_myopic", "aware_nonmyopic", "agnostic_nonmyopic",
+            "aware_nonmyopic_fixed_budget", "agnostic_nonmyopic_fixed_budget",
+        }
+        if method in valuation_methods:
+            if (
+                budget_decision_due
+                and (context_limit is None or valuation_contexts < context_limit)
+                and messages
+                and receivers
+            ):
                 decision_count += 1
                 valuation_contexts += 1
                 trace = SelectionTrace()
@@ -165,7 +266,10 @@ def _run_episode(
                     observation=sender_observation,
                     shortlist_size=int(comm_config["shortlist_size"]),
                     receiver_roles=env.roles,
-                    aware=method != "agnostic_nonmyopic",
+                    aware=method not in {
+                        "agnostic_nonmyopic",
+                        "agnostic_nonmyopic_fixed_budget",
+                    },
                     seed=seed,
                     hazard_move_probability=float(
                         env_config.get("hazard_move_probability", 0.0)
@@ -173,6 +277,7 @@ def _run_episode(
                     hazard_toggle_probability=float(
                         env_config.get("hazard_toggle_probability", 0.0)
                     ),
+                    force_send=force_budget_completion,
                     trace=trace,
                 )
                 estimator_standard_errors.extend(
@@ -181,6 +286,12 @@ def _run_episode(
                     if estimate.standard_error is not None
                 )
                 if choice is not None:
+                    if (
+                        force_budget_completion
+                        and trace.selected_value is not None
+                        and trace.selected_value <= 0.0
+                    ):
+                        forced_budget_sends += 1
                     selected_standard_errors.extend(
                         estimate.standard_error
                         for message, receiver_id, estimate in trace.evaluations
@@ -282,6 +393,12 @@ def _run_episode(
         "rescued_victims": len(env.victims) - remaining_victims,
         "unrescued_victims": remaining_victims,
         "failure_case": "unrescued_victims" if remaining_victims else None,
+        "message_budget": forced_message_budget,
+        "message_budget_met": (
+            sent_count == forced_message_budget
+            if forced_message_budget is not None else None
+        ),
+        "forced_budget_sends": forced_budget_sends,
     }
 
 
@@ -342,7 +459,8 @@ def _run_held_out_diagnostics(
     horizon_gains_by_seed: list[list[float]] = []
     context_count = 0
 
-    for seed in seeds:
+    _report_progress("Diagnostics", 0, len(seeds))
+    for seed_index, seed in enumerate(seeds, 1):
         env = SARGrid(env_config)
         observations = env.reset(seed + 77_777)
         policies = task_policies(env.roles)
@@ -352,6 +470,7 @@ def _run_held_out_diagnostics(
         )
         receivers = [index for index in range(len(env.roles)) if index != sender_id]
         if len(receivers) < 1:
+            _report_progress("Diagnostics", seed_index, len(seeds), f"seed={seed}")
             continue
         estimator = PairedRolloutEstimator(
             ParticleReceiverEstimator(env_config, seed=seed + 77_777),
@@ -539,6 +658,7 @@ def _run_held_out_diagnostics(
             receiver_flags_by_seed.append(receiver_flags_for_seed)
         if horizon_gains_for_seed:
             horizon_gains_by_seed.append(horizon_gains_for_seed)
+        _report_progress("Diagnostics", seed_index, len(seeds), f"seed={seed}")
 
     mae = (
         voc_mean_absolute_error(mae_predictions, mae_targets)
@@ -667,6 +787,14 @@ def _summarize(
         (row["method"], row["cost_weight"], row["seed"]): row
         for row in episode_rows
     }
+    paired_comparisons = _paired_return_comparisons(
+        episode_rows,
+        config["communication"]["cost_sweep"],
+        evaluation["seeds"],
+        confidence,
+        bootstrap_samples,
+        seed,
+    )
     h2_differences_by_seed: dict[int, list[float]] = defaultdict(list)
     h2_budget_differences_by_seed: dict[int, list[float]] = defaultdict(list)
     budget_match_tolerance = int(
@@ -876,6 +1004,7 @@ def _summarize(
     }
     return {
         "conditions": conditions,
+        "paired_return_comparisons": paired_comparisons,
         "pareto_frontier": sorted(
             pareto_frontier,
             key=lambda item: (item["mean_messages"], -item["mean_task_return"]),
@@ -887,6 +1016,80 @@ def _summarize(
         ],
         "episode_count": len(episode_rows),
     }
+
+
+def _paired_return_comparisons(
+    episode_rows: list[dict[str, Any]],
+    costs: list[float],
+    seeds: list[int],
+    confidence: float,
+    bootstrap_samples: int,
+    bootstrap_seed: int,
+) -> list[dict[str, Any]]:
+    """Report same-seed return effects and exact realized-budget subsets."""
+    indexed = {
+        (row["method"], float(row["cost_weight"]), int(row["seed"])): row
+        for row in episode_rows
+    }
+    pairs: list[tuple[str, str, float]] = []
+    for cost in costs:
+        pairs.append(("aware_nonmyopic", "agnostic_nonmyopic", float(cost)))
+    pairs.extend((
+        ("aware_nonmyopic", "random", 0.0),
+        ("agnostic_nonmyopic", "random", 0.0),
+    ))
+    reports: list[dict[str, Any]] = []
+    for pair_index, (first_method, second_method, cost) in enumerate(pairs):
+        differences: list[dict[str, Any]] = []
+        budget_matched: list[dict[str, Any]] = []
+        for episode_seed in seeds:
+            first = indexed.get((first_method, cost, int(episode_seed)))
+            second = indexed.get((second_method, cost, int(episode_seed)))
+            if first is None or second is None:
+                continue
+            difference = float(first["discounted_task_return"]) - float(
+                second["discounted_task_return"]
+            )
+            pair_record = {
+                "seed": int(episode_seed),
+                "return_difference": difference,
+                "first_messages": int(first["messages"]),
+                "second_messages": int(second["messages"]),
+            }
+            differences.append(pair_record)
+            if (
+                int(first["messages"]) == int(second["messages"])
+                and int(first["messages"]) > 0
+            ):
+                budget_matched.append(pair_record)
+        paired_values = [item["return_difference"] for item in differences]
+        budget_values = [item["return_difference"] for item in budget_matched]
+        reports.append({
+            "first_method": first_method,
+            "second_method": second_method,
+            "cost_weight": cost,
+            "paired_seed_count": len(differences),
+            "mean_first_minus_second_return": _mean(paired_values),
+            "paired_seed_return_differences": differences,
+            "paired_confidence_interval": (
+                bootstrap_mean_interval(
+                    paired_values, confidence, bootstrap_samples,
+                    bootstrap_seed + 10000 + pair_index,
+                ) if paired_values else None
+            ),
+            "exact_budget_matched_seed_count": len(budget_matched),
+            "mean_return_difference_at_exact_matched_budget": (
+                _mean(budget_values) if budget_values else None
+            ),
+            "exact_budget_matched_confidence_interval": (
+                bootstrap_mean_interval(
+                    budget_values, confidence, bootstrap_samples,
+                    bootstrap_seed + 11000 + pair_index,
+                ) if budget_values else None
+            ),
+            "exact_budget_matched_seed_differences": budget_matched,
+        })
+    return reports
 
 
 def _validate_config(config: dict[str, Any]) -> None:
@@ -920,6 +1123,13 @@ def _validate_config(config: dict[str, Any]) -> None:
         raise ValueError("communication.cost_sweep must include the paper's 0.0 and 0.5 settings")
     if int(evaluation.get("held_out_contexts", 0)) < 1:
         raise ValueError("config.evaluation.held_out_contexts must be positive")
+    if int(evaluation.get("parallel_workers", 1)) < 1:
+        raise ValueError("config.evaluation.parallel_workers must be at least 1")
+    valuation_cap = evaluation.get("max_valuation_contexts_per_episode")
+    if valuation_cap is not None and int(valuation_cap) < 1:
+        raise ValueError(
+            "config.evaluation.max_valuation_contexts_per_episode must be positive or null"
+        )
     if not 0.0 < float(evaluation.get("confidence_level", 0.95)) < 1.0:
         raise ValueError("evaluation.confidence_level must be strictly between 0 and 1")
     thresholds = evaluation.get("thresholds", {})

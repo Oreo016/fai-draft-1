@@ -19,12 +19,21 @@ python -m voc_sar --config configs/default.yaml
 
 Each run creates a unique timestamped subfolder under `evaluation.output_dir`.
 It stores `episodes.json`, `summary.json`, and a `graphs` folder with standalone
-SVG charts plus an `index.html` gallery. It also saves one
+SVG charts plus an `index.html` gallery, and `config_used.json` with the exact
+configuration snapshot for that run. The command line reports episode and
+diagnostic progress as the work completes. It also saves one
 `search-operations-<method>.gif` for each communication method, using that
 method's first episode to show agent positions, victims, hazards, task actions,
-and any communication sent. The default experiment uses the paper's 10 seeds,
-64 receiver-state particles, 32 paired rollouts, `Hmyo=1`, `HNM=5`, `Heval=15`,
-and cost sweep `λ in {0, 0.5}`. The offline diagnostics use a separate
+and any communication sent. Valuation runs at every eligible episode decision
+by default; `evaluation.max_valuation_contexts_per_episode` can set an explicit
+positive decision cap for a separate capped run. Held-out contexts are used
+only for offline diagnostics. Summaries include paired per-seed return effects
+and exact message-count-matched subsets for aware, agnostic, and Random methods.
+Independent condition/seed episodes run in parallel using
+`evaluation.parallel_workers` (default `4`); set it to `1` to run sequentially.
+The current default config uses 20 seeds, 64 receiver-state particles, 32 paired
+rollouts, `Hmyo=1`, `HNM=5`, `Heval=35`, and cost sweep `λ in {0, 0.5}`. The
+offline diagnostics use a separate
 held-out, no-communication trajectory set. Results are generated locally;
 no performance claim is made by this source tree alone.
 

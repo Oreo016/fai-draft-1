@@ -53,9 +53,17 @@ final brief's parameter choices or core deliverables.
   than maintaining a separate persistent assignment state `Q_t`. Add
   reservation/assignment dynamics only as a controlled extension, since they
   can change the counterfactual value being measured.
-- The runner caps expensive estimator decisions per episode using
-  `evaluation.held_out_contexts` divided across the configured seeds. It logs
-  the number of contexts actually valued so that this compute cap is visible.
+- Main episode comparisons evaluate the communication rule at every eligible
+  decision. `evaluation.max_valuation_contexts_per_episode` can be set to a
+  positive integer for an explicitly capped compute-sensitivity experiment;
+  capped and uncapped runs must be interpreted separately. The held-out
+  context count is reserved for offline diagnostics and does not limit episode
+  policy decisions.
+- Independent condition/seed episodes are dispatched to a process pool using
+  `evaluation.parallel_workers`; result ordering and episode seeds are stable
+  across worker counts. CLI progress is reported as episodes and diagnostic
+  seeds finish. Every run folder also stores the input config as
+  `config_used.json`; held-out diagnostics remain sequential.
 
 These are deliberately visible assumptions rather than hidden claims. They
 are suitable for a first reproducible implementation and should be stress
@@ -74,7 +82,10 @@ tested before making claims about real-world SAR.
   more than `evaluation.message_budget_match_tolerance` (default 0) and both
   actually send at least one message; the common
   per-sender-step ceiling alone is not treated as a matched realized budget.
-  A reduction alone is not considered an improvement if task return falls.
+  Same-seed return differences are also reported for aware/agnostic and
+  budget-matched Random controls; exact realized message counts are required
+  for the budget-matched subsets. A reduction alone is not considered an
+  improvement if task return falls.
 - **H3:** compare myopic and nonmyopic selected actions against the
   `Heval` oracle choice on the same held-out contexts.
 - **H4:** compare the positive-net-VoC communication rate at the lowest and

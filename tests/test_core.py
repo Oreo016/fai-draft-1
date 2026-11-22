@@ -64,6 +64,7 @@ def small_config() -> dict:
             "fixed_frequency": 2,
         },
         "evaluation": {
+            "parallel_workers": 2,
             "seeds": [0],
             "held_out_contexts": 1,
             "bootstrap_samples": 10,
@@ -320,14 +321,30 @@ class CoreTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as output:
             config["evaluation"]["output_dir"] = output
             summary = run_experiments(config)
-            episode_file = Path(output) / "episodes.json"
-            summary_file = Path(output) / "summary.json"
+            run_directory = Path(summary["run_directory"])
+            episode_file = run_directory / "episodes.json"
+            summary_file = run_directory / "summary.json"
+            config_file = run_directory / "config_used.json"
+            animation_files = list(run_directory.glob("search-operations-*.gif"))
             self.assertTrue(episode_file.is_file())
             self.assertTrue(summary_file.is_file())
+            self.assertTrue(config_file.is_file())
+            self.assertEqual(
+                json.loads(config_file.read_text(encoding="utf-8")), config
+            )
+            self.assertTrue(animation_files)
             self.assertEqual(summary["episode_count"], 10)
+            self.assertEqual(summary["execution"]["parallel_workers"], 2)
+            self.assertEqual(summary["execution"]["episode_execution"], "parallel")
+            self.assertFalse(summary["decision_scope"]["valuation_contexts_are_capped"])
             self.assertTrue(summary["diagnostics"]["held_out_contexts"] > 0)
             self.assertEqual(len(json.loads(episode_file.read_text(encoding="utf-8"))), 10)
             self.assertTrue(summary["hypotheses"]["H4_cost_sensitivity"]["high_cost"] == 0.5)
+            self.assertTrue(summary["paired_return_comparisons"])
+            self.assertTrue(any(
+                item["second_method"] == "random"
+                for item in summary["paired_return_comparisons"]
+            ))
 
 
 if __name__ == "__main__":

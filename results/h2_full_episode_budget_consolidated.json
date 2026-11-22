@@ -1,0 +1,218 @@
+{
+  "experiment": "H2 whole-episode fixed-budget comparison",
+  "scope": "Receiver-aware versus receiver-agnostic selection across the full episode.",
+  "primary_quota": 5,
+  "secondary_quota": 10,
+  "protocol": {
+    "environment": "Current default config: gamma=0.9, p_move=0.3, p_toggle=0.2.",
+    "policy": "Each method may send value-positive messages at any decision until its quota is met. If remaining horizon steps equal remaining quota, send the best available message even if estimated net value is non-positive.",
+    "early_termination": "Episodes that end before meeting quota are counted as quota misses and excluded from exact-budget paired return comparisons.",
+    "controls": [
+      "full broadcast",
+      "never communicate"
+    ],
+    "return_match_tolerance": 1.0,
+    "seed_blocks": [
+      [
+        510,
+        559
+      ],
+      [
+        710,
+        759
+      ]
+    ]
+  },
+  "budgets": {
+    "5": {
+      "role": "primary",
+      "run": "h2_fixed_budget_20261121_223852_784456",
+      "attempted_seed_pairs": 50,
+      "exact_budget_seed_pairs": 50,
+      "aware_quota_met": 50,
+      "agnostic_quota_met": 50,
+      "mean_aware_minus_agnostic_return": 0.370602346980558,
+      "paired_return_95pct_bootstrap_ci": [
+        0.16098989179079337,
+        0.6426516698619221
+      ],
+      "aware_advantage_supported": true,
+      "matched_return_seed_pairs_vs_full": 40,
+      "mean_communication_reduction_at_matched_return": 0.9423921942937297,
+      "matched_return_reduction_95pct_bootstrap_ci": [
+        0.9368245888444019,
+        0.9469756750948441
+      ],
+      "communication_reduction_target": 0.2,
+      "mean_forced_messages": {
+        "aware": 0.24,
+        "agnostic": 0.04
+      },
+      "mean_messages": {
+        "aware": 5.0,
+        "agnostic": 5.0,
+        "full": 89.98,
+        "never": 0.0
+      },
+      "mean_task_return": {
+        "aware": 0.7013229372778044,
+        "agnostic": 0.33072059029724643,
+        "full": 0.9809344276392712,
+        "never": 0.111499401324771
+      },
+      "independent_replication": {
+        "run": "h2_fixed_budget_20261121_231120_101460",
+        "seed_range": [
+          710,
+          759
+        ],
+        "attempted_seed_pairs": 50,
+        "exact_budget_seed_pairs": 50,
+        "aware_quota_met": 50,
+        "agnostic_quota_met": 50,
+        "mean_aware_minus_agnostic_return": 0.6513576567828716,
+        "paired_return_95pct_bootstrap_ci": [
+          0.2694879183092104,
+          1.0958409277720609
+        ],
+        "matched_return_seed_pairs_vs_full": 43,
+        "mean_communication_reduction_at_matched_return": 0.9411166988508413,
+        "matched_return_reduction_95pct_bootstrap_ci": [
+          0.9348548596174919,
+          0.9463444936763924
+        ],
+        "mean_forced_messages": {
+          "aware": 0.36,
+          "agnostic": 0.08
+        }
+      },
+      "pooled_original_plus_replication": {
+        "seed_blocks": [
+          [
+            510,
+            559
+          ],
+          [
+            710,
+            759
+          ]
+        ],
+        "attempted_seed_pairs": 100,
+        "exact_budget_seed_pairs": 100,
+        "aware_quota_met": 100,
+        "agnostic_quota_met": 100,
+        "mean_aware_minus_agnostic_return": 0.5109800018817148,
+        "paired_return_95pct_bootstrap_ci": [
+          0.28817186104396314,
+          0.7704527577554455
+        ],
+        "positive_aware_advantage_supported": true,
+        "matched_return_seed_pairs_vs_full": 83,
+        "mean_communication_reduction_at_matched_return": 0.9417313954498236,
+        "matched_return_reduction_95pct_bootstrap_ci": [
+          0.9375649738406877,
+          0.9452591091799503
+        ],
+        "mean_forced_messages": {
+          "aware": 0.3,
+          "agnostic": 0.06
+        }
+      }
+    },
+    "10": {
+      "role": "secondary",
+      "run": "h2_fixed_budget_20261121_224818_121866",
+      "attempted_seed_pairs": 50,
+      "exact_budget_seed_pairs": 48,
+      "aware_quota_met": 48,
+      "agnostic_quota_met": 50,
+      "mean_aware_minus_agnostic_return": 0.6041700556019399,
+      "paired_return_95pct_bootstrap_ci": [
+        0.36158585644812025,
+        0.8592033020282951
+      ],
+      "aware_advantage_supported": true,
+      "matched_return_seed_pairs_vs_full": 39,
+      "mean_communication_reduction_at_matched_return": 0.888791064027279,
+      "matched_return_reduction_95pct_bootstrap_ci": [
+        0.8789115680105427,
+        0.8961880180241198
+      ],
+      "communication_reduction_target": 0.2,
+      "mean_forced_messages": {
+        "aware": 1.98,
+        "agnostic": 0.48
+      },
+      "mean_messages": {
+        "aware": 9.86,
+        "agnostic": 10.0,
+        "full": 89.98,
+        "never": 0.0
+      },
+      "mean_task_return": {
+        "aware": 0.9384255663039958,
+        "agnostic": 0.36189931603686243,
+        "full": 0.9809344276392712,
+        "never": 0.111499401324771
+      },
+      "independent_replication": {
+        "run": "h2_fixed_budget_20261121_232533_868979",
+        "seed_range": [
+          710,
+          759
+        ],
+        "attempted_seed_pairs": 50,
+        "exact_budget_seed_pairs": 47,
+        "aware_quota_met": 47,
+        "agnostic_quota_met": 50,
+        "mean_aware_minus_agnostic_return": 0.7228694416621329,
+        "paired_return_95pct_bootstrap_ci": [
+          0.3502631639821675,
+          1.149085454473183
+        ],
+        "matched_return_seed_pairs_vs_full": 41,
+        "mean_communication_reduction_at_matched_return": 0.8848035412702789,
+        "matched_return_reduction_95pct_bootstrap_ci": [
+          0.8726598624450425,
+          0.8942302001392483
+        ],
+        "mean_forced_messages": {
+          "aware": 2.32,
+          "agnostic": 0.7
+        }
+      },
+      "pooled_original_plus_replication": {
+        "seed_blocks": [
+          [
+            510,
+            559
+          ],
+          [
+            710,
+            759
+          ]
+        ],
+        "attempted_seed_pairs": 100,
+        "exact_budget_seed_pairs": 95,
+        "aware_quota_met": 95,
+        "agnostic_quota_met": 100,
+        "mean_aware_minus_agnostic_return": 0.6628950150211933,
+        "paired_return_95pct_bootstrap_ci": [
+          0.42806752196497844,
+          0.9365193486761371
+        ],
+        "positive_aware_advantage_supported": true,
+        "matched_return_seed_pairs_vs_full": 80,
+        "mean_communication_reduction_at_matched_return": 0.8867474586143166,
+        "matched_return_reduction_95pct_bootstrap_ci": [
+          0.8790944856561842,
+          0.8932044438623009
+        ],
+        "mean_forced_messages": {
+          "aware": 2.15,
+          "agnostic": 0.59
+        }
+      }
+    }
+  }
+}

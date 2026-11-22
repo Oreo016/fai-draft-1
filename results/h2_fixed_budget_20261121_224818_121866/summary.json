@@ -1,0 +1,191 @@
+{
+  "aware_vs_full_at_matched_return": {
+    "confidence_interval": [
+      0.8789115680105427,
+      0.8961880180241198
+    ],
+    "matched_seed_count": 39,
+    "mean_communication_reduction": 0.888791064027279,
+    "return_match_tolerance": 1.0,
+    "target_reduction": 0.2
+  },
+  "budget_messages_per_episode": 10,
+  "conditions": [
+    {
+      "episodes": 50,
+      "mean_forced_budget_sends": 1.98,
+      "mean_messages": 9.86,
+      "mean_rescued_victims": 1.14,
+      "mean_task_return": 0.9384255663039958,
+      "message_budget_met_episodes": 48,
+      "method": "aware_nonmyopic_fixed_budget"
+    },
+    {
+      "episodes": 50,
+      "mean_forced_budget_sends": 0.48,
+      "mean_messages": 10.0,
+      "mean_rescued_victims": 0.68,
+      "mean_task_return": 0.36189931603686243,
+      "message_budget_met_episodes": 50,
+      "method": "agnostic_nonmyopic_fixed_budget"
+    },
+    {
+      "episodes": 50,
+      "mean_forced_budget_sends": null,
+      "mean_messages": 89.98,
+      "mean_rescued_victims": 2.26,
+      "mean_task_return": 0.9809344276392712,
+      "message_budget_met_episodes": null,
+      "method": "full"
+    },
+    {
+      "episodes": 50,
+      "mean_forced_budget_sends": null,
+      "mean_messages": 0.0,
+      "mean_rescued_victims": 0.6,
+      "mean_task_return": 0.111499401324771,
+      "message_budget_met_episodes": null,
+      "method": "never"
+    }
+  ],
+  "config": {
+    "communication": {
+      "cost_sweep": [
+        0.0,
+        0.5
+      ],
+      "fixed_frequency": 3,
+      "max_messages_per_sender_step": 1,
+      "myopic_horizon": 1,
+      "nonmyopic_horizon": 5,
+      "oracle_horizon": 15,
+      "oracle_value_threshold": 0.5,
+      "particles": 64,
+      "rollout_count": 32,
+      "shortlist_size": 8,
+      "unit_cost": 1.0,
+      "useful_message_threshold": 0.0
+    },
+    "environment": {
+      "gamma": 0.9,
+      "grid_size": 10,
+      "hazard_move_probability": 0.3,
+      "hazard_toggle_probability": 0.2,
+      "hazards": 2,
+      "horizon": 100,
+      "reward": {
+        "locate": 1.0,
+        "rescue": 10.0,
+        "stabilize": 2.0,
+        "step_penalty": 0.05
+      },
+      "roles": [
+        "scout",
+        "carrier",
+        "medic"
+      ],
+      "victims": 3
+    },
+    "evaluation": {
+      "bootstrap_samples": 1000,
+      "confidence_level": 0.95,
+      "held_out_contexts": 100,
+      "max_valuation_contexts_per_episode": null,
+      "message_budget_match_tolerance": 0,
+      "output_dir": "results",
+      "parallel_workers": 6,
+      "return_match_tolerance": 1.0,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "thresholds": {
+        "communication_reduction": 0.2,
+        "high_cost_rate_reduction": 0.15,
+        "horizon_agreement_gain": 0.1,
+        "receiver_differentiation_fraction": 0.3,
+        "receiver_value_difference": 0.5,
+        "significance_level": 0.05
+      }
+    }
+  },
+  "experiment": "H2 exact message-budget comparison",
+  "interpretation": "Receiver/message selection quality under a fixed whole-episode budget. Value-positive messages may be sent throughout the episode; remaining messages are forced only when required to meet the quota. Early-terminating episodes that miss quota are reported separately.",
+  "message_schedule": "Value-based sends are allowed at every decision. If quota remains and the number of horizon steps left equals the remaining quota, the best available pair is sent even if its estimated value is non-positive.",
+  "paired_budget_comparison": {
+    "agnostic_method": "agnostic_nonmyopic_fixed_budget",
+    "attempted_seed_count": 50,
+    "aware_method": "aware_nonmyopic_fixed_budget",
+    "confidence_interval": [
+      0.36158585644812025,
+      0.8592033020282951
+    ],
+    "confidence_level": 0.95,
+    "exact_message_match_count": 48,
+    "mean_aware_minus_agnostic_return": 0.6041700556019399,
+    "paired_seed_count": 48,
+    "positive_aware_advantage_supported": true
+  },
+  "run_directory": "C:\\Users\\simra\\Documents\\IITGN Acads\\SEM 5\\FAI\\project\\faiproj\\results\\h2_fixed_budget_20261121_224818_121866",
+  "runtime_seconds": 555.9172910999914,
+  "seeds": [
+    510,
+    511,
+    512,
+    513,
+    514,
+    515,
+    516,
+    517,
+    518,
+    519,
+    520,
+    521,
+    522,
+    523,
+    524,
+    525,
+    526,
+    527,
+    528,
+    529,
+    530,
+    531,
+    532,
+    533,
+    534,
+    535,
+    536,
+    537,
+    538,
+    539,
+    540,
+    541,
+    542,
+    543,
+    544,
+    545,
+    546,
+    547,
+    548,
+    549,
+    550,
+    551,
+    552,
+    553,
+    554,
+    555,
+    556,
+    557,
+    558,
+    559
+  ]
+}

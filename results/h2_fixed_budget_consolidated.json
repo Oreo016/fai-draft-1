@@ -1,0 +1,103 @@
+{
+  "experiment": "H2 fixed-budget paired follow-up",
+  "protocol": "Methods send when they estimate positive VoC during the first fifth of the horizon; any remaining quota is filled by the deadline. Communication budget is exactly equal within each aware/agnostic seed pair.",
+  "primary_budget": 5,
+  "budgets": {
+    "5": {
+      "primary_or_secondary": "primary",
+      "discovery_runs": {
+        "discovery": "h2_fixed_budget_20261121_220044_074722",
+        "holdout": "h2_fixed_budget_20261121_220433_562600"
+      },
+      "discovery_and_holdout_seed_count": 100,
+      "exact_quota_pairs": 100,
+      "mean_aware_minus_agnostic_return": 0.4489795623231753,
+      "paired_return_95pct_bootstrap_ci": [
+        0.22646298341011506,
+        0.714777243628898
+      ],
+      "positive_advantage_supported": true,
+      "matched_return_aware_vs_full_pair_count": 81,
+      "mean_communication_reduction_at_matched_return": 0.9388230875323618,
+      "matched_return_reduction_95pct_bootstrap_ci": [
+        0.9351706751230138,
+        0.9421441238739218
+      ],
+      "matched_return_tolerance": 1.0,
+      "holdout": {
+        "run": "h2_fixed_budget_20261121_220433_562600",
+        "seed_range": [
+          410,
+          459
+        ],
+        "paired_seed_count": 50,
+        "exact_quota_pairs": 50,
+        "mean_aware_minus_agnostic_return": 0.5590851081078241,
+        "paired_return_95pct_bootstrap_ci": [
+          0.19623023876157852,
+          1.0082949264358425
+        ],
+        "matched_return_pair_count": 42,
+        "communication_reduction": 0.9404196298611208,
+        "matched_return_reduction_95pct_bootstrap_ci": [
+          0.936673932977048,
+          0.94387656644895
+        ]
+      }
+    },
+    "10": {
+      "primary_or_secondary": "secondary",
+      "discovery_runs": {
+        "discovery": "h2_fixed_budget_20261121_220233_195314",
+        "holdout": "h2_fixed_budget_20261121_220622_485661"
+      },
+      "discovery_and_holdout_seed_count": 100,
+      "exact_quota_pairs": 100,
+      "mean_aware_minus_agnostic_return": 0.5411750638057291,
+      "paired_return_95pct_bootstrap_ci": [
+        0.3026990845336331,
+        0.8226637147679378
+      ],
+      "positive_advantage_supported": true,
+      "matched_return_aware_vs_full_pair_count": 85,
+      "mean_communication_reduction_at_matched_return": 0.8785677269915626,
+      "matched_return_reduction_95pct_bootstrap_ci": [
+        0.8716160005173853,
+        0.8849411116972646
+      ],
+      "matched_return_tolerance": 1.0,
+      "holdout": {
+        "run": "h2_fixed_budget_20261121_220622_485661",
+        "seed_range": [
+          410,
+          459
+        ],
+        "paired_seed_count": 50,
+        "exact_quota_pairs": 50,
+        "mean_aware_minus_agnostic_return": 0.5756578033948954,
+        "paired_return_95pct_bootstrap_ci": [
+          0.21493161308879635,
+          1.018851379663832
+        ],
+        "matched_return_pair_count": 43,
+        "communication_reduction": 0.8812848583333524,
+        "matched_return_reduction_95pct_bootstrap_ci": [
+          0.8738249530607652,
+          0.8880944717263718
+        ]
+      }
+    }
+  },
+  "schedule_sensitivity": {
+    "run": "h2_fixed_budget_20261121_214955_584240",
+    "budget": 5,
+    "schedule": "fixed sends at evenly spaced steps across the full horizon",
+    "paired_seed_count": 50,
+    "mean_aware_minus_agnostic_return": -0.37945536520935996,
+    "paired_return_95pct_bootstrap_ci": [
+      -0.7823880570132034,
+      -0.03766652370824088
+    ],
+    "exact_quota_pairs": 50
+  }
+}

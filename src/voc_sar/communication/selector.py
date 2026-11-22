@@ -39,6 +39,7 @@ class SelectionTrace:
     """Optional estimates emitted by one selector call for uncertainty reporting."""
 
     evaluations: list[tuple[Message, int, ValueEstimate]] = field(default_factory=list)
+    selected_value: float | None = None
 
 
 def shortlist(
@@ -109,6 +110,7 @@ def select_communication(
     seed: int = 0,
     hazard_move_probability: float = 0.0,
     hazard_toggle_probability: float = 0.0,
+    force_send: bool = False,
     trace: SelectionTrace | None = None,
 ) -> CommunicationChoice | None:
     """Greedily choose the best positive-net-value directed message."""
@@ -148,7 +150,9 @@ def select_communication(
         value, _, receiver_id, message = max(
             scored, key=lambda item: (item[0], -item[1])
         )
-        return CommunicationChoice(receiver_id, message) if value > 0 else None
+        if trace is not None:
+            trace.selected_value = value
+        return CommunicationChoice(receiver_id, message) if force_send or value > 0 else None
 
     shortlisted_messages = _message_only_shortlist(
         messages,
@@ -182,7 +186,9 @@ def select_communication(
     value, _, selected_message = max(
         scored_messages, key=lambda item: (item[0], -item[1])
     )
-    if value <= 0:
+    if trace is not None:
+        trace.selected_value = value
+    if value <= 0 and not force_send:
         return None
     return CommunicationChoice(tie_break_receiver, selected_message)
 

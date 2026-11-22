@@ -1,11 +1,11 @@
 # Receiver-Aware Communication for Search and Rescue
 
-**Foundations of AI course project** · Indian Institute of Technology Gandhinagar  
-**Instructor:** Prof. Manisha Padala
+Course Project for **CS329: Foundations of AI** <br>
+**Instructor:** Prof. Manisha Padala, Indian Institute of Technology Gandhinagar
 
 We study whether a search-and-rescue team should share an existing report, which teammate should receive it, and whether the expected benefit is worth the communication cost. The project uses a grid-based simulation with three fixed roles: the Scout finds victims, the Medic stabilizes victims and disables hazards, and the Carrier transports stabilized victims to the evacuation cell.
 
-## Project submitters
+## Submitted by
 
 | Name | Department | Institute | Student ID |
 |---|---|---|---|
@@ -24,13 +24,15 @@ We study whether a search-and-rescue team should share an existing report, which
    python demo/app.py
    ```
 
-   Then open [http://127.0.0.1:8765](http://127.0.0.1:8765). The **Compare one report** page compares the estimated team score when the Scout's discovered victim report is sent to the Medic or Carrier versus withheld. Change the message cost to see how it affects the value of sending. **Play an episode** shows the team moving through the grid; the small rescue walkthrough is a quick way to see a victim evacuated. More setup details are in [demo/README.md](demo/README.md).
+   Then open [http://127.0.0.1:8765](http://127.0.0.1:8765).
 
-The demo's individual comparisons and episodes are illustrations of the method. The research findings and their uncertainty are reported in the PDF; one interactive run does not confirm a hypothesis.
+The **Compare one report** page compares the estimated team score when the Scout's discovered victim report is sent to the Medic or Carrier versus withheld. Change the message cost to see how it affects the value of sending. <br>**Play an episode** shows the team moving through the grid; the small rescue walkthrough is a quick way to see a victim evacuated. More setup details are in [demo/README.md](demo/README.md).
+
+The demo's individual comparisons and episodes are illustrations of the method. The research findings and their uncertainty are reported in the PDF.
 
 ## Reproducing the work
 
-The final report PDF and saved experiment outputs are included in this repository. The full experiment can take about 32 minutes to rerun on the recorded setup, so running it is optional for reviewing the project. The submitted report is available as a PDF; its editable LaTeX source is not included in this branch.
+The final report PDF and saved experiment outputs are included in this repository. The full experiment can take about 32 minutes to rerun on the recorded setup.
 
 To run the default experiment from the repository folder:
 

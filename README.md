@@ -26,19 +26,19 @@ The following images reproduce Figures 2, 3 and 4 from the final report. They sh
 
 ### Figure 2 — Receiver-specific value of the same report
 
-![Figure 2: matched same-report values and oracle values by receiver](docs/images/figure2.png)
+![Figure 2: matched same-report values and oracle values by receiver](docs/images/fig2.png)
 
 *Figure 2(a)* compares the 15-step oracle marginal value (MV) of the same report for the Medic and Carrier. *Figure 2(b)* displays the receiver-specific values for 89 eligible contexts ranked by absolute receiver gap. Only **3 of 89** designated reports exceeded the receiver-difference threshold of 0.5, so the predeclared receiver-dependence criterion was **not met**.
 
 ### Figure 3 — Communication efficiency and lookahead
 
-![Figure 3: return–communication trade-off and held-out action agreement](docs/images/figure3.png)
+![Figure 3: return–communication trade-off and held-out action agreement](docs/images/fig3.png)
 
 *Figure 3(a)* shows mean discounted task return versus messages per episode across communication policies. Five-step receiver-aware selection sent **135 messages versus 957** for the full-send baseline (**85.89% fewer**), but completed **10 rescues versus 17**, so lower traffic did not preserve rescue count. *Figure 3(b)* compares exact action agreement with the 15-step offline reference: on **41 delayed contexts**, agreement increased from **4.9% at one step** to **51.2% at five steps** (a gain of **46.34 percentage points**).
 
 ### Figure 4 — Accuracy of VoC estimates
 
-![Figure 4: estimated versus oracle VoC and signed residual distribution](docs/images/figure4.png)
+![Figure 4: estimated versus oracle VoC and signed residual distribution](docs/images/fig4.png)
 
 *Figure 4(a)* compares five-step estimated VoC with the 15-step offline oracle for logged shortlisted candidate pairs. *Figure 4(b)* shows the cumulative distribution of signed estimation residuals. Both panels summarize **684 scored pairs** from **100 held-out contexts** across ten seeds. This comparison reflects both estimator/model error and differences in lookahead horizon.
 

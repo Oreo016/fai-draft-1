@@ -1,0 +1,1300 @@
+[
+  {
+    "agnostic_return": -1.4921114904063466,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      2
+    ],
+    "assigned_agnostic_return": -1.4921114904063466,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.4921114904063466,
+    "aware_return": -1.4921114904063466,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177777,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          1,
+          3
+        ],
+        "metadata": {
+          "agent_position": [
+            1,
+            3
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "agnostic_return": -1.4912349893403851,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      2
+    ],
+    "assigned_agnostic_return": -1.4912349893403851,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.4912349893403851,
+    "aware_return": -1.4912349893403851,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177777,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          1,
+          2
+        ],
+        "metadata": {
+          "agent_position": [
+            1,
+            3
+          ],
+          "role": "scout"
+        },
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "left"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "agnostic_return": -1.3911873529284473,
+    "agreement_gain": -1,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": -1.3911873529284473,
+    "assigned_aware_choice": [
+      0,
+      2
+    ],
+    "assigned_aware_return": -1.4734170648851135,
+    "aware_return": -1.4734170648851135,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177778,
+    "low_cost_send": 1,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          6,
+          6
+        ],
+        "metadata": {
+          "agent_position": [
+            6,
+            6
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 0,
+    "nonmyopic_choice": [
+      0,
+      2
+    ],
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "agnostic_return": -1.3979732885767195,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": -1.3979732885767195,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.3979732885767195,
+    "aware_return": -1.3979732885767195,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177778,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          5,
+          6
+        ],
+        "metadata": {
+          "agent_position": [
+            6,
+            6
+          ],
+          "role": "scout"
+        },
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "up"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "agnostic_return": 2.435608218258417,
+    "agreement_gain": -1,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": 2.435608218258417,
+    "assigned_aware_choice": [
+      0,
+      2
+    ],
+    "assigned_aware_return": -0.6861851026880738,
+    "aware_return": -0.6861851026880738,
+    "delayed": true,
+    "high_cost_send": 0,
+    "layout_seed": 177779,
+    "low_cost_send": 1,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          3,
+          4
+        ],
+        "metadata": {
+          "agent_position": [
+            3,
+            4
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 0,
+    "nonmyopic_choice": [
+      0,
+      2
+    ],
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": -2.9864683508873355
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "agnostic_return": 2.7548000202871297,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": 2.7548000202871297,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": 2.7548000202871297,
+    "aware_return": 2.7548000202871297,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177779,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          2,
+          4
+        ],
+        "metadata": {
+          "agent_position": [
+            3,
+            4
+          ],
+          "role": "scout"
+        },
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "up"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "agnostic_return": -1.1355138884494194,
+    "agreement_gain": -1,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": -1.1355138884494194,
+    "assigned_aware_choice": [
+      0,
+      2
+    ],
+    "assigned_aware_return": -1.1355138884494194,
+    "aware_return": -1.1355138884494194,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177780,
+    "low_cost_send": 1,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          7,
+          2
+        ],
+        "metadata": {
+          "agent_position": [
+            7,
+            2
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 0,
+    "nonmyopic_choice": [
+      0,
+      2
+    ],
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": -0.03922632451125002
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "agnostic_return": -1.0950154316104663,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": -1.0950154316104663,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.0950154316104663,
+    "aware_return": -1.0950154316104663,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177780,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          6,
+          2
+        ],
+        "metadata": {
+          "agent_position": [
+            7,
+            2
+          ],
+          "role": "scout"
+        },
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "up"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "agnostic_return": -1.3917580095199666,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": -1.3917580095199666,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.3917580095199666,
+    "aware_return": -1.3917580095199666,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177781,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          1,
+          3
+        ],
+        "metadata": {
+          "agent_position": [
+            1,
+            3
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "agnostic_return": -1.381145051786882,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": -1.381145051786882,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.381145051786882,
+    "aware_return": -1.381145051786882,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177781,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          1,
+          2
+        ],
+        "metadata": {
+          "agent_position": [
+            1,
+            3
+          ],
+          "role": "scout"
+        },
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "left"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "agnostic_return": -1.1843388063922617,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      2
+    ],
+    "assigned_agnostic_return": -1.2017947335284371,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.1843388063922617,
+    "aware_return": -1.1843388063922617,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177782,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          6,
+          1
+        ],
+        "metadata": {
+          "agent_position": [
+            6,
+            1
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "agnostic_return": -1.151204887895422,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      2
+    ],
+    "assigned_agnostic_return": -1.151204887895422,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.151204887895422,
+    "aware_return": -1.151204887895422,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177782,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          5,
+          1
+        ],
+        "metadata": {
+          "agent_position": [
+            6,
+            1
+          ],
+          "role": "scout"
+        },
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "up"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "agnostic_return": -1.4219009934708045,
+    "agreement_gain": -1,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": -1.4219009934708045,
+    "assigned_aware_choice": [
+      0,
+      2
+    ],
+    "assigned_aware_return": -1.4219009934708045,
+    "aware_return": -1.4219009934708045,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177783,
+    "low_cost_send": 1,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          7,
+          9
+        ],
+        "metadata": {
+          "agent_position": [
+            7,
+            9
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 0,
+    "nonmyopic_choice": [
+      0,
+      2
+    ],
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "agnostic_return": -1.4132233260786713,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": -1.4132233260786713,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.4132233260786713,
+    "aware_return": -1.4132233260786713,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177783,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          6,
+          9
+        ],
+        "metadata": {
+          "agent_position": [
+            7,
+            9
+          ],
+          "role": "scout"
+        },
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "up"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "agnostic_return": -1.3335221133191348,
+    "agreement_gain": -1,
+    "assigned_agnostic_choice": [
+      0,
+      2
+    ],
+    "assigned_agnostic_return": -1.3335221133191348,
+    "assigned_aware_choice": [
+      0,
+      2
+    ],
+    "assigned_aware_return": -1.3335221133191348,
+    "aware_return": -1.3335221133191348,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177784,
+    "low_cost_send": 1,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          9,
+          3
+        ],
+        "metadata": {
+          "agent_position": [
+            9,
+            3
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 0,
+    "nonmyopic_choice": [
+      0,
+      2
+    ],
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "agnostic_return": -1.0540500753284796,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      2
+    ],
+    "assigned_agnostic_return": -1.0540500753284796,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.0540500753284796,
+    "aware_return": -1.0540500753284796,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177784,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          8,
+          3
+        ],
+        "metadata": {
+          "agent_position": [
+            9,
+            3
+          ],
+          "role": "scout"
+        },
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "up"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "agnostic_return": -0.2786001451312689,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": -0.2786001451312689,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -0.2786001451312689,
+    "aware_return": -0.2786001451312689,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177785,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          9,
+          7
+        ],
+        "metadata": {
+          "agent_position": [
+            9,
+            7
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": -0.3574498821087658
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "agnostic_return": -0.2280632049153594,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      1
+    ],
+    "assigned_agnostic_return": -0.2280632049153594,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -0.2280632049153594,
+    "aware_return": -0.2280632049153594,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177785,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          8,
+          7
+        ],
+        "metadata": {
+          "agent_position": [
+            9,
+            7
+          ],
+          "role": "scout"
+        },
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "up"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "agnostic_return": -1.407422120565206,
+    "agreement_gain": -1,
+    "assigned_agnostic_choice": [
+      0,
+      2
+    ],
+    "assigned_agnostic_return": -1.4248780477013814,
+    "assigned_aware_choice": [
+      0,
+      2
+    ],
+    "assigned_aware_return": -1.4248780477013814,
+    "aware_return": -1.4248780477013814,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177786,
+    "low_cost_send": 1,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          3,
+          4
+        ],
+        "metadata": {
+          "agent_position": [
+            3,
+            4
+          ],
+          "role": "scout"
+        },
+        "observed_at": 0,
+        "sender_id": 0,
+        "status": "scan"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 0,
+    "nonmyopic_choice": [
+      0,
+      2
+    ],
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "agnostic_return": -1.3971356895168954,
+    "agreement_gain": 0,
+    "assigned_agnostic_choice": [
+      0,
+      2
+    ],
+    "assigned_agnostic_return": -1.3971356895168954,
+    "assigned_aware_choice": [
+      0,
+      1
+    ],
+    "assigned_aware_return": -1.3971356895168954,
+    "aware_return": -1.3971356895168954,
+    "delayed": false,
+    "high_cost_send": 0,
+    "layout_seed": 177786,
+    "low_cost_send": 0,
+    "messages": [
+      {
+        "kind": "intention",
+        "location": [
+          2,
+          4
+        ],
+        "metadata": {
+          "agent_position": [
+            3,
+            4
+          ],
+          "role": "scout"
+        },
+        "observed_at": 1,
+        "sender_id": 0,
+        "status": "up"
+      }
+    ],
+    "myopic_agreement": 1,
+    "myopic_choice": null,
+    "nonmyopic_agreement": 1,
+    "nonmyopic_choice": null,
+    "oracle_choice": null,
+    "oracle_pairs": [
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 1
+      },
+      {
+        "marginal_values": {
+          "1": 0.0,
+          "15": 0.0
+        },
+        "message_index": 0,
+        "receiver_id": 2
+      }
+    ],
+    "primary_message_index": null,
+    "seed": 9,
+    "step": 1
+  }
+]

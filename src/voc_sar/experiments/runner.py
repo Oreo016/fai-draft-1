@@ -1,11 +1,15 @@
 """Reproducible baseline, horizon, cost, and held-out oracle experiments."""
 
 from collections import defaultdict
+from dataclasses import asdict
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from datetime import datetime
+import hashlib
 import json
 import math
 from pathlib import Path
 import random
+import sys
 import time
 from typing import Any
 
@@ -23,15 +27,14 @@ from voc_sar.evaluation.metrics import (
     action_agreement,
     bootstrap_cluster_mean_interval,
     bootstrap_mean_interval,
+    bootstrap_paired_relative_reduction,
     communication_reduction,
     filter_recall,
     pair_regret,
-    receiver_regret,
-    voc_mean_absolute_error,
 )
 from voc_sar.evaluation.oracle import CounterfactualOracle
 from voc_sar.policies.task import candidate_messages, task_policies
-from voc_sar.types import CommunicationChoice, Role
+from voc_sar.types import CommunicationChoice, Message, Role
 from voc_sar.visualizations import create_search_animation, create_visualizations
 
 
@@ -44,9 +47,10 @@ def run_experiments(config: dict[str, Any]) -> dict[str, Any]:
     costs = [float(cost) for cost in communication_config["cost_sweep"]]
     myopic_horizon = int(communication_config["myopic_horizon"])
     nonmyopic_horizon = int(communication_config["nonmyopic_horizon"])
-    context_limit = max(1, math.ceil(
-        int(evaluation_config["held_out_contexts"]) / len(seeds)
-    ))
+    context_limit = evaluation_config.get("max_valuation_contexts_per_episode")
+    if context_limit is not None:
+        context_limit = int(context_limit)
+    worker_count = int(evaluation_config.get("parallel_workers", 1))
 
     conditions: list[tuple[str, float, int]] = [
         ("never", 0.0, nonmyopic_horizon),
@@ -61,48 +65,155 @@ def run_experiments(config: dict[str, Any]) -> dict[str, Any]:
             ("agnostic_nonmyopic", cost, nonmyopic_horizon),
         ))
 
-    episode_rows: list[dict[str, Any]] = []
-    search_frames_by_method: dict[str, list[dict[str, Any]]] = {}
-    started_at = time.perf_counter()
+    jobs: list[tuple[dict[str, Any], int, str, float, int, int | None, bool, int | None]] = []
+    captured_methods: set[str] = set()
     for method, cost_weight, horizon in conditions:
         for seed in seeds:
-            capture_search = method not in search_frames_by_method
-            method_frames: list[dict[str, Any]] | None = [] if capture_search else None
-            episode_rows.append(_run_episode(
-                config,
-                seed,
-                method,
-                cost_weight,
-                horizon,
-                context_limit,
-                method_frames,
+            capture_search = method not in captured_methods
+            if capture_search:
+                captured_methods.add(method)
+            jobs.append((
+                config, seed, method, cost_weight, horizon,
+                context_limit, capture_search, None,
             ))
-            if method_frames is not None:
-                search_frames_by_method[method] = method_frames
 
-    diagnostics = _run_held_out_diagnostics(config, seeds)
-    summary = _summarize(config, episode_rows, diagnostics)
-    summary["runtime_seconds"] = time.perf_counter() - started_at
-    summary["config"] = config
+    for budget in evaluation_config.get("assigned_message_budgets", []):
+        for method in ("aware_nonmyopic", "agnostic_nonmyopic"):
+            for seed in seeds:
+                jobs.append((config, seed, method, 0.0, nonmyopic_horizon, None, False, budget))
+
+    started_at = time.perf_counter()
     output_root = Path(evaluation_config.get("output_dir", "results"))
-    output_root.mkdir(parents=True, exist_ok=True)
     run_stamp = datetime.now().astimezone().strftime("%Y%m%d_%H%M%S_%f")
     output_dir = output_root / f"run_{run_stamp}"
-    output_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=False)
+    config_text = json.dumps(config, indent=2, sort_keys=True)
+    (output_dir / "config_used.json").write_text(config_text, encoding="utf-8")
+    source_root = Path(__file__).resolve().parents[1]
+    provenance = {
+        "config_sha256": hashlib.sha256(config_text.encode("utf-8")).hexdigest(),
+        "source_sha256": {
+            file.relative_to(source_root).as_posix(): hashlib.sha256(file.read_bytes()).hexdigest()
+            for file in sorted(source_root.rglob("*.py"))
+        },
+        "python_version": sys.version,
+    }
+    (output_dir / "provenance.json").write_text(
+        json.dumps(provenance, indent=2), encoding="utf-8"
+    )
+    episode_rows: list[dict[str, Any] | None] = [None] * len(jobs)
+    search_frames_by_method: dict[str, list[dict[str, Any]]] = {}
+    _report_progress("Episodes", 0, len(jobs))
+    completed = 0
+    progress_path = output_dir / "progress.json"
+
+    def write_progress(status: str, failure: str | None = None) -> None:
+        payload = {
+            "status": status, "completed_episodes": completed,
+            "requested_episodes": len(jobs), "failure": failure,
+        }
+        temporary = progress_path.with_suffix(".tmp")
+        temporary.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        temporary.replace(progress_path)
+
+    write_progress("episodes")
+
+    def save_episode_result(
+        index: int,
+        result: tuple[dict[str, Any], str | None, list[dict[str, Any]] | None],
+    ) -> None:
+        nonlocal completed
+        row, captured_method, frames = result
+        episode_rows[index] = row
+        if captured_method is not None and frames is not None:
+            search_frames_by_method[captured_method] = frames
+        completed += 1
+        write_progress("episodes")
+        _report_progress(
+            "Episodes", completed, len(jobs),
+            f"{row['method']} seed={row['seed']}",
+        )
+
+    try:
+        if worker_count == 1:
+            for index, job in enumerate(jobs):
+                save_episode_result(index, _run_episode_job(job))
+        else:
+            with ProcessPoolExecutor(max_workers=worker_count) as executor:
+                futures = {
+                    executor.submit(_run_episode_job, job): index
+                    for index, job in enumerate(jobs)
+                }
+                for future in as_completed(futures):
+                    save_episode_result(futures[future], future.result())
+        completed_episode_rows = [row for row in episode_rows if row is not None]
+        (output_dir / "episodes.json").write_text(
+            json.dumps(completed_episode_rows, indent=2, sort_keys=True), encoding="utf-8"
+        )
+        write_progress("diagnostics")
+        diagnostics = _run_held_out_diagnostics(config, seeds)
+    except Exception as error:
+        write_progress("failed", f"{type(error).__name__}: {error}")
+        raise
+    context_rows = diagnostics.pop("context_rows")
+    summary = _summarize(config, completed_episode_rows, diagnostics)
+    summary["decision_scope"] = {
+        "max_valuation_contexts_per_episode": context_limit,
+        "valuation_contexts_are_capped": context_limit is not None,
+        "held_out_contexts_are_reserved_for": "offline diagnostics only",
+    }
+    summary["execution"] = {
+        "parallel_workers": worker_count,
+        "episode_execution": "parallel" if worker_count > 1 else "sequential",
+    }
+    summary["runtime_seconds"] = time.perf_counter() - started_at
+    summary["config"] = config
     summary["run_directory"] = str(output_dir.resolve())
     summary["visualizations_directory"] = str((output_dir / "graphs").resolve())
-    (output_dir / "episodes.json").write_text(
-        json.dumps(episode_rows, indent=2, sort_keys=True),
-        encoding="utf-8",
+    summary["config_file"] = str((output_dir / "config_used.json").resolve())
+    (output_dir / "contexts.json").write_text(
+        json.dumps(context_rows, indent=2, sort_keys=True), encoding="utf-8"
     )
     (output_dir / "summary.json").write_text(
         json.dumps(summary, indent=2, sort_keys=True),
         encoding="utf-8",
     )
-    create_visualizations(episode_rows, summary, output_dir / "graphs")
+    create_visualizations(
+        [row for row in completed_episode_rows if row["assigned_message_budget"] is None],
+        summary, output_dir / "graphs",
+    )
     for method, frames in search_frames_by_method.items():
         create_search_animation(frames, output_dir / f"search-operations-{method}.gif")
+    write_progress("complete")
     return summary
+
+
+def _report_progress(
+    phase: str, completed: int, total: int, detail: str = ""
+) -> None:
+    if total < 1:
+        return
+    percentage = 100 * completed // total
+    message = f"{phase}: {completed}/{total} ({percentage}%)"
+    if detail:
+        message += f" | {detail}"
+    if sys.stderr.isatty():
+        print(f"\r{message:<100}", end="\n" if completed == total else "", file=sys.stderr, flush=True)
+    else:
+        interval = max(1, math.ceil(total / 20))
+        if completed in {0, 1, total} or completed % interval == 0:
+            print(message, file=sys.stderr, flush=True)
+
+
+def _run_episode_job(
+    job: tuple[dict[str, Any], int, str, float, int, int | None, bool, int | None],
+) -> tuple[dict[str, Any], str | None, list[dict[str, Any]] | None]:
+    config, seed, method, cost_weight, horizon, context_limit, capture_search, budget = job
+    frames: list[dict[str, Any]] | None = [] if capture_search else None
+    row = _run_episode(
+        config, seed, method, cost_weight, horizon, context_limit, frames, budget
+    )
+    return row, method if capture_search else None, frames
 
 
 def _run_episode(
@@ -111,8 +222,9 @@ def _run_episode(
     method: str,
     cost_weight: float,
     valuation_horizon: int,
-    context_limit: int,
+    context_limit: int | None,
     search_frames: list[dict[str, Any]] | None = None,
+    assigned_budget: int | None = None,
 ) -> dict[str, Any]:
     episode_started = time.perf_counter()
     env_config = config["environment"]
@@ -137,6 +249,18 @@ def _run_episode(
     )
     rng = random.Random(seed * 1009 + _method_number(method))
     rewards: list[float] = []
+    step_rows = []
+    decision_seconds = 0.0
+    evaluation = config["evaluation"]
+    actionable_budget = (
+        assigned_budget is not None and evaluation.get("budget_schedule") == "actionable_facts"
+    )
+    sent_facts: set[tuple] = set()
+    budget_send_steps: list[int] = []
+    assigned_steps = (
+        _budget_send_steps(config["evaluation"], assigned_budget)
+        if assigned_budget is not None else ()
+    )
     sent_count = 0
     decision_count = 0
     valuation_contexts = 0
@@ -146,13 +270,23 @@ def _run_episode(
     if search_frames is not None:
         _capture_search_frame(search_frames, env, [], None, method, seed)
     while not env.terminated:
+        decision_started = time.perf_counter()
         sender_observation = observations[sender_id]
         planned_action = policies[sender_id].act(sender_observation)
         messages = candidate_messages(sender_observation, planned_action)
         choice: CommunicationChoice | None = None
+        assigned_send = step in assigned_steps
+        if actionable_budget:
+            messages = _actionable_budget_messages(messages, step, sent_facts)
+            assigned_send = sent_count < assigned_budget and bool(messages)
 
         if method in {"aware_myopic", "aware_nonmyopic", "agnostic_nonmyopic"}:
-            if valuation_contexts < context_limit and messages and receivers:
+            if (
+                (context_limit is None or valuation_contexts < context_limit)
+                and (assigned_budget is None or assigned_send)
+                and messages
+                and receivers
+            ):
                 decision_count += 1
                 valuation_contexts += 1
                 trace = SelectionTrace()
@@ -174,6 +308,7 @@ def _run_episode(
                         env_config.get("hazard_toggle_probability", 0.0)
                     ),
                     trace=trace,
+                    force_send=assigned_budget is not None,
                 )
                 estimator_standard_errors.extend(
                     estimate.standard_error
@@ -234,10 +369,14 @@ def _run_episode(
         else:
             raise ValueError(f"unknown communication condition: {method}")
 
+        decision_elapsed = time.perf_counter() - decision_started
         communication = [None] * len(observations)
         if choice is not None:
             communication[sender_id] = choice
             sent_count += 1
+            if assigned_budget is not None:
+                budget_send_steps.append(step)
+                sent_facts.add(_fact_key(choice.message))
         observations = env.deliver(communication)
         actions = [
             policy.act(observation)
@@ -247,6 +386,13 @@ def _run_episode(
         if search_frames is not None:
             _capture_search_frame(search_frames, env, actions, choice, method, seed)
         rewards.append(result.reward)
+        decision_seconds += decision_elapsed
+        step_rows.append({
+            "step": step, "reward": result.reward, "events": dict(result.info),
+            "task_actions": actions, "send": asdict(choice) if choice is not None else None,
+            "eligible_budget_facts": len(messages) if actionable_budget else None,
+            "communication_decision_seconds": decision_elapsed,
+        })
         observations = result.observations
         step += 1
 
@@ -256,6 +402,10 @@ def _run_episode(
         "method": method,
         "cost_weight": cost_weight,
         "horizon": valuation_horizon,
+        "assigned_message_budget": assigned_budget,
+        "budget_send_steps": budget_send_steps if assigned_budget is not None else None,
+        "step_trace": step_rows,
+        "mean_communication_decision_seconds": decision_seconds / step if step else None,
         "discounted_task_return": sum(
             (float(env_config.get("gamma", 0.99)) ** index) * reward
             for index, reward in enumerate(rewards)
@@ -266,7 +416,7 @@ def _run_episode(
         "communication_rate": sent_count / decision_count if decision_count else 0.0,
         "positive_voc_rate": (
             sent_count / decision_count
-            if decision_count and method in {
+            if assigned_budget is None and decision_count and method in {
                 "aware_myopic", "aware_nonmyopic", "agnostic_nonmyopic"
             }
             else None
@@ -313,9 +463,9 @@ def _run_held_out_diagnostics(
     comm_config = config["communication"]
     evaluation_config = config["evaluation"]
     thresholds = evaluation_config.get("thresholds", {})
-    contexts_per_seed = max(1, math.ceil(
-        int(evaluation_config["held_out_contexts"]) / len(seeds)
-    ))
+    requested_contexts = int(evaluation_config["held_out_contexts"])
+    base_contexts, extra_contexts = divmod(requested_contexts, len(seeds))
+    delayed_margin = float(evaluation_config.get("delayed_value_margin", 0.5))
     gamma = float(env_config.get("gamma", 0.99))
     h_myopic = int(comm_config["myopic_horizon"])
     h_nonmyopic = int(comm_config["nonmyopic_horizon"])
@@ -332,7 +482,6 @@ def _run_held_out_diagnostics(
     pair_regrets: list[float] = []
     receiver_regrets: list[float] = []
     mae_predictions: list[float] = []
-    mae_targets: list[float] = []
     useful_messages: list[bool] = []
     recalls: list[float] = []
     myopic_actions: list[object] = []
@@ -341,8 +490,19 @@ def _run_held_out_diagnostics(
     horizon_agreement_gains: list[float] = []
     horizon_gains_by_seed: list[list[float]] = []
     context_count = 0
+    context_rows = []
+    delayed_agreements = []
 
-    for seed in seeds:
+    _report_progress("Diagnostics", 0, len(seeds))
+    for seed_index, seed in enumerate(seeds, 1):
+        contexts_per_seed = base_contexts + (seed_index <= extra_contexts)
+        context_steps = None
+        if evaluation_config.get("diagnostic_context_sampling") == "evenly_spaced":
+            last_step = int(env_config["horizon"]) - 1
+            context_steps = {
+                index * last_step // max(1, contexts_per_seed - 1)
+                for index in range(contexts_per_seed)
+            }
         env = SARGrid(env_config)
         observations = env.reset(seed + 77_777)
         policies = task_policies(env.roles)
@@ -352,6 +512,7 @@ def _run_held_out_diagnostics(
         )
         receivers = [index for index in range(len(env.roles)) if index != sender_id]
         if len(receivers) < 1:
+            _report_progress("Diagnostics", seed_index, len(seeds), f"seed={seed}")
             continue
         estimator = PairedRolloutEstimator(
             ParticleReceiverEstimator(env_config, seed=seed + 77_777),
@@ -362,14 +523,16 @@ def _run_held_out_diagnostics(
             cost_weight=0.0,
             unit_cost=float(comm_config.get("unit_cost", 1.0)),
             seed=seed + 77_777,
+            record_rollouts=True,
         )
         oracle = CounterfactualOracle(
             policies,
-            rollout_count=rollout_count,
+            rollout_count=int(evaluation_config.get("oracle_rollout_count", rollout_count)),
             gamma=gamma,
             cost_weight=0.0,
             unit_cost=float(comm_config.get("unit_cost", 1.0)),
-            seed=seed + 77_777,
+            seed=seed + 155_555,
+            record_rollouts=True,
         )
         contexts_for_seed = 0
         receiver_flags_for_seed: list[float] = []
@@ -377,160 +540,114 @@ def _run_held_out_diagnostics(
         while not env.terminated and contexts_for_seed < contexts_per_seed:
             observation = observations[sender_id]
             planned_action = policies[sender_id].act(observation)
-            messages = candidate_messages(observation, planned_action)
-            top_pairs = shortlist(
-                sender_id,
-                messages,
-                receivers,
-                shortlist_size,
-                current_step=observation.time_step,
-                receiver_roles=env.roles,
-                teammate_tracks=observation.teammates,
-                receiver_summaries=observation.receiver_summaries,
-                hazard_move_probability=float(
-                    env_config.get("hazard_move_probability", 0.0)
-                ),
-                hazard_toggle_probability=float(
-                    env_config.get("hazard_toggle_probability", 0.0)
-                ),
+            messages = (
+                candidate_messages(observation, planned_action)
+                if context_steps is None or observation.time_step in context_steps else []
             )
-            all_pairs = shortlist(
-                sender_id,
-                messages,
-                receivers,
-                max(1, len(messages) * len(receivers)),
-                current_step=observation.time_step,
-                receiver_roles=env.roles,
-                teammate_tracks=observation.teammates,
-                receiver_summaries=observation.receiver_summaries,
-                hazard_move_probability=float(
-                    env_config.get("hazard_move_probability", 0.0)
-                ),
-                hazard_toggle_probability=float(
-                    env_config.get("hazard_toggle_probability", 0.0)
-                ),
-            )
-            if top_pairs:
+            if messages:
                 context_count += 1
                 contexts_for_seed += 1
-                oracle_values: dict[tuple[int, int], float] = {}
-                predictions: dict[int, dict[tuple[int, int], float]] = {
-                    h_myopic: {},
-                    h_nonmyopic: {},
-                }
-                for message_index, (message, receiver_id) in enumerate(all_pairs):
-                    pair = (message_index, receiver_id)
-                    oracle_values[pair] = oracle.evaluate(
-                        env.clone(),
-                        sender_id,
-                        receiver_id,
-                        message,
-                        h_eval,
-                    ).marginal_value
-                for horizon in dict.fromkeys((h_myopic, h_nonmyopic)):
-                    for message_index, (message, receiver_id) in enumerate(top_pairs):
-                        pair = (message_index, receiver_id)
-                        predictions[horizon][pair] = estimator.estimate(
-                            sender_id,
-                            receiver_id,
-                            message,
-                            horizon,
-                            observation,
-                        ).marginal_value
-
-                top_to_all_indices = {}
-                for top_index, (message, receiver_id) in enumerate(top_pairs):
-                    all_index = next(
-                        index for index, (all_message, all_receiver) in enumerate(all_pairs)
-                        if all_message == message and all_receiver == receiver_id
+                all_pairs = [(index, receiver) for index in range(len(messages)) for receiver in receivers]
+                oracle_estimates = {}
+                oracle_myopic_estimates = {}
+                for index, receiver in all_pairs:
+                    message = messages[index]
+                    oracle_estimates[index, receiver] = oracle.evaluate(
+                        env, sender_id, receiver, message, h_eval
                     )
-                    top_to_all_indices[(top_index, receiver_id)] = all_index
-                top_predictions: dict[int, dict[tuple[int, int], float]] = {}
-                for horizon, values in predictions.items():
-                    top_predictions[horizon] = {
-                        (top_to_all_indices[(top_index, receiver_id)], receiver_id): value
-                        for (top_index, receiver_id), value in values.items()
+                    oracle_myopic_estimates[index, receiver] = oracle.evaluate(
+                        env, sender_id, receiver, message, h_myopic
+                    )
+                oracle_values = {
+                    pair: estimate.value_of_communication for pair, estimate in oracle_estimates.items()
+                }
+                best = max(oracle_values, key=oracle_values.get)
+                oracle_action = best if oracle_values[best] > 0 else None
+                delayed = any(
+                    abs(oracle_estimates[pair].marginal_value
+                        - oracle_myopic_estimates[pair].marginal_value) > delayed_margin
+                    for pair in all_pairs
+                )
+
+                choices = {}
+                predictions = {}
+                for horizon in (h_myopic, h_nonmyopic):
+                    trace = SelectionTrace()
+                    choice = select_communication(
+                        sender_id, messages, receivers, horizon, estimator,
+                        observation=observation, shortlist_size=shortlist_size,
+                        receiver_roles=env.roles, seed=seed,
+                        hazard_move_probability=float(env_config.get("hazard_move_probability", 0)),
+                        hazard_toggle_probability=float(env_config.get("hazard_toggle_probability", 0)),
+                        trace=trace,
+                    )
+                    choices[horizon] = (
+                        (messages.index(choice.message), choice.receiver_id) if choice else None
+                    )
+                    predictions[horizon] = {
+                        (messages.index(message), receiver): estimate
+                        for message, receiver, estimate in trace.evaluations
                     }
-                all_pair_values = {
-                    (index, receiver_id): oracle_values[(index, receiver_id)]
-                    for index, (_, receiver_id) in enumerate(all_pairs)
-                }
-                recalls.append(filter_recall(
-                    all_pair_values,
-                    [
-                        (top_to_all_indices[(index, receiver_id)], receiver_id)
-                        for index, (_, receiver_id) in enumerate(top_pairs)
-                    ],
-                    oracle_threshold,
-                ))
-                for horizon, predicted_values in top_predictions.items():
-                    if horizon == h_nonmyopic:
-                        mae_predictions.extend(predicted_values.values())
-                        mae_targets.extend(
-                            oracle_values[pair] for pair in predicted_values
-                        )
 
-                def best_action(
-                    values: dict[tuple[int, int], float]
-                ) -> tuple[int, int] | None:
-                    if not values:
-                        return None
-                    key, value = max(
-                        values.items(),
-                        key=lambda item: (item[1], -item[0][0], -item[0][1]),
-                    )
-                    return key if value > 0 else None
-
-                myopic_action = best_action(top_predictions[h_myopic])
-                nonmyopic_action = best_action(top_predictions[h_nonmyopic])
-                oracle_action = best_action(oracle_values)
+                myopic_action = choices[h_myopic]
+                nonmyopic_action = choices[h_nonmyopic]
                 myopic_actions.append(myopic_action)
                 nonmyopic_actions.append(nonmyopic_action)
                 oracle_actions.append(oracle_action)
-                horizon_gain = (
-                    float(nonmyopic_action == oracle_action)
-                    - float(myopic_action == oracle_action)
-                )
-                horizon_agreement_gains.append(horizon_gain)
-                horizon_gains_for_seed.append(horizon_gain)
+                if delayed:
+                    agreement = (int(myopic_action == oracle_action), int(nonmyopic_action == oracle_action))
+                    delayed_agreements.append(agreement)
+                    gain = agreement[1] - agreement[0]
+                    horizon_agreement_gains.append(gain)
+                    horizon_gains_for_seed.append(gain)
+
+                nonmyopic = predictions[h_nonmyopic]
+                if any(value > oracle_threshold for value in oracle_values.values()):
+                    recalls.append(filter_recall(oracle_values, list(nonmyopic), oracle_threshold))
+                mae_predictions.append(_mean([
+                    abs(estimate.value_of_communication - oracle_values[pair])
+                    for pair, estimate in nonmyopic.items()
+                ]))
                 pair_regrets.append(pair_regret(oracle_values, nonmyopic_action))
                 if nonmyopic_action is not None:
-                    useful_messages.append(
-                        oracle_values[nonmyopic_action] > useful_threshold
+                    useful_messages.append(oracle_estimates[nonmyopic_action].marginal_value > useful_threshold)
+                    selected_index, selected_receiver = nonmyopic_action
+                    receiver_regrets.append(
+                        max(oracle_values[selected_index, receiver] for receiver in receivers)
+                        - oracle_values[selected_index, selected_receiver]
                     )
-                primary_message = next(
-                    (message for message in messages if message.kind != "intention"),
-                    None,
+                primary_index = next(
+                    (index for index, message in enumerate(messages) if message.kind != "intention"), None
                 )
-                if primary_message is not None and len(receivers) >= 2:
-                    values = [
-                        oracle.evaluate(
-                            env.clone(), sender_id, receiver_id,
-                            primary_message, h_eval,
-                        ).marginal_value
-                        for receiver_id in receivers
-                    ]
-                    receiver_differences.append(abs(values[0] - values[1]))
-                    differentiation_flag = float(
-                        abs(values[0] - values[1])
-                        > float(thresholds.get("receiver_value_difference", 0.5))
+                if primary_index is not None and len(receivers) >= 2:
+                    difference = abs(
+                        oracle_estimates[primary_index, receivers[0]].marginal_value
+                        - oracle_estimates[primary_index, receivers[1]].marginal_value
                     )
-                    receiver_differentiation_flags.append(differentiation_flag)
-                    receiver_flags_for_seed.append(differentiation_flag)
-                    chosen_receiver = (
-                        nonmyopic_action[1]
-                        if isinstance(nonmyopic_action, tuple)
-                        and any(
-                            message == primary_message and receiver == nonmyopic_action[1]
-                            and index == nonmyopic_action[0]
-                            for index, (message, receiver) in enumerate(all_pairs)
-                        )
-                        else None
-                    )
-                    receiver_regrets.append(receiver_regret(
-                        dict(zip(receivers, values)),
-                        chosen_receiver,
-                    ))
+                    receiver_differences.append(difference)
+                    flag = float(difference > float(thresholds.get("receiver_value_difference", 0.5)))
+                    receiver_differentiation_flags.append(flag)
+                    receiver_flags_for_seed.append(flag)
+
+                context_rows.append({
+                    "seed": seed, "layout_seed": seed + 77_777, "step": observation.time_step,
+                    "sender_id": sender_id, "receiver_ids": receivers, "messages": [asdict(m) for m in messages],
+                    "delayed": delayed, "primary_message_index": primary_index,
+                    "myopic_action": myopic_action, "nonmyopic_action": nonmyopic_action,
+                    "oracle_action": oracle_action,
+                    "pairs": [
+                        {
+                            "message_index": index, "receiver_id": receiver,
+                            "oracle": asdict(oracle_estimates[index, receiver]),
+                            "oracle_myopic": asdict(oracle_myopic_estimates[index, receiver]),
+                            "predictions": {
+                                str(horizon): asdict(estimates[index, receiver])
+                                for horizon, estimates in predictions.items() if (index, receiver) in estimates
+                            },
+                        }
+                        for index, receiver in all_pairs
+                    ],
+                })
 
             actions = [
                 policy.act(item)
@@ -542,14 +659,10 @@ def _run_held_out_diagnostics(
             receiver_flags_by_seed.append(receiver_flags_for_seed)
         if horizon_gains_for_seed:
             horizon_gains_by_seed.append(horizon_gains_for_seed)
+        _report_progress("Diagnostics", seed_index, len(seeds), f"seed={seed}")
 
-    mae = (
-        voc_mean_absolute_error(mae_predictions, mae_targets)
-        if mae_predictions else 0.0
-    )
-    receiver_fraction = (
-        _mean(receiver_differentiation_flags)
-    )
+    mae = _optional_mean(mae_predictions)
+    receiver_fraction = _optional_mean(receiver_differentiation_flags)
     bootstrap_samples = int(evaluation_config.get("bootstrap_samples", 1000))
     confidence_level = float(evaluation_config.get("confidence_level", 0.95))
     seed = int(seeds[0])
@@ -560,7 +673,7 @@ def _run_held_out_diagnostics(
             bootstrap_samples,
             seed + 311,
         )
-        if receiver_differentiation_flags else (0.0, 0.0)
+        if receiver_differentiation_flags else None
     )
     horizon_gain_interval = (
         bootstrap_cluster_mean_interval(
@@ -569,19 +682,31 @@ def _run_held_out_diagnostics(
             bootstrap_samples,
             seed + 313,
         )
-        if horizon_agreement_gains else (0.0, 0.0)
+        if horizon_agreement_gains else None
     )
     return {
         "held_out_contexts": context_count,
+        "requested_held_out_contexts": requested_contexts,
+        "unobserved_held_out_contexts": requested_contexts - context_count,
+        "context_rows": context_rows,
+        "delayed_contexts": len(delayed_agreements),
+        "delayed_seed_count": len(horizon_gains_by_seed),
+        "delayed_value_margin": delayed_margin,
+        "delayed_myopic_agreement": _optional_mean([pair[0] for pair in delayed_agreements]),
+        "delayed_nonmyopic_agreement": _optional_mean([pair[1] for pair in delayed_agreements]),
+        "delayed_agreement_gain": _optional_mean(horizon_agreement_gains),
         "receiver_differentiation_contexts": len(receiver_differences),
+        "receiver_differentiation_seed_count": len(receiver_flags_by_seed),
         "receiver_value_differences": receiver_differences,
         "receiver_differentiation_fraction": receiver_fraction,
         "receiver_differentiation_confidence_interval": receiver_fraction_interval,
-        "receiver_regret_mean": _mean(receiver_regrets),
+        "receiver_regret_mean": _optional_mean(receiver_regrets),
         "pair_regret_mean": _mean(pair_regrets),
         "voc_mae_nonmyopic": mae,
-        "filter_recall": _mean(recalls),
-        "useful_message_rate": _mean([float(value) for value in useful_messages]),
+        "filter_recall": _optional_mean(recalls),
+        "filter_recall_eligible_contexts": len(recalls),
+        "useful_message_rate": _optional_mean([float(value) for value in useful_messages]),
+        "useful_message_send_count": len(useful_messages),
         "agreement_myopic_to_oracle": action_agreement(myopic_actions, oracle_actions),
         "agreement_nonmyopic_to_oracle": action_agreement(nonmyopic_actions, oracle_actions),
         "agreement_gain_nonmyopic_over_myopic": (
@@ -612,12 +737,18 @@ def _summarize(
     confidence = float(evaluation.get("confidence_level", 0.95))
     bootstrap_samples = int(evaluation.get("bootstrap_samples", 1000))
     seed = int(evaluation["seeds"][0])
+    total_episode_count = len(episode_rows)
+    budget_rows = [row for row in episode_rows if row.get("assigned_message_budget") is not None]
+    episode_rows = [row for row in episode_rows if row.get("assigned_message_budget") is None]
+    budget_results = _assigned_budget_comparisons(budget_rows, evaluation, confidence, bootstrap_samples, seed)
+    primary_budget = next((row for row in budget_results if row["primary"]), None)
     groups: dict[tuple[str, float], list[dict[str, Any]]] = defaultdict(list)
     for row in episode_rows:
         groups[(row["method"], row["cost_weight"])].append(row)
     conditions: list[dict[str, Any]] = []
     for (method, cost), rows in sorted(groups.items()):
         returns = [row["discounted_task_return"] for row in rows]
+        rescues = [row["rescued_victims"] for row in rows]
         interval = bootstrap_mean_interval(
             returns, confidence, bootstrap_samples, seed + _method_number(method)
         )
@@ -627,8 +758,15 @@ def _summarize(
             "episodes": len(rows),
             "mean_task_return": _mean(returns),
             "task_return_confidence_interval": interval,
+            "mean_rescued_victims": _mean(rescues),
+            "total_rescued_victims": sum(rescues),
+            "rescued_victims_confidence_interval": (
+                bootstrap_mean_interval(rescues, confidence, bootstrap_samples, seed + _method_number(method))
+                if len(rescues) > 1 else None
+            ),
             "mean_messages": _mean([float(row["messages"]) for row in rows]),
-            "mean_message_count": sum(row["messages"] for row in rows),
+            "mean_message_count": _mean([row["messages"] for row in rows]),
+            "total_messages": sum(row["messages"] for row in rows),
             "mean_valuation_contexts": _mean(
                 [float(row["valuation_contexts"]) for row in rows]
             ),
@@ -670,6 +808,14 @@ def _summarize(
         (row["method"], row["cost_weight"], row["seed"]): row
         for row in episode_rows
     }
+    paired_comparisons = _paired_return_comparisons(
+        episode_rows,
+        config["communication"]["cost_sweep"],
+        evaluation["seeds"],
+        confidence,
+        bootstrap_samples,
+        seed,
+    )
     h2_differences_by_seed: dict[int, list[float]] = defaultdict(list)
     h2_budget_differences_by_seed: dict[int, list[float]] = defaultdict(list)
     budget_match_tolerance = int(
@@ -723,7 +869,9 @@ def _summarize(
         if row["method"] == "aware_nonmyopic" and row["cost_weight"] == 0.0
     ]
     per_seed_reductions = []
-    matched_return_reductions = []
+    matched_return_counts = []
+    full_return_differences = []
+    full_rescue_differences = []
     return_match_tolerance = float(
         evaluation.get("return_match_tolerance", 1.0)
     )
@@ -732,21 +880,40 @@ def _summarize(
         for row in aware_rows:
             baseline = full_by_seed.get(row["seed"])
             if baseline is not None and baseline["messages"] > 0:
+                full_return_differences.append(row["discounted_task_return"] - baseline["discounted_task_return"])
+                full_rescue_differences.append(row["rescued_victims"] - baseline["rescued_victims"])
                 reduction = communication_reduction(row["messages"], baseline["messages"])
                 per_seed_reductions.append(reduction)
                 if abs(
                     row["discounted_task_return"]
                     - baseline["discounted_task_return"]
                 ) <= return_match_tolerance:
-                    matched_return_reductions.append(reduction)
+                    matched_return_counts.append((row["messages"], baseline["messages"]))
+
+    full_return_interval = (
+        bootstrap_mean_interval(full_return_differences, confidence, bootstrap_samples, seed + 9009)
+        if len(full_return_differences) > 1 else None
+    )
+    equivalent_return = bool(
+        full_return_interval
+        and -return_match_tolerance < full_return_interval[0]
+        and full_return_interval[1] < return_match_tolerance
+    )
+    full_total = sum(row["messages"] for row in full_rows)
+    overall_reduction = (
+        communication_reduction(sum(row["messages"] for row in aware_rows), full_total)
+        if full_total else None
+    )
+    descriptive_matched_reduction = (
+        communication_reduction(
+            sum(pair[0] for pair in matched_return_counts),
+            sum(pair[1] for pair in matched_return_counts),
+        )
+        if matched_return_counts else None
+    )
 
     low_cost = 0.0
     high_cost = 0.5
-    low_rate = _condition_value(conditions, "aware_nonmyopic", low_cost)
-    high_rate = _condition_value(conditions, "aware_nonmyopic", high_cost)
-    cost_rate_reduction = (
-        (low_rate - high_rate) / low_rate if low_rate > 0 else 0.0
-    )
     low_rate_by_seed = {
         row["seed"]: float(row["positive_voc_rate"])
         for row in episode_rows
@@ -761,20 +928,15 @@ def _summarize(
         and row["cost_weight"] == high_cost
         and row["positive_voc_rate"] is not None
     }
-    paired_cost_reductions = [
-        (low_rate_by_seed[episode_seed] - high_rate_by_seed[episode_seed])
-        / low_rate_by_seed[episode_seed]
+    cost_pairs = [
+        (low_rate_by_seed[episode_seed], high_rate_by_seed[episode_seed])
         for episode_seed in sorted(low_rate_by_seed.keys() & high_rate_by_seed.keys())
-        if low_rate_by_seed[episode_seed] > 0
     ]
-    cost_reduction_interval = (
-        bootstrap_mean_interval(
-            paired_cost_reductions,
-            confidence,
-            bootstrap_samples,
-            seed + 9011,
-        )
-        if paired_cost_reductions else (0.0, 0.0)
+    low_rate = _optional_mean([low for low, _ in cost_pairs])
+    high_rate = _optional_mean([high for _, high in cost_pairs])
+    cost_rate_reduction = 1 - high_rate / low_rate if low_rate else None
+    cost_reduction_interval, undefined_bootstrap_samples = bootstrap_paired_relative_reduction(
+        cost_pairs, confidence, bootstrap_samples, seed + 9011
     )
     targets = evaluation.get("thresholds", {})
     pareto_frontier = [
@@ -805,8 +967,17 @@ def _summarize(
             "value_difference_threshold": float(
                 targets.get("receiver_value_difference", 0.5)
             ),
-            "meets_target": diagnostics["receiver_differentiation_fraction"]
-            >= float(targets.get("receiver_differentiation_fraction", 0.30)),
+            "meets_target": (
+                diagnostics["receiver_differentiation_fraction"] is not None
+                and diagnostics["receiver_differentiation_fraction"]
+                >= float(targets.get("receiver_differentiation_fraction", 0.30))
+            ),
+            "confidence_interval_supports_target": (
+                diagnostics["receiver_differentiation_seed_count"] > 1
+                and diagnostics["receiver_differentiation_confidence_interval"] is not None
+                and diagnostics["receiver_differentiation_confidence_interval"][0]
+                >= float(targets.get("receiver_differentiation_fraction", 0.30))
+            ),
         },
         "H2_selectivity": {
             "mean_aware_minus_agnostic_return": _mean(h2_differences),
@@ -814,53 +985,58 @@ def _summarize(
             "confidence_interval_excludes_zero": (
                 h2_interval[0] > 0 or h2_interval[1] < 0
             ),
-            "mean_aware_minus_agnostic_return_at_matched_budget": _mean(
+            "posthoc_positive_equal_count_mean_return_difference": _optional_mean(
                 h2_budget_matched_differences
             ),
-            "matched_budget_confidence_interval": h2_budget_interval,
-            "matched_budget_episode_count": len(h2_budget_matched_differences),
+            "posthoc_positive_equal_count_confidence_interval": h2_budget_interval,
             "message_budget_match_tolerance": budget_match_tolerance,
-            "matched_budget_confidence_interval_excludes_zero": (
+            "posthoc_positive_equal_count_confidence_interval_excludes_zero": (
                 h2_budget_interval[0] > 0 or h2_budget_interval[1] < 0
             ) if h2_budget_matched_differences else False,
-            "mean_communication_reduction_vs_full": _mean(per_seed_reductions),
-            "communication_reduction_at_matched_return": (
-                _mean(matched_return_reductions)
-                if matched_return_reductions else None
-            ),
-            "matched_return_episode_count": len(matched_return_reductions),
+            "matched_budget_positive_pair_count": sum(map(len, h2_budget_differences_by_seed.values())),
+            "matched_budget_seed_count": len(h2_budget_matched_differences),
+            "assigned_budget_primary": primary_budget,
+            "assigned_budget_comparisons": budget_results,
+            "mean_communication_reduction_vs_full": overall_reduction,
+            "mean_seed_communication_reduction_vs_full": _optional_mean(per_seed_reductions),
+            "communication_reduction_at_matched_return": overall_reduction if equivalent_return else None,
+            "descriptive_posthoc_matched_return_reduction": descriptive_matched_reduction,
+            "matched_return_episode_count": len(matched_return_counts),
             "return_match_tolerance": return_match_tolerance,
-            "matched_return_communication_reduction_target": float(
-                targets.get("communication_reduction", 0.20)
+            "full_vs_aware_return_difference_ci": full_return_interval,
+            "aware_minus_full_mean_rescue_difference": _optional_mean(full_rescue_differences),
+            "aware_minus_full_rescue_difference_ci": (
+                bootstrap_mean_interval(full_rescue_differences, confidence, bootstrap_samples, seed + 9010)
+                if len(full_rescue_differences) > 1 else None
             ),
+            "equivalent_return": equivalent_return,
             "matched_return_reduction_meets_target": (
-                bool(matched_return_reductions)
-                and _mean(matched_return_reductions)
-                >= float(targets.get("communication_reduction", 0.20))
+                equivalent_return and overall_reduction is not None
+                and overall_reduction >= float(targets.get("communication_reduction", 0.20))
             ),
             "meets_both_selectivity_tests": (
-                bool(matched_return_reductions)
-                and _mean(matched_return_reductions)
-                >= float(targets.get("communication_reduction", 0.20))
-                and bool(h2_budget_matched_differences)
-                and (h2_budget_interval[0] > 0 or h2_budget_interval[1] < 0)
-            ),
-            "communication_reduction_target": float(
-                targets.get("communication_reduction", 0.20)
+                equivalent_return and overall_reduction is not None
+                and overall_reduction >= float(targets.get("communication_reduction", 0.20))
+                and bool(primary_budget and primary_budget["confidence_interval_excludes_zero"])
             ),
         },
         "H3_downstream_value": {
-            "myopic_oracle_agreement": diagnostics["agreement_myopic_to_oracle"],
-            "nonmyopic_oracle_agreement": diagnostics["agreement_nonmyopic_to_oracle"],
-            "agreement_gain": diagnostics["agreement_gain_nonmyopic_over_myopic"],
-            "agreement_gain_confidence_interval": diagnostics[
-                "agreement_gain_confidence_interval"
-            ],
+            "myopic_oracle_agreement": diagnostics["delayed_myopic_agreement"],
+            "nonmyopic_oracle_agreement": diagnostics["delayed_nonmyopic_agreement"],
+            "agreement_gain": diagnostics["delayed_agreement_gain"],
+            "agreement_gain_confidence_interval": diagnostics["agreement_gain_confidence_interval"],
+            "delayed_contexts": diagnostics["delayed_contexts"],
+            "delayed_seed_count": diagnostics["delayed_seed_count"],
             "gain_target": float(targets.get("horizon_agreement_gain", 0.10)),
-            "meets_target": diagnostics["agreement_gain_nonmyopic_over_myopic"]
-            >= float(targets.get("horizon_agreement_gain", 0.10)),
-            "confidence_interval_supports_positive_gain": (
-                diagnostics["agreement_gain_confidence_interval"][0] > 0
+            "meets_target": (
+                diagnostics["delayed_agreement_gain"] is not None
+                and diagnostics["delayed_agreement_gain"] >= float(targets.get("horizon_agreement_gain", 0.10))
+            ),
+            "confidence_interval_supports_target": (
+                diagnostics["delayed_seed_count"] > 1
+                and diagnostics["agreement_gain_confidence_interval"] is not None
+                and diagnostics["agreement_gain_confidence_interval"][0]
+                >= float(targets.get("horizon_agreement_gain", 0.10))
             ),
         },
         "H4_cost_sensitivity": {
@@ -869,16 +1045,25 @@ def _summarize(
             "low_cost_positive_voc_rate": low_rate,
             "high_cost_positive_voc_rate": high_rate,
             "relative_rate_reduction": cost_rate_reduction,
-            "paired_relative_rate_reduction_mean": _mean(paired_cost_reductions),
+            "zero_low_rate_seeds": sum(low == 0 for low, _ in cost_pairs),
+            "paired_seed_count": len(cost_pairs),
+            "undefined_bootstrap_samples": undefined_bootstrap_samples,
             "paired_relative_rate_reduction_confidence_interval": cost_reduction_interval,
             "reduction_target": float(targets.get("high_cost_rate_reduction", 0.15)),
-            "meets_target": cost_rate_reduction
-            >= float(targets.get("high_cost_rate_reduction", 0.15)),
-            "confidence_interval_supports_decrease": cost_reduction_interval[0] > 0,
+            "meets_target": (
+                cost_rate_reduction is not None
+                and cost_rate_reduction >= float(targets.get("high_cost_rate_reduction", 0.15))
+            ),
+            "confidence_interval_supports_target": (
+                cost_reduction_interval is not None
+                and undefined_bootstrap_samples == 0
+                and cost_reduction_interval[0] >= float(targets.get("high_cost_rate_reduction", 0.15))
+            ),
         },
     }
     return {
         "conditions": conditions,
+        "paired_return_comparisons": paired_comparisons,
         "pareto_frontier": sorted(
             pareto_frontier,
             key=lambda item: (item["mean_messages"], -item["mean_task_return"]),
@@ -886,10 +1071,168 @@ def _summarize(
         "diagnostics": diagnostics,
         "hypotheses": hypotheses,
         "failure_cases": [
-            row for row in episode_rows if row["failure_case"] is not None
+            {key: value for key, value in row.items() if key != "step_trace"}
+            for row in episode_rows if row["failure_case"] is not None
         ],
-        "episode_count": len(episode_rows),
+        "episode_count": total_episode_count,
+        "assigned_budget_episode_count": len(budget_rows),
     }
+
+
+def _assigned_budget_comparisons(rows, evaluation, confidence, samples, seed):
+    """Compare assigned arms and report adherence separately from outcomes."""
+    indexed = {
+        (row["assigned_message_budget"], row["seed"], row["method"]): row for row in rows
+    }
+    results = []
+    budgets = evaluation.get("assigned_message_budgets", [])
+    for budget in budgets:
+        pairs = []
+        for episode_seed in evaluation["seeds"]:
+            aware = indexed[budget, episode_seed, "aware_nonmyopic"]
+            agnostic = indexed[budget, episode_seed, "agnostic_nonmyopic"]
+            pairs.append({
+                "seed": episode_seed,
+                "aware_messages": aware["messages"],
+                "agnostic_messages": agnostic["messages"],
+                "aware_send_steps": aware.get("budget_send_steps"),
+                "agnostic_send_steps": agnostic.get("budget_send_steps"),
+                "aware_rescues": aware["rescued_victims"],
+                "agnostic_rescues": agnostic["rescued_victims"],
+                "rescue_difference": aware["rescued_victims"] - agnostic["rescued_victims"],
+                "return_difference": aware["discounted_task_return"] - agnostic["discounted_task_return"],
+            })
+        adherence = all(pair["aware_messages"] == pair["agnostic_messages"] == budget for pair in pairs)
+        differences = [pair["return_difference"] for pair in pairs]
+        rescue_differences = [pair["rescue_difference"] for pair in pairs]
+        assigned_return_interval = (
+            bootstrap_mean_interval(differences, confidence, samples, seed + budget + 9021)
+            if len(pairs) > 1 else None
+        )
+        interval = assigned_return_interval if adherence else None
+        schedule = evaluation.get("budget_schedule", "fixed_steps")
+        results.append({
+            "assigned_messages": budget,
+            "schedule_type": schedule,
+            "send_schedule": list(_budget_send_steps(evaluation, budget)) if schedule == "fixed_steps" else None,
+            "primary": budget == evaluation.get("primary_message_budget", budgets[0]),
+            "protocol_adherence": adherence,
+            "fully_adherent_pair_count": sum(
+                pair["aware_messages"] == pair["agnostic_messages"] == budget for pair in pairs
+            ),
+            "aware_unused_slots": sum(budget - pair["aware_messages"] for pair in pairs),
+            "agnostic_unused_slots": sum(budget - pair["agnostic_messages"] for pair in pairs),
+            "pairs": pairs,
+            "mean_return_difference": _optional_mean(differences),
+            "assigned_policy_return_difference_ci": assigned_return_interval,
+            "mean_rescue_difference": _optional_mean(rescue_differences),
+            "assigned_policy_rescue_difference_ci": (
+                bootstrap_mean_interval(rescue_differences, confidence, samples, seed + budget + 9022)
+                if len(pairs) > 1 else None
+            ),
+            "confidence_interval": interval,
+            "confidence_interval_excludes_zero": bool(
+                interval is not None and (interval[0] > 0 or interval[1] < 0)
+            ),
+        })
+    return results
+
+
+def _budget_send_steps(evaluation: dict[str, Any], budget: int) -> tuple[int, ...]:
+    steps = evaluation.get("budget_send_steps")
+    return tuple(steps[:budget]) if steps is not None else tuple(range(budget))
+
+
+def _fact_key(message: Message) -> tuple:
+    return message.kind, message.location, message.status
+
+
+def _actionable_budget_messages(
+    messages: list[Message], step: int, sent_facts: set[tuple],
+) -> list[Message]:
+    """Admit task-relevant observations using the same sender-local rule for both arms."""
+    return [
+        message for message in messages
+        if _fact_key(message) not in sent_facts
+        and (
+            (message.kind == "victim" and message.status in {"located", "stabilized"})
+            or (message.kind == "hazard" and message.status == "active" and message.observed_at == step)
+        )
+    ]
+
+
+def _paired_return_comparisons(
+    episode_rows: list[dict[str, Any]],
+    costs: list[float],
+    seeds: list[int],
+    confidence: float,
+    bootstrap_samples: int,
+    bootstrap_seed: int,
+) -> list[dict[str, Any]]:
+    """Report same-seed return effects and exact realized-budget subsets."""
+    indexed = {
+        (row["method"], float(row["cost_weight"]), int(row["seed"])): row
+        for row in episode_rows
+    }
+    pairs: list[tuple[str, str, float]] = []
+    for cost in costs:
+        pairs.append(("aware_nonmyopic", "agnostic_nonmyopic", float(cost)))
+    pairs.extend((
+        ("aware_nonmyopic", "random", 0.0),
+        ("agnostic_nonmyopic", "random", 0.0),
+    ))
+    reports: list[dict[str, Any]] = []
+    for pair_index, (first_method, second_method, cost) in enumerate(pairs):
+        differences: list[dict[str, Any]] = []
+        budget_matched: list[dict[str, Any]] = []
+        for episode_seed in seeds:
+            first = indexed.get((first_method, cost, int(episode_seed)))
+            second = indexed.get((second_method, cost, int(episode_seed)))
+            if first is None or second is None:
+                continue
+            difference = float(first["discounted_task_return"]) - float(
+                second["discounted_task_return"]
+            )
+            pair_record = {
+                "seed": int(episode_seed),
+                "return_difference": difference,
+                "first_messages": int(first["messages"]),
+                "second_messages": int(second["messages"]),
+            }
+            differences.append(pair_record)
+            if (
+                int(first["messages"]) == int(second["messages"])
+                and int(first["messages"]) > 0
+            ):
+                budget_matched.append(pair_record)
+        paired_values = [item["return_difference"] for item in differences]
+        budget_values = [item["return_difference"] for item in budget_matched]
+        reports.append({
+            "first_method": first_method,
+            "second_method": second_method,
+            "cost_weight": cost,
+            "paired_seed_count": len(differences),
+            "mean_first_minus_second_return": _mean(paired_values),
+            "paired_seed_return_differences": differences,
+            "paired_confidence_interval": (
+                bootstrap_mean_interval(
+                    paired_values, confidence, bootstrap_samples,
+                    bootstrap_seed + 10000 + pair_index,
+                ) if paired_values else None
+            ),
+            "exact_budget_matched_seed_count": len(budget_matched),
+            "mean_return_difference_at_exact_matched_budget": (
+                _mean(budget_values) if budget_values else None
+            ),
+            "exact_budget_matched_confidence_interval": (
+                bootstrap_mean_interval(
+                    budget_values, confidence, bootstrap_samples,
+                    bootstrap_seed + 11000 + pair_index,
+                ) if budget_values else None
+            ),
+            "exact_budget_matched_seed_differences": budget_matched,
+        })
+    return reports
 
 
 def _validate_config(config: dict[str, Any]) -> None:
@@ -923,6 +1266,42 @@ def _validate_config(config: dict[str, Any]) -> None:
         raise ValueError("communication.cost_sweep must include the paper's 0.0 and 0.5 settings")
     if int(evaluation.get("held_out_contexts", 0)) < 1:
         raise ValueError("config.evaluation.held_out_contexts must be positive")
+    if evaluation.get("diagnostic_context_sampling", "first_eligible") not in ("first_eligible", "evenly_spaced"):
+        raise ValueError("evaluation.diagnostic_context_sampling must be first_eligible or evenly_spaced")
+    if int(evaluation.get("parallel_workers", 1)) < 1:
+        raise ValueError("config.evaluation.parallel_workers must be at least 1")
+    budgets = evaluation.get("assigned_message_budgets", [])
+    if (
+        not isinstance(budgets, list)
+        or any(type(budget) is not int or not 1 <= budget <= int(environment["horizon"]) for budget in budgets)
+        or len(set(budgets)) != len(budgets)
+    ):
+        raise ValueError("evaluation.assigned_message_budgets must contain unique positive step counts")
+    if "primary_message_budget" in evaluation and evaluation["primary_message_budget"] not in budgets:
+        raise ValueError("evaluation.primary_message_budget must be an assigned budget")
+    send_steps = evaluation.get("budget_send_steps")
+    schedule = evaluation.get("budget_schedule", "fixed_steps")
+    if schedule not in ("fixed_steps", "actionable_facts"):
+        raise ValueError("evaluation.budget_schedule must be fixed_steps or actionable_facts")
+    if schedule == "actionable_facts" and send_steps is not None:
+        raise ValueError("evaluation.budget_send_steps applies only to fixed_steps")
+    if send_steps is not None and (
+        not isinstance(send_steps, list)
+        or len(send_steps) < max(budgets, default=0)
+        or any(type(step) is not int or not 0 <= step < int(environment["horizon"]) for step in send_steps)
+        or send_steps != sorted(set(send_steps))
+    ):
+        raise ValueError("evaluation.budget_send_steps must be unique, ordered steps covering the largest budget")
+    if int(evaluation.get("oracle_rollout_count", communication["rollout_count"])) < 1:
+        raise ValueError("evaluation.oracle_rollout_count must be positive")
+    delayed_margin = float(evaluation.get("delayed_value_margin", 0.5))
+    if not math.isfinite(delayed_margin) or delayed_margin < 0:
+        raise ValueError("evaluation.delayed_value_margin must be finite and non-negative")
+    valuation_cap = evaluation.get("max_valuation_contexts_per_episode")
+    if valuation_cap is not None and int(valuation_cap) < 1:
+        raise ValueError(
+            "config.evaluation.max_valuation_contexts_per_episode must be positive or null"
+        )
     if not 0.0 < float(evaluation.get("confidence_level", 0.95)) < 1.0:
         raise ValueError("evaluation.confidence_level must be strictly between 0 and 1")
     thresholds = evaluation.get("thresholds", {})
@@ -988,17 +1367,6 @@ def _validate_config(config: dict[str, Any]) -> None:
     for cost in costs:
         if not math.isfinite(float(cost)) or float(cost) < 0:
             raise ValueError("communication costs cannot be negative")
-
-
-def _condition_value(conditions: list[dict[str, Any]], method: str, cost: float) -> float:
-    return next(
-        (
-            item["positive_voc_communication_rate"]
-            for item in conditions
-            if item["method"] == method and item["cost_weight"] == cost
-        ),
-        0.0,
-    )
 
 
 def _method_number(method: str) -> int:

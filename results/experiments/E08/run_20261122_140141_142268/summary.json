@@ -1,0 +1,54 @@
+{
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E08\\run_20261122_140141_142268\\config_used.json",
+  "context_count": 20,
+  "experiment_id": "E08",
+  "h1_primary_ci": null,
+  "h1_threshold_curve": {},
+  "h2_budget_matched_paired_ci": [
+    -0.47238048373980684,
+    0.0017455927136175386
+  ],
+  "h2_paired_ci": [
+    -0.4741260764534244,
+    0.0
+  ],
+  "h3_delayed_context_count": 1,
+  "h3_delayed_paired_ci": [
+    -1.0,
+    -1.0
+  ],
+  "h3_delayed_value_margin": 0.5,
+  "h4_high_rate": 0.0,
+  "h4_low_rate": 0.3,
+  "h4_paired_ci": [
+    1.0,
+    1.0
+  ],
+  "h4_undefined_bootstrap_draws": 0,
+  "headline": {
+    "h1_primary_fraction": null,
+    "h2_aware_minus_agnostic_return": -0.1610739480019666,
+    "h2_budget_matched_return": -0.15932835528834904,
+    "h2_budget_matched_seed_count": 10,
+    "h3_delayed_context_gain": -1.0,
+    "h3_delayed_seed_count": 1,
+    "h4_positive_rate_drop_relative": 1.0
+  },
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E08\\run_20261122_140141_142268",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E08\\run_20261122_140141_142268",
+  "runtime_seconds": 63.91048439999577,
+  "scope": "exploratory context interventions",
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

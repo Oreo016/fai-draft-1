@@ -46,6 +46,8 @@ class Observation:
     teammates: tuple[AgentTrack, ...] = ()
     receiver_summaries: tuple[ReceiverSummary, ...] = ()
     known_facts: tuple["Message", ...] = ()
+    evacuation_point: Position | None = None
+    carrying_victim: bool = False
 
 
 @dataclass(frozen=True)

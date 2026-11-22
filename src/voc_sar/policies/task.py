@@ -24,6 +24,10 @@ class ScoutPolicy:
 
 class CarrierPolicy:
     def act(self, observation: Observation) -> TaskAction:
+        if observation.carrying_victim and observation.evacuation_point is not None:
+            if observation.position == observation.evacuation_point:
+                return "rescue"
+            return _move_toward(observation, observation.evacuation_point)
         victim = _nearest_fact(observation, "victim", {"stabilized"})
         if victim is not None:
             if _distance(observation.position, victim.location) <= 1:

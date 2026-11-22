@@ -1,69 +1,55 @@
-# Receiver-Aware Value of Communication for SAR
+# Receiver-Aware Communication for Search and Rescue
 
-This package implements the core method in [`final.pdf`](./final.pdf) and the
-experimental context in
-[`receiver_aware_voc_professional (2) (1).pdf`](./receiver_aware_voc_professional%20(2)%20(1).pdf).
-It is a controlled, empirical SAR-Grid simulator for studying whether an agent
-should send an existing structured fact, to which teammate, and at what
-software-level cost. It does not generate messages or model a radio/network.
+**Foundations of AI course project** · Indian Institute of Technology Gandhinagar  
+**Instructor:** Prof. Manisha Padala
 
-## Run
+We study whether a search-and-rescue team should share an existing report, which teammate should receive it, and whether the expected benefit is worth the communication cost. The project uses a grid-based simulation with three fixed roles: the Scout finds victims, the Medic stabilizes victims and disables hazards, and the Carrier transports stabilized victims to the evacuation cell.
+
+## Project submitters
+
+| Name | Department | Institute | Student ID |
+|---|---|---|---|
+| Chitiveli Hemcharan Varma | Computer Science | Indian Institute of Technology Gandhinagar | 24110095 |
+| Guransh Kaur Saran | Computer Science | Indian Institute of Technology Gandhinagar | 24110127 |
+| Kowel P Laloo | Computer Science | Indian Institute of Technology Gandhinagar | 24110168 |
+| Omm Arindam | Artificial Intelligence | Indian Institute of Technology Gandhinagar | 24110229 |
+
+## Start here
+
+1. **Read the final report:** [report_final.pdf](report_final.pdf).
+2. **Try the interactive demo:** from the repository folder, run:
+
+   ```powershell
+   python -m pip install -e .
+   python demo/app.py
+   ```
+
+   Then open [http://127.0.0.1:8765](http://127.0.0.1:8765). The **Compare one report** page compares the estimated team score when the Scout's discovered victim report is sent to the Medic or Carrier versus withheld. Change the message cost to see how it affects the value of sending. **Play an episode** shows the team moving through the grid; the small rescue walkthrough is a quick way to see a victim evacuated. More setup details are in [demo/README.md](demo/README.md).
+
+The demo's individual comparisons and episodes are illustrations of the method. The research findings and their uncertainty are reported in the PDF; one interactive run does not confirm a hypothesis.
+
+## Reproducing the work
+
+The final report PDF and saved experiment outputs are included in this repository. The full experiment can take about 32 minutes to rerun on the recorded setup, so running it is optional for reviewing the project. The submitted report is available as a PDF; its editable LaTeX source is not included in this branch.
+
+To run the default experiment from the repository folder:
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -e .
 python -m voc_sar --config configs/default.yaml --validate-only
 python -m voc_sar --config configs/default.yaml
 ```
 
-Each run creates a unique timestamped subfolder under `evaluation.output_dir`.
-It stores `episodes.json`, `summary.json`, and a `graphs` folder with standalone
-SVG charts plus an `index.html` gallery. It also saves one
-`search-operations-<method>.gif` for each communication method, using that
-method's first episode to show agent positions, victims, hazards, task actions,
-and any communication sent. The default experiment uses the paper's 10 seeds,
-64 receiver-state particles, 32 paired rollouts, `Hmyo=1`, `HNM=5`, `Heval=15`,
-and cost sweep `λ in {0, 0.5}`. The offline diagnostics use a separate
-held-out, no-communication trajectory set. Results are generated locally;
-no performance claim is made by this source tree alone.
+Each run writes its configuration, episode traces, diagnostic contexts, summary, and charts to a new timestamped folder under `results/`.
 
-## Implemented pipeline
+## Repository map
 
-- **Environment:** seeded layouts, local observation/history, Scout discovery,
-  Medic stabilization and hazard disable, Carrier rescue, dynamic hazards,
-  shared event reward, and explicit pre-action message delivery.
-- **Task and message policies:** deterministic role policies plus Never,
-  Random, Full, Fixed-frequency, receiver-aware, and receiver-agnostic
-  communication conditions. Only the Scout is an active sender in the primary
-  controlled comparison. The sender tracks facts it has delivered to each
-  receiver so the candidate filter can down-rank redundant reports.
-- **Valuation:** a seeded 64-particle prior conditioned on the sender's local
-  evidence, cheap role/freshness/proximity shortlist, paired send/no-send
-  rollouts, matched transition randomness, and communication cost subtraction.
-- **Oracle and analysis:** privileged counterfactual evaluation is isolated in
-  the offline diagnostics. The runner reports episode returns, message volume,
-  selection regret, estimator MAE, filter recall, useful-message rate,
-  myopic/nonmyopic agreement, paired-rollout standard errors, bootstrap
-  intervals, failure cases, runtime, and H1-H4 target comparisons.
+- [`report_final.pdf`](report_final.pdf) — final course report.
+- [`demo/`](demo/) — interactive explanation and playable simulator.
+- [`src/voc_sar/`](src/voc_sar/) — grid environment, role policies, communication selection, value estimates, and experiment runner.
+- [`configs/`](configs/) — default and research experiment settings.
+- [`results/`](results/) — saved runs and analyses used by the report.
+- [`tests/`](tests/) — automated checks for the simulator and research experiment code.
 
-See [`docs/PROJECT_PLAN.md`](./docs/PROJECT_PLAN.md) for the architecture,
-explicit modeling choices, interpretation limits, and possible extensions.
+## Scope
 
-## Important modeling choices
-
-The brief does not define a complete low-level action grammar or belief
-initialization procedure. To make the experiment executable without changing
-its central question, this implementation uses `scan`, `stabilize`, `rescue`,
-and `disable` task actions; Manhattan-adjacent interactions; a seeded,
-sender-conditioned generative prior for unknown locations; and deterministic
-fixed role policies. These choices are configurable or replaceable behind the
-environment and policy interfaces. They are approximations, not claims about a
-physical SAR system.
-
-`Observation` contains no global simulator state. Environment diagnostic
-properties and `CounterfactualOracle` are privileged and must not be used by a
-decentralized policy. A receiver summary contains only messages the sender
-knows it delivered; it is not a claim to know the receiver's complete private
-history. Communication cost is excluded from task reward and subtracted once
-from VoC, as specified by the papers.
+This is a controlled simulator study with fixed task policies. The communication decision starts from an existing structured report; the project does not generate natural-language messages or model a radio network. See the report for the experiment design, findings, and limitations.

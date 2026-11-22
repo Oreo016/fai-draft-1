@@ -1,0 +1,5 @@
+id: E03
+name: particle_filter_diagnostics
+contexts_per_seed: 4
+particle_counts: [16, 32, 64, 128, 256]
+rollout_count: 32

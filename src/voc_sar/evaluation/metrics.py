@@ -135,3 +135,30 @@ def positive_voc_rate(values: Sequence[float]) -> float:
     if not values:
         return 0.0
     return sum(value > 0 for value in values) / len(values)
+
+
+def bootstrap_paired_relative_reduction(
+    rates: Sequence[tuple[float, float]],
+    confidence_level: float,
+    samples: int,
+    seed: int,
+) -> tuple[tuple[float, float] | None, int]:
+    """Resample seeds jointly and take the same ratio of means as the point estimate."""
+    if len(rates) < 2 or not any(low for low, _ in rates):
+        return None, samples if rates and not any(low for low, _ in rates) else 0
+    rng = random.Random(seed)
+    effects = []
+    undefined = 0
+    for _ in range(samples):
+        draw = rng.choices(rates, k=len(rates))
+        low = sum(pair[0] for pair in draw)
+        if low:
+            effects.append(1 - sum(pair[1] for pair in draw) / low)
+        else:
+            undefined += 1
+    if not effects:
+        return None, undefined
+    effects.sort()
+    tail = (1 - confidence_level) / 2
+    return (effects[int(tail * (len(effects) - 1))],
+            effects[int((1 - tail) * (len(effects) - 1))]), undefined

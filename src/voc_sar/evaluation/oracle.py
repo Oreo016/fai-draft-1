@@ -21,6 +21,7 @@ class CounterfactualOracle:
         cost_weight: float = 0.0,
         unit_cost: float = 1.0,
         seed: int = 0,
+        record_rollouts: bool = False,
     ) -> None:
         if rollout_count < 1:
             raise ValueError("rollout_count must be at least one")
@@ -39,6 +40,7 @@ class CounterfactualOracle:
         self.cost_weight = cost_weight
         self.unit_cost = unit_cost
         self.seed = seed
+        self.record_rollouts = record_rollouts
 
     def evaluate(
         self,
@@ -59,6 +61,7 @@ class CounterfactualOracle:
             raise ValueError("sender_id and receiver_id must refer to configured agents")
 
         paired_differences: list[float] = []
+        paired_returns = []
         for rollout_index in range(self.rollout_count):
             paired_seed = self.seed + context.step_count * 65_537 + rollout_index
             no_send_world = context.clone()
@@ -76,6 +79,8 @@ class CounterfactualOracle:
                 (sender_id, receiver_id, message),
             )
             paired_differences.append(send_return - no_send_return)
+            if self.record_rollouts:
+                paired_returns.append((send_return, no_send_return))
 
         marginal_value = sum(paired_differences) / len(paired_differences)
         if len(paired_differences) < 2:
@@ -92,4 +97,5 @@ class CounterfactualOracle:
             communication_cost=cost,
             value_of_communication=marginal_value - cost,
             standard_error=standard_error,
+            paired_returns=tuple(paired_returns),
         )

@@ -1,0 +1,902 @@
+[
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4921114904063466,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4921114904063466,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4921114904063466,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.10089075234375004,
+    "messages": 0,
+    "return": -1.4921114904063466,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.3358793181887692,
+    "messages": 0,
+    "return": -1.4921114904063466,
+    "seed": 0,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4912349893403851,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4912349893403851,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4912349893403851,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4912349893403851,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4912349893403851,
+    "seed": 0,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3911873529284473,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 1,
+    "return": -1.4734170648851135,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 5,
+    "mae_voc": 0.04328437500000001,
+    "messages": 1,
+    "return": -1.4734170648851135,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 10,
+    "mae_voc": 0.11525034375000003,
+    "messages": 1,
+    "return": -1.4734170648851135,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 15,
+    "mae_voc": 0.09759849771993752,
+    "messages": 1,
+    "return": -1.4734170648851135,
+    "seed": 1,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3979732885767195,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3979732885767195,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3979732885767195,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3979732885767195,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3979732885767195,
+    "seed": 1,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 1.4932341754436678,
+    "messages": 0,
+    "return": 2.435608218258417,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 1.4932341754436678,
+    "messages": 0,
+    "return": 2.435608218258417,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 5,
+    "mae_voc": 1.4909560504436679,
+    "messages": 1,
+    "return": -0.6861851026880738,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 1.4063923465999177,
+    "messages": 0,
+    "return": 2.435608218258417,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 1.327693443429097,
+    "messages": 0,
+    "return": 2.435608218258417,
+    "seed": 2,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": 2.7548000202871297,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": 2.7548000202871297,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": 2.7548000202871297,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": 2.7548000202871297,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": 2.7548000202871297,
+    "seed": 2,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.01961316225562501,
+    "messages": 0,
+    "return": -1.1355138884494194,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.01961316225562501,
+    "messages": 0,
+    "return": -1.1355138884494194,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 5,
+    "mae_voc": 0.06061941225562502,
+    "messages": 1,
+    "return": -1.1355138884494194,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.21102644166187506,
+    "messages": 0,
+    "return": -1.1355138884494194,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.12803443519732313,
+    "messages": 0,
+    "return": -1.1355138884494194,
+    "seed": 3,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.0950154316104663,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.0950154316104663,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.0950154316104663,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.0950154316104663,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.0950154316104663,
+    "seed": 3,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3917580095199666,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3917580095199666,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3917580095199666,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.15815352009375003,
+    "messages": 0,
+    "return": -1.3917580095199666,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.2704791899518398,
+    "messages": 0,
+    "return": -1.3917580095199666,
+    "seed": 4,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.381145051786882,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.381145051786882,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.381145051786882,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.381145051786882,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.381145051786882,
+    "seed": 4,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.1843388063922617,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.025312500000000005,
+    "messages": 0,
+    "return": -1.1843388063922617,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.08910000000000001,
+    "messages": 0,
+    "return": -1.1843388063922617,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 10,
+    "mae_voc": 0.11600420062500003,
+    "messages": 1,
+    "return": -1.2017947335284371,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.12320114155268909,
+    "messages": 0,
+    "return": -1.1843388063922617,
+    "seed": 5,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.151204887895422,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.151204887895422,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.151204887895422,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.151204887895422,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.151204887895422,
+    "seed": 5,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4219009934708045,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4219009934708045,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 1,
+    "return": -1.4219009934708045,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 1,
+    "return": -1.4219009934708045,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 15,
+    "mae_voc": 0.0010896201253124994,
+    "messages": 1,
+    "return": -1.4219009934708045,
+    "seed": 6,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4132233260786713,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4132233260786713,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4132233260786713,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4132233260786713,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.4132233260786713,
+    "seed": 6,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3039603474362655,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 1,
+    "return": -1.3335221133191348,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 1,
+    "return": -1.3335221133191348,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 10,
+    "mae_voc": 0.20087916215625004,
+    "messages": 1,
+    "return": -1.3335221133191348,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 15,
+    "mae_voc": 0.1745953454934619,
+    "messages": 1,
+    "return": -1.3335221133191348,
+    "seed": 7,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.0540500753284796,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.0540500753284796,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.0540500753284796,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.0540500753284796,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.0540500753284796,
+    "seed": 7,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.1787249410543829,
+    "messages": 0,
+    "return": -0.2786001451312689,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.1787249410543829,
+    "messages": 0,
+    "return": -0.2786001451312689,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.2607374410543829,
+    "messages": 0,
+    "return": -0.2786001451312689,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 10,
+    "mae_voc": 0.29129714383563293,
+    "messages": 1,
+    "return": -1.0451675380568153,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 15,
+    "mae_voc": 0.3001230668506642,
+    "messages": 1,
+    "return": -1.0451675380568153,
+    "seed": 8,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -0.2280632049153594,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -0.2280632049153594,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -0.2280632049153594,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -0.2280632049153594,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -0.2280632049153594,
+    "seed": 8,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.407422120565206,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 3,
+    "mae_voc": 0.025312500000000005,
+    "messages": 1,
+    "return": -1.4248780477013814,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "agreement": 0.0,
+    "horizon": 5,
+    "mae_voc": 0.068596875,
+    "messages": 1,
+    "return": -1.4248780477013814,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.006682153218749992,
+    "messages": 0,
+    "return": -1.407422120565206,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.04155641934895972,
+    "messages": 0,
+    "return": -1.407422120565206,
+    "seed": 9,
+    "step": 0
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 1,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3971356895168954,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 3,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3971356895168954,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 5,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3971356895168954,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 10,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3971356895168954,
+    "seed": 9,
+    "step": 1
+  },
+  {
+    "agreement": 1.0,
+    "horizon": 15,
+    "mae_voc": 0.0,
+    "messages": 0,
+    "return": -1.3971356895168954,
+    "seed": 9,
+    "step": 1
+  }
+]

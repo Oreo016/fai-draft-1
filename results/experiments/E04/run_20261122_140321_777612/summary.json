@@ -1,0 +1,97 @@
+{
+  "bias_definition": "signed discrepancy from an independently sampled same-model reference",
+  "by_setting": {
+    "n128_crn": {
+      "mean_bias_to_high_n": -0.011758904919285407,
+      "mean_runtime_seconds_per_decision": 1.8129061650011864,
+      "mean_se": 0.01814852149667722
+    },
+    "n128_independent": {
+      "mean_bias_to_high_n": -0.012278912935435074,
+      "mean_runtime_seconds_per_decision": 1.862996975000715,
+      "mean_se": 0.03243696668617651
+    },
+    "n16_crn": {
+      "mean_bias_to_high_n": 0.021874800375132973,
+      "mean_runtime_seconds_per_decision": 0.2377845900009561,
+      "mean_se": 0.03279642480258822
+    },
+    "n16_independent": {
+      "mean_bias_to_high_n": 0.010660067661820146,
+      "mean_runtime_seconds_per_decision": 0.2315114100005303,
+      "mean_se": 0.0658196595537112
+    },
+    "n32_crn": {
+      "mean_bias_to_high_n": -0.0039973515921633545,
+      "mean_runtime_seconds_per_decision": 0.4601011299986567,
+      "mean_se": 0.03550495634601761
+    },
+    "n32_independent": {
+      "mean_bias_to_high_n": 6.083734633150341e-05,
+      "mean_runtime_seconds_per_decision": 0.45419180000099,
+      "mean_se": 0.05674513439026561
+    },
+    "n64_crn": {
+      "mean_bias_to_high_n": 0.0019400181484250372,
+      "mean_runtime_seconds_per_decision": 0.9238744100010081,
+      "mean_se": 0.02490880233681148
+    },
+    "n64_independent": {
+      "mean_bias_to_high_n": -0.0015792360999501102,
+      "mean_runtime_seconds_per_decision": 0.9319660599991039,
+      "mean_se": 0.03849183838525146
+    },
+    "n8_crn": {
+      "mean_bias_to_high_n": -0.0076564643479214755,
+      "mean_runtime_seconds_per_decision": 0.11327517999670818,
+      "mean_se": 0.044397492058550016
+    },
+    "n8_independent": {
+      "mean_bias_to_high_n": -0.048239509290025316,
+      "mean_runtime_seconds_per_decision": 0.11331439999994472,
+      "mean_se": 0.09185659947210884
+    }
+  },
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E04\\run_20261122_140321_777612\\config_used.json",
+  "context_count": 20,
+  "experiment_id": "E04",
+  "headline": {
+    "n128_crn_bias": -0.011758904919285407,
+    "n128_crn_se": 0.01814852149667722,
+    "n128_independent_bias": -0.012278912935435074,
+    "n128_independent_se": 0.03243696668617651,
+    "n16_crn_bias": 0.021874800375132973,
+    "n16_crn_se": 0.03279642480258822,
+    "n16_independent_bias": 0.010660067661820146,
+    "n16_independent_se": 0.0658196595537112,
+    "n32_crn_bias": -0.0039973515921633545,
+    "n32_crn_se": 0.03550495634601761,
+    "n32_independent_bias": 6.083734633150341e-05,
+    "n32_independent_se": 0.05674513439026561,
+    "n64_crn_bias": 0.0019400181484250372,
+    "n64_crn_se": 0.02490880233681148,
+    "n64_independent_bias": -0.0015792360999501102,
+    "n64_independent_se": 0.03849183838525146,
+    "n8_crn_bias": -0.0076564643479214755,
+    "n8_crn_se": 0.044397492058550016,
+    "n8_independent_bias": -0.048239509290025316,
+    "n8_independent_se": 0.09185659947210884
+  },
+  "reference_rollouts": 256,
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E04\\run_20261122_140321_777612",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E04\\run_20261122_140321_777612",
+  "runtime_seconds": 223.36089899999206,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

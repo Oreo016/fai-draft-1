@@ -1,0 +1,5 @@
+id: E09
+name: horizon_sweep
+contexts_per_seed: 2
+rollout_count: 32
+horizons: [1, 3, 5, 10, 15]

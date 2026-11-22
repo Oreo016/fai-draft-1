@@ -1,0 +1,16 @@
+id: E10
+name: staleness_validation
+contexts_per_seed: 4
+minimum_context_step: 12
+prefer_stale_messages: true
+rollout_count: 32
+age_bins:
+- 0
+- 1
+- 2
+- 3
+- 5
+- 8
+- 13
+- 21
+config_file: C:\Users\arind\Downloads\faiproj\configs\experiments\e10_staleness.yaml

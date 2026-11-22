@@ -1,0 +1,109 @@
+{
+  "completed_count": 12,
+  "experiment_ids": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E08",
+    "E09",
+    "E10",
+    "E11",
+    "E12"
+  ],
+  "experiments": {
+    "E01": {
+      "experiment_id": "E01",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E01.log",
+      "return_code": 0,
+      "runtime_seconds": 58.25259299999743,
+      "status": "complete"
+    },
+    "E02": {
+      "experiment_id": "E02",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E02.log",
+      "return_code": 0,
+      "runtime_seconds": 42.767548899995745,
+      "status": "complete"
+    },
+    "E03": {
+      "experiment_id": "E03",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E03.log",
+      "return_code": 0,
+      "runtime_seconds": 124.68990290000511,
+      "status": "complete"
+    },
+    "E04": {
+      "experiment_id": "E04",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E04.log",
+      "return_code": 0,
+      "runtime_seconds": 225.20890929999587,
+      "status": "complete"
+    },
+    "E05": {
+      "experiment_id": "E05",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E05.log",
+      "return_code": 0,
+      "runtime_seconds": 993.7812713999883,
+      "status": "complete"
+    },
+    "E06": {
+      "experiment_id": "E06",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E06.log",
+      "return_code": 0,
+      "runtime_seconds": 290.5598541999934,
+      "status": "complete"
+    },
+    "E07": {
+      "experiment_id": "E07",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E07.log",
+      "return_code": 0,
+      "runtime_seconds": 148.78752749999694,
+      "status": "complete"
+    },
+    "E08": {
+      "experiment_id": "E08",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E08.log",
+      "return_code": 0,
+      "runtime_seconds": 65.54588119999971,
+      "status": "complete"
+    },
+    "E09": {
+      "experiment_id": "E09",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E09.log",
+      "return_code": 0,
+      "runtime_seconds": 197.98612739999953,
+      "status": "complete"
+    },
+    "E10": {
+      "experiment_id": "E10",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E10.log",
+      "return_code": 0,
+      "runtime_seconds": 69.26023800000257,
+      "status": "complete"
+    },
+    "E11": {
+      "experiment_id": "E11",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E11.log",
+      "return_code": 0,
+      "runtime_seconds": 96.78912480000872,
+      "status": "complete"
+    },
+    "E12": {
+      "experiment_id": "E12",
+      "log_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs\\E12.log",
+      "return_code": 0,
+      "runtime_seconds": 110.21613929999876,
+      "status": "complete"
+    }
+  },
+  "failures": [],
+  "log_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\all_20261122_135937_751393\\logs",
+  "status": "complete",
+  "total_count": 12,
+  "updated_at_utc": "2026-11-22T08:46:11.697331+00:00",
+  "workers": 6
+}

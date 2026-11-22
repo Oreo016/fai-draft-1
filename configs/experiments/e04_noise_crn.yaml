@@ -1,0 +1,6 @@
+id: E04
+name: estimator_noise_crn
+contexts_per_seed: 2
+rollout_counts: [8, 16, 32, 64, 128]
+reference_rollouts: 256
+particles: 64

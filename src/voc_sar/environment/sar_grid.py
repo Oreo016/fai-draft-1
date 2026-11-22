@@ -61,10 +61,16 @@ class SARGrid:
     _scanned: list[set[Position]] = field(default_factory=list, init=False, repr=False)
     _teammates: list[dict[int, AgentTrack]] = field(default_factory=list, init=False, repr=False)
     _sent_facts: list[dict[int, list[Message]]] = field(default_factory=list, init=False, repr=False)
+    _carried_victims: dict[int, Position] = field(default_factory=dict, init=False, repr=False)
 
     @property
     def grid_size(self) -> int:
         return int(self.config.get("grid_size", 10))
+
+    @property
+    def evacuation_point(self) -> Position | None:
+        point = self.config.get("evacuation_point")
+        return tuple(point) if point is not None else None
 
     @property
     def positions(self) -> tuple[Position, ...]:
@@ -104,10 +110,15 @@ class SARGrid:
     def from_sender_observation(
         cls, config: dict, observation: Observation, seed: int,
         receiver_id: int | None = None,
+        predicted_world: "SARGrid | None" = None,
     ) -> "SARGrid":
         """Sample one generative-model world conditioned only on local evidence."""
-        world = cls(config)
-        world.reset(seed)
+        if predicted_world is None:
+            world = cls(config)
+            world.reset(seed)
+        else:
+            world = predicted_world.clone()
+            world.reseed_dynamics(seed)
         if observation.agent_id >= len(world._positions):
             raise ValueError("observation agent_id is outside the configured team")
 
@@ -119,13 +130,14 @@ class SARGrid:
         positions = [observation.position] * len(world.roles)
         assigned_agent_ids = {observation.agent_id}
         for track in observation.teammates:
+            if track.observed_at != observation.time_step:
+                continue
             if track.agent_id == observation.agent_id or track.agent_id >= len(positions):
                 continue
             if (
                 0 <= track.agent_id < len(positions)
                 and 0 <= track.position[0] < size
                 and 0 <= track.position[1] < size
-                and track.position not in occupied
             ):
                 positions[track.agent_id] = track.position
                 occupied.add(track.position)
@@ -140,7 +152,20 @@ class SARGrid:
         for agent_id in range(len(positions)):
             if agent_id in assigned_agent_ids:
                 continue
-            positions[agent_id] = available.pop()
+            predicted = predicted_world.positions[agent_id] if predicted_world else None
+            unseen = [position for position in available if position not in observation.visible_cells]
+            if predicted in unseen:
+                position = predicted
+            else:
+                track = next((item for item in observation.teammates if item.agent_id == agent_id), None)
+                options = unseen or available
+                if track is None:
+                    position = options[0]
+                else:
+                    weights = [1 / (1 + cls._distance(cell, track.position)) for cell in options]
+                    position = world._rng.choices(options, weights=weights)[0]
+            positions[agent_id] = position
+            available.remove(position)
         world._positions = positions
 
         known_victims: dict[Position, Message] = {}
@@ -166,25 +191,56 @@ class SARGrid:
         for location, fact in sorted(known_victims.items()):
             if len(victims) >= len(world._victims):
                 break
-            victims.append(_Victim(location, fact.status))
+            predicted_status = next(
+                (victim.status for victim in world._victims if victim.position == location), fact.status
+            )
+            progression = ("hidden", "located", "stabilized", "rescued")
+            status = fact.status
+            if predicted_world and fact.observed_at < observation.time_step:
+                status = max((status, predicted_status), key=progression.index)
+            victims.append(_Victim(location, status))
             occupied_entities.add(location)
         unknown_victim_count = len(world._victims) - len(victims)
         sampled_victims = [
             position
             for position in available
-            if position not in occupied_entities
+            if position not in occupied_entities and position not in observation.scanned_cells
         ]
         world._rng.shuffle(sampled_victims)
+        if predicted_world:
+            for victim in world._victims:
+                if not unknown_victim_count or victim.position not in sampled_victims:
+                    continue
+                victims.append(victim)
+                sampled_victims.remove(victim.position)
+                occupied_entities.add(victim.position)
+                unknown_victim_count -= 1
+        if len(sampled_victims) < unknown_victim_count:
+            sampled_victims.extend(
+                position for position in available
+                if position not in occupied_entities and position not in sampled_victims
+            )
         for position in sampled_victims[:unknown_victim_count]:
             victims.append(_Victim(position))
             occupied_entities.add(position)
         world._victims = victims
+        world._carried_victims = {
+            agent_id: location for agent_id, location in world._carried_victims.items()
+            if any(victim.position == location and victim.status == "stabilized" for victim in victims)
+        }
 
         hazards: list[_Hazard] = []
         for location, fact in sorted(known_hazards.items()):
             if len(hazards) >= len(world._hazards):
                 break
-            hazards.append(_Hazard(location, fact.status == "active"))
+            if fact.observed_at != observation.time_step:
+                continue
+            predicted = next((hazard for hazard in world._hazards if hazard.position == location), None)
+            disabled = (
+                max(1, predicted.disabled_remaining if predicted else int(config.get("hazard_disable_steps", 5)) - 1)
+                if fact.status == "disabled" else 0
+            )
+            hazards.append(_Hazard(location, fact.status == "active", disabled))
             occupied_entities.add(location)
         unknown_hazard_count = len(world._hazards) - len(hazards)
         sampled_hazards = [
@@ -194,6 +250,13 @@ class SARGrid:
             and position not in known_clear_hazard_locations
         ]
         world._rng.shuffle(sampled_hazards)
+        if predicted_world:
+            for hazard in world._hazards:
+                if not unknown_hazard_count or hazard.position not in sampled_hazards:
+                    continue
+                hazards.append(hazard)
+                sampled_hazards.remove(hazard.position)
+                unknown_hazard_count -= 1
         for position in sampled_hazards[:unknown_hazard_count]:
             hazards.append(_Hazard(position))
             occupied_entities.add(position)
@@ -211,7 +274,12 @@ class SARGrid:
                 None,
             )
             if summary is not None:
-                world._known_facts[receiver_id] = list(summary.known_facts)
+                for fact in summary.known_facts:
+                    world._merge_fact(receiver_id, fact)
+        world._sent_facts[observation.agent_id] = {
+            summary.receiver_id: list(summary.known_facts)
+            for summary in observation.receiver_summaries
+        }
         world._visited[observation.agent_id] = set(observation.visited_cells)
         world._scanned[observation.agent_id] = set(observation.scanned_cells)
         world._observe_all()
@@ -222,6 +290,30 @@ class SARGrid:
             track.agent_id: track for track in observation.teammates
         }
         return world
+
+    def local_observation_weight(self, observation: Observation) -> float:
+        """Soft likelihood for model predictions before conditioning on hard evidence."""
+        weight = 1.0 / (1 + self._distance(self._positions[observation.agent_id], observation.position))
+        tracks = {track.agent_id: track.position for track in observation.teammates
+                  if track.observed_at == observation.time_step}
+        visible = set(observation.visible_cells)
+        for agent_id, position in enumerate(self._positions):
+            if agent_id == observation.agent_id:
+                continue
+            if agent_id in tracks:
+                weight /= 1 + self._distance(position, tracks[agent_id])
+            elif position in visible:
+                weight *= 0.1
+        statuses = {victim.position: victim.status for victim in self._victims}
+        hazards = {hazard.position: self._hazard_status(hazard) for hazard in self._hazards}
+        for fact in observation.known_facts:
+            if fact.observed_at != observation.time_step:
+                continue
+            if fact.kind == "victim" and statuses.get(fact.location) != fact.status:
+                weight *= 0.25
+            if fact.kind == "hazard" and hazards.get(fact.location, "clear") != fact.status:
+                weight *= 0.25
+        return weight
 
     def reset(self, seed: int | None = None) -> tuple[Observation, ...]:
         size = self.grid_size
@@ -247,6 +339,13 @@ class SARGrid:
         self._validate_probability("hazard_move_probability")
         self._validate_probability("hazard_toggle_probability")
 
+        point = self.evacuation_point
+        if point is not None and (
+            len(point) != 2 or any(type(coordinate) is not int for coordinate in point)
+            or not self._in_bounds(point)
+        ):
+            raise ValueError("environment.evacuation_point must be a grid cell or null")
+        self._carried_victims = {}
         self._rng = random.Random(seed)
         cells = [(row, col) for row in range(size) for col in range(size)]
         self._rng.shuffle(cells)
@@ -296,6 +395,14 @@ class SARGrid:
             if not self._is_available_message(sender_id, choice.message):
                 if not self._is_current_intention(sender_id, choice.message):
                     raise ValueError("communication must use a fact in the sender's local history")
+        return self._deliver_validated(communication)
+
+    def _deliver_validated(
+        self, communication: Sequence[CommunicationChoice | None]
+    ) -> tuple[Observation, ...]:
+        for sender_id, choice in enumerate(communication):
+            if choice is None:
+                continue
             self._merge_fact(choice.receiver_id, choice.message)
             self._merge_sent_fact(sender_id, choice.receiver_id, choice.message)
         return self._observations()
@@ -418,7 +525,20 @@ class SARGrid:
                 events["stabilized"] += 1
                 self._record_fact(agent_id, "victim", victim.position, victim.status)
         elif action == "rescue":
-            victim = self._closest_victim(position, "stabilized")
+            evacuation_point = self.evacuation_point
+            if evacuation_point is not None:
+                carried_location = self._carried_victims.get(agent_id)
+                if carried_location is None:
+                    victim = self._closest_victim(position, "stabilized")
+                    if victim is not None:
+                        self._carried_victims[agent_id] = victim.position
+                    return
+                if position != evacuation_point:
+                    return
+                victim = next(item for item in self._victims if item.position == carried_location)
+                del self._carried_victims[agent_id]
+            else:
+                victim = self._closest_victim(position, "stabilized")
             if victim is not None:
                 victim.status = "rescued"
                 events["rescued"] += 1
@@ -435,6 +555,7 @@ class SARGrid:
         candidates = [
             victim for victim in self._victims
             if victim.status == status and self._adjacent(position, victim.position)
+            and victim.position not in self._carried_victims.values()
         ]
         return min(candidates, key=lambda victim: self._distance(position, victim.position), default=None)
 
@@ -537,6 +658,8 @@ class SARGrid:
                     for receiver_id, facts in sorted(self._sent_facts[agent_id].items())
                 ),
                 known_facts=tuple(self._known_facts[agent_id]),
+                evacuation_point=self.evacuation_point,
+                carrying_victim=agent_id in self._carried_victims,
             ))
         return tuple(observations)
 
@@ -604,6 +727,8 @@ class SARGrid:
         return self._visible_cells(position)
 
     def _blocked(self, position: Position) -> bool:
+        if position == self.evacuation_point:
+            return False
         return any(hazard.position == position and hazard.active for hazard in self._hazards)
 
     def _in_bounds(self, position: Position) -> bool:

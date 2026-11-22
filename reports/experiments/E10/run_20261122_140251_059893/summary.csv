@@ -1,0 +1,5 @@
+metric,value
+mean_absolute_marginal_value,0.18353773438850113
+mean_information_age,4.825
+paired_mean_freshness_return_difference,0.0
+spearman_heuristic_vs_marginal_value,0.03858337123934962

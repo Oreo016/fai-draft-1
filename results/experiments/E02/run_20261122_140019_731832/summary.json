@@ -1,0 +1,52 @@
+{
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E02\\run_20261122_140019_731832\\config_used.json",
+  "context_count": 20,
+  "experiment_id": "E02",
+  "h1_h2_with_role_only": {
+    "budget_matched_aware_minus_role_return": -0.16255203629611006,
+    "role_only_mean_regret": 0.0
+  },
+  "h1_h2_without_role_only": {
+    "h1_fraction": 0.05,
+    "h2_aware_minus_agnostic": -0.1610739480019666
+  },
+  "headline": {
+    "agnostic_messages": 0.2,
+    "agnostic_regret": 0.0,
+    "agnostic_return": -0.8227496313343294,
+    "aware_messages": 0.3,
+    "aware_regret": 0.1512847337699293,
+    "aware_return": -0.983823579336296,
+    "budget_matched_aware_minus_role_only": -0.16255203629611006,
+    "h1_receiver_differentiation_fraction": 0.05,
+    "h2_aware_minus_agnostic_budget_matched": -0.004111485597833309,
+    "h2_aware_minus_agnostic_ci_high": 0.0,
+    "h2_aware_minus_agnostic_ci_low": -0.47649196933764026,
+    "h2_aware_minus_agnostic_return": -0.1610739480019666,
+    "h2_budget_matched_ci_high": 0.0,
+    "h2_budget_matched_ci_low": -0.012334456793499926,
+    "h2_budget_matched_seed_count": 10,
+    "role_only_budget_matched_messages": 0.3,
+    "role_only_budget_matched_regret": 0.0,
+    "role_only_budget_matched_return": -0.8212715430401861,
+    "role_only_messages": 1.0,
+    "role_only_regret": 0.0,
+    "role_only_return": -0.8212715430401861
+  },
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E02\\run_20261122_140019_731832",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E02\\run_20261122_140019_731832",
+  "runtime_seconds": 41.34439800000109,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

@@ -1,0 +1,5 @@
+id: E01
+name: message_conditioned_rollouts
+contexts_per_seed: 2
+rollout_count: 32
+particles: 64

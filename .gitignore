@@ -1,4 +1,6 @@
 .venv/
+.pytest_cache/
+bin/
 __pycache__/
 *.py[cod]
 *.egg-info/

@@ -1,0 +1,49 @@
+{
+  "by_continuation": {
+    "aware": {
+      "mae_vs_disabled_oracle": 0.0019613162255625012,
+      "spearman_vs_disabled_oracle": 0.0,
+      "top1_agreement": 1.0
+    },
+    "disabled": {
+      "mae_vs_disabled_oracle": 0.0019613162255625012,
+      "spearman_vs_disabled_oracle": 0.0,
+      "top1_agreement": 1.0
+    },
+    "fixed_frequency": {
+      "mae_vs_disabled_oracle": 0.0028625410312084704,
+      "spearman_vs_disabled_oracle": -0.05263157894736842,
+      "top1_agreement": 1.0
+    }
+  },
+  "config_file": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E05\\run_20261122_141611_297838\\config_used.json",
+  "context_count": 20,
+  "experiment_id": "E05",
+  "headline": {
+    "aware_mae_vs_disabled_oracle": 0.0019613162255625012,
+    "aware_spearman_vs_disabled_oracle": 0.0,
+    "aware_top1_agreement": 1.0,
+    "disabled_mae_vs_disabled_oracle": 0.0019613162255625012,
+    "disabled_spearman_vs_disabled_oracle": 0.0,
+    "disabled_top1_agreement": 1.0,
+    "fixed_frequency_mae_vs_disabled_oracle": 0.0028625410312084704,
+    "fixed_frequency_spearman_vs_disabled_oracle": -0.05263157894736842,
+    "fixed_frequency_top1_agreement": 1.0
+  },
+  "report_directory": "C:\\Users\\arind\\Downloads\\faiproj\\reports\\experiments\\E05\\run_20261122_141611_297838",
+  "run_directory": "C:\\Users\\arind\\Downloads\\faiproj\\results\\experiments\\E05\\run_20261122_141611_297838",
+  "runtime_seconds": 992.8643435999984,
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

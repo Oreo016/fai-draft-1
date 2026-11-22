@@ -1,0 +1,47 @@
+environment:
+  grid_size: 10
+  roles: [scout, carrier, medic]
+  victims: 3
+  evacuation_point: [0, 0]
+  hazards: 2
+  horizon: 100
+  gamma: 0.9
+  hazard_move_probability: 0.8
+  hazard_toggle_probability: 0.2
+  reward:
+    rescue: 10.0
+    locate: 1.0
+    stabilize: 2.0
+    step_penalty: 0.05
+
+communication:
+  max_messages_per_sender_step: 1
+  particles: 64
+  shortlist_size: 8
+  rollout_count: 32
+  myopic_horizon: 1
+  nonmyopic_horizon: 5
+  oracle_horizon: 15
+  unit_cost: 1.0
+  cost_sweep: [0.0, 0.5]
+  useful_message_threshold: 0.0
+  oracle_value_threshold: 0.5
+  fixed_frequency: 3
+
+evaluation:
+  parallel_workers: 6
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  held_out_contexts: 100
+  bootstrap_samples: 10000
+  confidence_level: 0.95
+  return_match_tolerance: 1.0
+  message_budget_match_tolerance: 0
+  thresholds:
+    receiver_differentiation_fraction: 0.30
+    receiver_value_difference: 0.5
+    communication_reduction: 0.20
+    horizon_agreement_gain: 0.10
+    high_cost_rate_reduction: 0.15
+    significance_level: 0.05
+  output_dir: results
+  report_dir: reports

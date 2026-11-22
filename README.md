@@ -55,9 +55,11 @@ The following images reproduce Figures 2, 3 and 4 from the final report. They sh
 
 For uncertainty intervals, definitions, experimental settings, all additional figures and limitations, see [report_final.pdf](report_final.pdf). These results should not be confused with individual interactive-demo episodes.
 
-## Run the interactive demo (macOS / Linux)
+## Run the interactive demo (Windows / macOS / Linux)
 
-**Requirements:** Python 3.10 or later, with `python3` and `git` available.
+**Requirements:** Python 3.10 or later and Git.
+
+### macOS / Linux
 
 Clone the repository, if you have not already:
 
@@ -87,6 +89,44 @@ python demo/app.py
 Type `deactivate` when you are done using the virtual environment.
 
 The **Compare one report** page estimates the difference between sending a discovered-victim report to the Medic or Carrier and withholding it, accounting for message cost. **Play an episode** visualizes the Scout, Medic and Carrier. For a quick rescue walkthrough, choose the small map, the always-send policy, message cost `0`, and scenario `0`. See [demo/README.md](demo/README.md) for more details.
+
+### Windows (PowerShell)
+
+Clone the repository if you have not already:
+
+```powershell
+git clone https://github.com/Oreo016/fai-draft-1.git
+cd fai-draft-1
+```
+
+From the repository root, create a virtual environment, activate it, install the project and run the demo:
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -e .
+python demo/app.py
+```
+
+Open **http://127.0.0.1:8765** in a browser. Press `Ctrl+C` to stop the server.
+
+For later sessions, from the repository root, run:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+python demo/app.py
+```
+
+Type `deactivate` when finished.
+
+If PowerShell blocks script activation, first run these commands in the same PowerShell window:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
+```
+
+The execution-policy change only affects the current PowerShell process.
 
 > Dependencies are declared in [pyproject.toml](pyproject.toml), so there is no need for a separate `requirements.txt`. Using a virtual environment also avoids Homebrew's `externally-managed-environment` installation error on macOS.
 
